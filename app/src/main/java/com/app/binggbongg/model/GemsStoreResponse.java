@@ -38,7 +38,6 @@ public class GemsStoreResponse {
     }
 
     public class GemsList {
-
         @SerializedName("gem_count")
         private Double gemCount;
         @SerializedName("gem_icon")
