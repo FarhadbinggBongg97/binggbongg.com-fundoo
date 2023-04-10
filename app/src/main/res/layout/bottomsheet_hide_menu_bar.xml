@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_white_bg">
+
+    <TextView
+        android:id="@+id/alert_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide_btm_bar_alert"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/alert_tv"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yes"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            android:background="?selectableItemBackground"
+            android:textColor="@color/colorBlack"
+            android:id="@+id/hide_btm_bar_yes"
+            android:padding="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="@dimen/text_medium"
+            android:layout_marginStart="10dp"
+            android:background="?selectableItemBackground"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:id="@+id/hide_btm_bar_no"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

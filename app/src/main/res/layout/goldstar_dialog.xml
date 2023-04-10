@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/star" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            style="@style/TextPrimaryBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="4dp"
+            android:text="Golden star"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium" />
+
+        <TextView
+            android:id="@+id/tv_decrement"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            android:layout_toStartOf="@id/lay_count"
+            android:text=" - "
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:id="@+id/lay_count"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toStartOf="@id/tv_increment"
+            android:background="@drawable/round_corner"
+            android:backgroundTint="@color/white">
+
+            <TextView
+                android:id="@+id/tv_count"
+                style="@style/TextPrimaryBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/colorPrimary" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_increment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="4dp"
+            android:text=" + "
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_request"
+        style="@style/TextWhiteRegular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:insetTop="4dp"
+        android:insetBottom="4dp"
+        android:letterSpacing="0"
+        android:lineSpacingExtra="1dp"
+        android:padding="15dp"
+        android:stateListAnimator="@null"
+        android:text="@string/request"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_medium"
+        android:visibility="visible"
+        app:cornerRadius="8dp"
+        tools:ignore="MissingConstraints" />
+
+</LinearLayout>

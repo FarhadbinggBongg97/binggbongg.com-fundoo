@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <include layout="@layout/activity_toolbar_black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:adjustViewBounds="false"
+                android:src="@drawable/invite_friends"
+                android:visibility="visible" />
+
+
+            <TextView
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:lines="2"
+                android:text="@string/invite_friends_reward"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/txtGemsDesc"
+                style="@style/TextBlackRegular"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/free_gems_content"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                style="@style/TextBlackRegular"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:lineSpacingExtra="1dp"
+                android:text="Reward count is as per admin choice"
+                android:textColor="@color/secondarytext"
+                android:textSize="@dimen/text_small" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRefer"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/font_regular"
+                android:letterSpacing="0"
+                android:text="@string/refer_your_friends"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:visibility="visible"
+                android:insetTop="2dp"
+                android:insetBottom="2dp"
+                app:cornerRadius="@dimen/corner_radius"
+                app:rippleColor="@color/colorPrimary" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWatchVideo"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/font_regular"
+                android:letterSpacing="0"
+                android:text="@string/watch_video"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                app:rippleColor="@color/colorWhite"
+                app:cornerRadius="@dimen/corner_radius"
+                android:insetTop="2dp"
+                android:insetBottom="2dp"/>
+
+            <TextView
+                android:id="@+id/tv_note_content"
+                style="@style/TextPrimaryRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/bg_primary_curved_outline"
+                android:text="@string/invite_page"
+                android:textColor="@color/bg_color"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/txtVideoTime"
+                style="@style/TextPrimaryRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/layout_adview" />
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+
+        android:id="@+id/profileImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loginscreen_bg"
+        app:riv_corner_radius="65dp"
+        app:riv_mutate_background="true" />
+
+
+    <ImageView
+        android:id="@+id/deleteIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:padding="8dp"
+        android:src="@drawable/comment_delete" />
+
+    <com.google.android.material.textview.MaterialTextView
+
+        android:id="@+id/userName"
+        style="@style/TextBlackBold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/deleteIcon"
+        android:layout_toEndOf="@+id/profileImage"
+        android:text="Mknow"
+        android:textSize="@dimen/text_small" />
+
+    <com.app.binggbongg.view.CustomSpannableTextView
+        android:id="@+id/userComment"
+        style="@style/TextSecondaryRegular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userName"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/deleteIcon"
+        android:layout_toEndOf="@+id/profileImage"
+        android:lineSpacingExtra="2dp"
+        android:maxEms="10"
+        android:minEms="2"
+        android:textColorLink="@color/colorBlack"
+        android:text="@string/camera2_texture_only_error"
+        android:textSize="@dimen/text_small" />
+</RelativeLayout>

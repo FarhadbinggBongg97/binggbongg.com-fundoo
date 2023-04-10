@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPublisherName"
+            style="@style/TextBlackBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@+id/img_userImage"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="Name"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_medium" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/img_userImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="65dp"
+            android:src="@drawable/ic_account"
+            android:background="@color/colorGrey"
+            app:riv_mutate_background="true" />
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/cancel"
+            app:tint="@color/shadow_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_primary_curved"
+        android:backgroundTint="@color/color_white_light"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/iconInfo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:padding="7dp"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/lifetime_vote_i"
+            app:tint="@color/shadow_color" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_lifetime_title"
+            style="@style/TextBlackRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/iconInfo"
+            android:padding="15dp"
+            android:text="@string/life_time_count"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_medium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_lftCount"
+            style="@style/TextBlackRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:padding="15dp"
+            android:text="20"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/shadow_color"
+            android:textSize="@dimen/text_size_medium" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_primary_curved"
+        android:backgroundTint="@color/color_white_light"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/img_video"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:padding="7dp"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/video_id" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextBlackRegular"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/img_video"
+            android:padding="15dp"
+            android:text="@string/video_id"
+            android:textColor="@color/shadow_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_videoCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            style="@style/TextBlackRegular"
+            android:padding="15dp"
+            android:layout_marginEnd="4dp"
+            android:text="5"
+            android:textColor="@color/shadow_color"
+            android:textSize="@dimen/text_size_medium" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_primary_curved"
+        android:backgroundTint="@color/color_white_light"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/img_video_count"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:padding="7dp"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/vote_contest"
+            app:tint="@color/shadow_color" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/img_video_count"
+            style="@style/TextBlackRegular"
+            android:padding="15dp"
+            android:text="@string/vote_count"
+            android:textColor="@color/shadow_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_vote_count"
+            style="@style/TextBlackRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:layout_marginEnd="4dp"
+            android:padding="15dp"
+            android:text="20"
+            android:textColor="@color/shadow_color"
+            android:textSize="@dimen/text_size_medium" />
+
+    </RelativeLayout>
+
+</LinearLayout>

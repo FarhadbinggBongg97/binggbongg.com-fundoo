@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:keepScreenOn="true"
+    android:layoutDirection="locale">
+
+    <SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/wrap_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </FrameLayout>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/cameraPageCloseButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/camera_close" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/font_regular"
+        android:gravity="center"
+        android:maxLines="1"
+        android:shadowColor="@color/colorPrimary"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="8"
+        android:textColor="@color/colorWhite"
+        android:textSize="120sp"
+        android:visibility="visible" />
+
+
+    <RelativeLayout
+        android:id="@+id/recordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/HorizontalProgressAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:progress="0" />
+
+
+        <RelativeLayout
+            android:id="@+id/videoRecordingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progress_bar"
+            android:visibility="invisible">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/stopRecordIcon"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:src="@drawable/stopvideo" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tickRecord"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="50dp"
+                android:padding="5dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/tick_primary_color" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_liveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/BeforeVideoRecordingLayout"
+            android:text="Go Live"
+            android:padding="10dp"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"/>
+
+        <LinearLayout
+            android:id="@+id/BeforeVideoRecordingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progress_bar"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:weightSum="3">
+
+            <LinearLayout
+
+                android:id="@+id/soundLay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <!-- <com.hitasoft.app.fundoo.external.RippleView
+                     android:id="@+id/rippleLay"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     ripple:rv_type="rectangle">
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:gravity="center"
+                         android:orientation="vertical">-->
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/camera_music" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextWhiteRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:singleLine="true"
+                    android:text="@string/sounds"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_tiny" />
+
+                <!--</LinearLayout>
+
+            </com.hitasoft.app.fundoo.external.RippleView>-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/recordButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:src="@drawable/video_start" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:id="@+id/gallaryLay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+            >
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/galler" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextWhiteRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:singleLine="true"
+                    android:text="@string/gallery"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_tiny" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/filterRecLay"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparentBlack"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/TextWhiteRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Filters"
+            android:textSize="@dimen/text_small" />
+
+
+        <ImageView
+            android:id="@+id/filterClose"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/close_white" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/deepRecRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="horizontal"
+            android:layout_centerHorizontal="true"
+            android:overScrollMode="never"
+            android:requiresFadingEdge="horizontal"
+            android:layout_below="@+id/filterClose"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:visibility="visible"/>
+
+        <TextView
+            style="@style/TextWhiteRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/deepRecRV"
+            android:layout_marginTop="4dp"
+            android:id="@+id/filter"
+            android:text="none"
+            android:textSize="@dimen/text_small" />
+
+
+    </RelativeLayout>
+
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="@dimen/text_size_13sp"-->
+<!--        android:textColor="@color/colorWhite"-->
+<!--        android:text="None"-->
+<!--        android:paddingStart="10dp"-->
+<!--        android:paddingEnd="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:paddingTop="5dp"-->
+<!--        android:paddingBottom="5dp"-->
+<!--        android:backgroundTint="@color/colorPrimary"-->
+<!--        android:background="@drawable/curved_accent"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_below="@id/filterRecLay"-->
+<!--        android:id="@+id/filter"/>-->
+
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/filterRecLay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="160dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/transparentBlack"-->
+<!--        android:visibility="invisible">-->
+
+<!--        <TextView-->
+<!--            style="@style/TextWhiteRegular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_toStartOf="@+id/filterClose"-->
+<!--            android:text="@string/portrait"-->
+<!--            android:textSize="@dimen/text_small" />-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/filterClose"-->
+<!--            android:layout_width="18dp"-->
+<!--            android:layout_height="18dp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:src="@drawable/close_white" />-->
+
+
+<!--        &lt;!&ndash;<com.makeramen.roundedimageview.RoundedImageView-->
+<!--            android:id="@+id/filterClose"-->
+<!--            android:layout_width="18dp"-->
+<!--            android:padding="5dp"-->
+<!--            android:layout_height="18dp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"-->
+<!--            app:srcCompat="@drawable/close_white_without_circule"-->
+<!--            app:strokeColor="@color/colorWhite"-->
+<!--            app:strokeWidth="1dp" />-->
+
+<!--        <com.makeramen.roundedimageview.RoundedImageView-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:id="@+id/filterClose"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginStart="25dp"-->
+
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/close_white_without_circule"-->
+<!--            app:riv_corner_radius="65dp"-->
+<!--            app:riv_border_color="@color/colorWhite"-->
+<!--            app:riv_border_width="2dp"-->
+<!--            app:riv_oval="true"-->
+<!--            app:riv_mutate_background="true" />&ndash;&gt;-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/filterRecyclerview"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:layout_below="@+id/filterClose"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:visibility="visible"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            tools:listitem="@layout/item_filter" />-->
+
+<!--    </RelativeLayout>-->
+
+
+    <!--<ListView
+        android:id="@+id/filterListview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"></ListView>-->
+
+
+    <RelativeLayout
+        android:id="@+id/cameraOptions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/switchCamera"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:srcCompat="@drawable/flip" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_comment_count"
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:text="@string/flip"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_tiny" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/filterLay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/switchCamera"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:srcCompat="@drawable/filter" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:text="@string/filter"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_tiny" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/timerLay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/filterLay"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:srcCompat="@drawable/timer" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:text="@string/timer"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_tiny" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/flashLay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_below="@+id/timerLay"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+           >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/flashIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/flashoff" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:text="@string/flash"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_tiny" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,4 @@
+include ':gpuimagefilter'
+include ':app'
+include ':library'
+include ':livestreamingaddon'

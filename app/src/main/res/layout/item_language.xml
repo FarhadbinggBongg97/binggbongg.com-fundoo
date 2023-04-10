@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/mainLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSecondary">
+
+            <TextView
+                android:id="@+id/helpTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/font_regular"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Help"
+                android:textAlignment="viewStart"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/text_normal" />
+
+            <!--<ImageView
+                android:id="@+id/tick"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/tick"
+                android:tint="@color/colorPrimary"
+                android:visibility="visible"/>-->
+
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/tick_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:checked="true"
+                android:minWidth="10dp"
+                android:minHeight="10dp"
+                android:theme="@style/radioButton"
+                android:visibility="visible"
+                app:useMaterialThemeColors="true" />
+            <!--<RadioButton
+                android:checked="true"
+                style="@style/radioButton"
+                android:id="@+id/tick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true" />-->
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

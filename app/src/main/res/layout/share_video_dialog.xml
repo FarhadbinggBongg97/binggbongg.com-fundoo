@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextBlackRegular"
+                android:id="@+id/contactName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/shareTo"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:textColor="@color/textPrimary" />
+
+            <LinearLayout
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:id="@+id/shareLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactName"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/copyLinkLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/copyImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/share_link" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/copyImage"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="@string/copy_link"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/whatsappLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorSecondary"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/whatsappImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/share_whatsapp"
+                        app:riv_oval="true" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/whatsappImage"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="@string/whatsApp"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/facebookLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorSecondary"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/wpImg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/share_facebook" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/wpImg"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="@string/facebook"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/messagerLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/fbmessager"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/share_messenger" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fbmessager"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="@string/messenger"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/instaLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/instagram"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/instagram" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/instagram"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="@string/instagram"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:weightSum="5"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shareLay"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/twitterLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/twitter"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/twitter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/twitter"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="Twitter"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/snapchatLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorSecondary"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/snapchat"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/snapchat"
+                        app:riv_oval="true" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/snapchat"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="Snapchat"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/gmailLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/gmail"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/gmail" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/gmail"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="more"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/smsLay"
+                    android:layout_width="0dp"
+                    android:visibility="visible"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorSecondary"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/sms"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/email" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sms"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="SMS"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/inAppLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/inAppShare"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/add" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextBlackRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/inAppShare"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:text="Share to Friends"
+                        android:textSize="@dimen/text_tiny" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

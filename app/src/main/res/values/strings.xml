@@ -1,0 +1,686 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name" translatable="false">Bingg Bongg</string>
+    <string name="facebook_app_id" translatable="false">691514755320348</string>
+    <string name="banner_ad_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="video_ad_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="dynamic_link_filter" translatable="false">binggbongg.page.link</string>
+    <string name="ios_bundle_id" translatable="false">com.app.livza</string>
+    <string name="ios_app_store_id" translatable="false"></string>
+    <string name="notification_channel_id" translatable="false">binggbongg_notification_channel</string>
+
+    <string name="layout_direction">0</string>
+
+    <array name="language_array">
+        <item>English-en</item>
+    </array>
+
+    <!--Use &lt; instead of < symbol for this string-->
+    <string name="login_with_mobile">Login with Mobile</string>
+    <string name="facebook">Facebook</string>
+    <string name="snap_and_share">Snap and \nShare every moments</string>
+    <string name="millions_of_people_waiting">Millions of\nvideos waiting\nfor you</string>
+    <string name="terms_and_conditions_des">By continuing, agree our &lt;b>Terms and conditions&lt;b/></string>
+    <string name="bio">Bio</string>
+    <string name="max_characters">Max 50 characters</string>
+    <string name="Skip">Skip</string>
+    <string name="choose_your">Choose your</string>
+    <string name="interests">Interests</string>
+    <string name="get_personalized">Get personalized video recommendations</string>
+    <string name="fab_content">Select your interest</string>
+    <string name="interest_warning">Please select your interest</string>
+    <string name="following">Following</string>
+    <string name="foryou">For You</string>
+
+    <string name="addafav">Add to Favourites</string>
+    <string name="addafav2">Add to Favourite</string>
+    <string name="favourites">Favourites</string>
+    <string name="unFav">Unfavorite</string>
+    <string name="report_success_alert">Thanks! your report has been successfully registered.</string>
+    <string name="add_fav_video_success">Video added to your favourite list successfully</string>
+    <string name="add_fav_video_removed">Video removed to your favourite list successfully</string>
+    <string name="video_call">Video Call</string>
+    <string name="Original_sound">Original sound</string>
+    <string name="sounds">Sounds</string>
+    <string name="upload_sounds">Upload Sounds</string>
+    <string name="liked_videos">Liked videos</string>
+    <string name="preview">Preview</string>
+    <string name="discard_recording_progress">Discard current sound and recording progress?</string>
+    <string name="reshoot">Reshoot</string>
+    <string name="add_comment">Add comment</string>
+
+    <string name="gift_to_cash">You have %1$s Gifts worth %2$s $</string>
+    <!--    <string name="gift_to_cash_no">You have %1$s Gifts</string>
+        <string name="gift_to_cash_not_enough">You don\'t have enough gifts</string>-->
+
+
+    <string name="portrait">Portrait</string>
+    <string name="describe_your_video">Describe your video</string>
+    <string name="describe_sample_hashtag">eg. #Friendship, #Nature</string>
+
+    <string name="who_can_post_comments">Who can post / write comments</string>
+    <string name="who_can_send_message">Who can send messages</string>
+    <string name="Everyone">Everyone</string>
+    <string name="block_lists">Block List</string>
+    <string name="save_gallery">Save to gallery</string>
+    <string name="post">Post</string>
+    <string name="alert_close_this_video">Do you want to close this video?</string>
+
+
+    <string name="upload_and_skip">Upload photo or Skip</string>
+    <string name="name">Full name</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="next">Next</string>
+    <string name="gender">Gender</string>
+    <string name="gender_alert">Please select your gender</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_date_of_birth">Enter Date of Birth</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="internet_disturb">Internet connection failed, Try again</string>
+    <string name="away_from_chat">away from chat</string>
+    <string name="settings">Privacy and Settings</string>
+    <string name="okay">Okay</string>
+    <string name="free_coins">Get free votes for your referrals</string>
+    <string name="pick_image_intent_text">Choose an image</string>
+    <string name="storage_error">Enable storage permission</string>
+    <string name="audio_record_error">Enable microphone and storage pemission</string>
+    <string name="camera_storage_error">Enable camera and storage permissions</string>
+    <string name="camera_microphone_storage_error">Enable camera, microphone and storage permissions</string>
+    <string name="camera_microphone_permission_error">Enable camera and microphone permissions</string>
+    <string name="touch_to_full">Touch to full</string>
+    <string name="followings">Followings</string>
+    <string name="fans">Fans</string>
+    <string name="hearts">Hearts</string>
+    <string name="gems">Gems</string>
+    <string name="gifts">Gifts</string>
+    <string name="expired">Expired</string>
+    <string name="your_membership">Your membership</string>
+    <string name="renewal">Renewal</string>
+    <string name="payment_id">Payment id</string>
+    <string name="save">Save</string>
+    <string name="swipe_change_photo">Swipe change photo</string>
+    <string name="swipe_to_see_followings">Swipe left to see your followings</string>
+    <string name="swipe_to_see_followers">Swipe right to see your fans</string>
+    <string name="swipe_to_see_other_followings">Swipe left to see this user followings</string>
+    <string name="swipe_to_see_other_followers">Swipe right to see this users fans</string>
+    <string name="use_this_hash_tag">Use this Hashtag</string>
+    <string name="use_this_sound">Use this Sound</string>
+    <string name="related_videos">Related Videos</string>
+    <string name="selected_song_sucess">Sound Selected Successfully</string>
+    <string name="flip">Flip</string>
+    <string name="timer">Timer</string>
+    <string name="filter">Filter</string>
+    <string name="flash">Flash</string>
+    <string name="flash_not_support">Flash not supported</string>
+    <string name="search_sounds">Search sounds</string>
+    <string name="search_fav">Search Favourites</string>
+    <string name="txt_warning">Please enter the Description </string>
+
+
+    <!--APPRTC Strings-->
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="invalid_url_title">Invalid URL</string>
+    <string name="invalid_url_text">The URL or room name you entered resulted in an invalid URL: %1$s
+    </string>
+    <string name="channel_error_title">Connection error</string>
+    <string name="camera2_texture_only_error">Camera2 only supports capturing to texture. Either disable Camera2 or enable capturing to texture in the options.</string>
+    <string name="swipe_to_skip">Swipe skip</string>
+    <string name="no_followers_yet">No fans yet</string>
+    <string name="no_followings_yet">No followings yet</string>
+    <string name="no_gems_list_found">No vote list found</string>
+    <string name="no_gift">No Gifts</string>
+    <string name="no">No</string>
+    <string name="really_want_exit">Are you sure want to exit?</string>
+    <string name="really_want_logout">Are you sure want to logout?</string>
+    <string name="really_want_clear">Are you sure want to clear chat?</string>
+    <string name="profile_updated_successfully">Profile Updated Successfully</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="account_deactivated_by_admin">Your account has been deactivated by Admin</string>
+    <string name="broadcast_deactivated_by_admin">Broadcast has been blocked by Admin</string>
+    <string name="get_prime_benefits">Get Prime benefits</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="stickers">Stickers</string>
+    <string name="congratulations_you_got">Congratulations. You got </string>
+    <string name="gems_free_coins"> gems free coins</string>
+    <string name="coins">Coins</string>
+    <string name="report_user">Report</string>
+    <string name="unreported">Undo Report</string>
+    <string name="undo_report_successfully">Undo Report successfully</string>
+    <string name="user_alert_message">You cannot send message to this user</string>
+    <string name="prime">Prime</string>
+    <string name="send">Send</string>
+    <string name="copy_link">Copy Link</string>
+    <string name="whatsApp">WhatsApp</string>
+    <string name="messenger">Messenger</string>
+    <string name="shareTo">Share to</string>
+    <string name="no_comments">No comments</string>
+    <string name="not_enough_gems">Not enough coins</string>
+    <string name="location">Location</string>
+    <string name="select_all">Select all</string>
+    <string name="no_gems_yet">No votes yet</string>
+    <!--<string name="free_gems_content">Invite friends to join %1$s and earn coins or Go and watch video to get free coins</string>-->
+    <string name="free_gems_content">Invite a friend to join Bingg Bongg and get %1$s votes as reward.</string>
+    <string name="invite_friends_reward">Invite your friends\nReward yourself</string>
+    <string name="refer_your_friends">Refer your friends</string>
+    <string name="invite_friends">Invite friends</string>
+    <string name="watch_video">Watch Video</string>
+    <string name="not_now">Not now</string>
+    <string name="buy_gems">Buy votes</string>
+    <string name="insufficient_funds">Insufficient funds</string>
+    <string name="subscription_price">%1$s/%2$s</string>
+    <string name="premium_member">Premium member</string>
+
+    <string name="purchase_cancelled">Purchase cancelled</string>
+
+    <!-- Settings strings. -->
+    <string name="gems_purchase_response">Coins updated to your account</string>
+    <string name="votes_purchase_response">Votes updated to your account</string>
+    <string name="pref_room_key" translatable="false">room_preference</string>
+
+    <string name="request_sent_successfully" translatable="false">Request sent successfully</string>
+
+    <string name="pref_room_list_key" translatable="false">room_list_preference</string>
+    <string name="pref_videosettings_key" translatable="false">video_settings_key</string>
+
+    <string name="pref_videosettings_title" translatable="false">WebRTC video settings.</string>
+    <string name="pref_videocall_key" translatable="false">videocall_preference</string>
+    <string name="pref_videocall_title" translatable="false">Video call.</string>
+    <string name="pref_videocall_dlg" translatable="false">Enable video in a call.</string>
+
+    <string name="pref_videocall_default" translatable="false">true</string>
+    <string name="pref_screencapture_key" translatable="false">screencapture_preference</string>
+    <string name="pref_screencapture_title" translatable="false">Use screencapture.</string>
+
+    <string name="pref_screencapture_default" translatable="false">false</string>
+    <string name="pref_camera2_key" translatable="false">camera2_preference</string>
+    <string name="pref_camera2_title" translatable="false">Use Camera2.</string>
+    <string name="pref_camera2_default" translatable="false">true</string>
+
+    <string name="pref_resolution_key" translatable="false">resolution_preference</string>
+    <string name="pref_resolution_title" translatable="false">Video resolution.</string>
+    <string name="pref_resolution_dlg" translatable="false">Enter AppRTC local video resolution.</string>
+
+    <string name="pref_resolution_default" translatable="false">Default</string>
+    <string name="pref_fps_key" translatable="false">fps_preference</string>
+    <string name="pref_fps_title" translatable="false">Camera fps.</string>
+    <string name="pref_fps_dlg" translatable="false">Enter local camera fps.</string>
+
+    <string name="pref_fps_default" translatable="false">Default</string>
+    <string name="pref_capturequalityslider_key" translatable="false">capturequalityslider_preference</string>
+    <string name="pref_capturequalityslider_title" translatable="false">Capture quality slider.</string>
+    <string name="pref_capturequalityslider_dlg" translatable="false">Enable slider for changing capture quality.</string>
+
+    <string name="pref_capturequalityslider_default" translatable="false">false</string>
+    <string name="pref_maxvideobitrate_key" translatable="false">maxvideobitrate_preference</string>
+    <string name="pref_maxvideobitrate_title" translatable="false">Maximum video bitrate setting.</string>
+    <string name="pref_maxvideobitrate_dlg" translatable="false">Maximum video bitrate setting.</string>
+
+    <string name="pref_maxvideobitrate_default" translatable="false">Default</string>
+    <string name="pref_maxvideobitratevalue_key" translatable="false">maxvideobitratevalue_preference</string>
+    <string name="pref_maxvideobitratevalue_title" translatable="false">Video encoder maximum bitrate.</string>
+    <string name="pref_maxvideobitratevalue_dlg" translatable="false">Enter video encoder maximum bitrate in kbps.</string>
+
+    <string name="pref_maxvideobitratevalue_default" translatable="false">1700</string>
+    <string name="pref_videocodec_key" translatable="false">videocodec_preference</string>
+    <string name="pref_videocodec_title" translatable="false">Default video codec.</string>
+    <string name="pref_videocodec_dlg" translatable="false">Select default video codec.</string>
+
+    <string name="pref_videocodec_default" translatable="false">VP8</string>
+    <string name="pref_hwcodec_key" translatable="false">hwcodec_preference</string>
+    <string name="pref_hwcodec_title" translatable="false">Video codec hardware acceleration.</string>
+    <string name="pref_hwcodec_dlg" translatable="false">Use hardware accelerated video codec (if available).</string>
+
+    <string name="pref_hwcodec_default" translatable="false">true</string>
+    <string name="pref_capturetotexture_key" translatable="false">capturetotexture_preference</string>
+    <string name="pref_capturetotexture_title" translatable="false">Video capture to surface texture.</string>
+    <string name="pref_capturetotexture_dlg" translatable="false">Capture video to textures (if available).</string>
+
+    <string name="pref_capturetotexture_default" translatable="false">true</string>
+    <string name="pref_flexfec_key" translatable="false">flexfec_preference</string>
+    <string name="pref_flexfec_title" translatable="false">Codec-agnostic Flexible FEC.</string>
+    <string name="pref_flexfec_dlg" translatable="false">Enable FlexFEC.</string>
+
+    <string name="pref_flexfec_default" translatable="false">false</string>
+
+    <string name="pref_audiosettings_key" translatable="false">audio_settings_key</string>
+
+    <string name="pref_audiosettings_title" translatable="false">WebRTC audio settings.</string>
+    <string name="pref_startaudiobitrate_key" translatable="false">startaudiobitrate_preference</string>
+    <string name="pref_startaudiobitrate_title" translatable="false">Audio bitrate setting.</string>
+    <string name="pref_startaudiobitrate_dlg" translatable="false">Audio bitrate setting.</string>
+
+    <string name="pref_startaudiobitrate_default" translatable="false">Default</string>
+    <string name="pref_startaudiobitratevalue_key" translatable="false">startaudiobitratevalue_preference</string>
+    <string name="pref_startaudiobitratevalue_title" translatable="false">Audio codec bitrate.</string>
+    <string name="pref_startaudiobitratevalue_dlg" translatable="false">Enter audio codec bitrate in kbps.</string>
+
+    <string name="pref_startaudiobitratevalue_default" translatable="false">32</string>
+    <string name="pref_audiocodec_key" translatable="false">audiocodec_preference</string>
+    <string name="pref_audiocodec_title" translatable="false">Default audio codec.</string>
+    <string name="pref_audiocodec_dlg" translatable="false">Select default audio codec.</string>
+
+    <string name="pref_audiocodec_default" translatable="false">OPUS</string>
+    <string name="pref_noaudioprocessing_key" translatable="false">audioprocessing_preference</string>
+    <string name="pref_noaudioprocessing_title" translatable="false">Disable audio processing.</string>
+    <string name="pref_noaudioprocessing_dlg" translatable="false">Disable audio processing pipeline.</string>
+
+    <string name="pref_noaudioprocessing_default" translatable="false">false</string>
+    <string name="pref_aecdump_key" translatable="false">aecdump_preference</string>
+    <string name="pref_aecdump_title" translatable="false">Create aecdump.</string>
+    <string name="pref_aecdump_dlg" translatable="false">Enable diagnostic audio recordings.</string>
+
+    <string name="pref_aecdump_default" translatable="false">false</string>
+    <string name="pref_enable_save_input_audio_to_file_key" translatable="false">enable_key</string>
+    <string name="pref_enable_save_input_audio_to_file_title" translatable="false">Save input audio to file.</string>
+    <string name="pref_enable_save_input_audio_to_file_dlg" translatable="false">Save input audio to file.</string>
+
+    <string name="pref_enable_save_input_audio_to_file_default" translatable="false">true</string>
+    <string name="pref_opensles_key" translatable="false">opensles_preference</string>
+    <string name="pref_opensles_title" translatable="false">Use OpenSL ES for audio playback.</string>
+    <string name="pref_opensles_dlg" translatable="false">Use OpenSL ES for audio playback.</string>
+
+    <string name="pref_opensles_default" translatable="false">false</string>
+    <string name="pref_disable_built_in_aec_key" translatable="false">disable_built_in_aec_preference</string>
+    <string name="pref_disable_built_in_aec_title" translatable="false">Disable hardware AEC.</string>
+    <string name="pref_disable_built_in_aec_dlg" translatable="false">Disable hardware AEC.</string>
+    <string name="pref_disable_built_in_aec_default" translatable="false">false</string>
+
+    <string name="pref_disable_built_in_agc_key" translatable="false">disable_built_in_agc_preference</string>
+    <string name="pref_disable_built_in_agc_title" translatable="false">Disable hardware AGC.</string>
+    <string name="pref_disable_built_in_agc_dlg" translatable="false">Disable hardware AGC.</string>
+    <string name="pref_disable_built_in_agc_default" translatable="false">false</string>
+
+    <string name="pref_disable_built_in_ns_key" translatable="false">disable_built_in_ns_preference</string>
+    <string name="pref_disable_built_in_ns_title" translatable="false">Disable hardware NS.</string>
+    <string name="pref_disable_built_in_ns_dlg" translatable="false">Disable hardware NS.</string>
+    <string name="pref_disable_built_in_ns_default" translatable="false">false</string>
+
+    <string name="pref_disable_webrtc_agc_and_hpf_key" translatable="false">disable_webrtc_agc_and_hpf_preference</string>
+    <string name="pref_disable_webrtc_agc_and_hpf_title" translatable="false">Disable WebRTC AGC and HPF.</string>
+
+    <string name="pref_disable_webrtc_agc_default" translatable="false">false</string>
+    <string name="pref_speakerphone_key" translatable="false">speakerphone_preference</string>
+    <string name="pref_speakerphone_title" translatable="false">Speakerphone.</string>
+    <string name="pref_speakerphone_dlg" translatable="false">Speakerphone.</string>
+
+    <string name="pref_speakerphone_default" translatable="false">auto</string>
+    <string name="pref_datasettings_key" translatable="false">data_settings_key</string>
+
+    <string name="pref_datasettings_title" translatable="false">WebRTC data channel settings.</string>
+    <string name="pref_enable_datachannel_key" translatable="false">enable_datachannel_preference</string>
+    <string name="pref_enable_datachannel_title" translatable="false">Enable datachannel.</string>
+
+    <string name="pref_enable_datachannel_default" translatable="false">true</string>
+    <string name="pref_ordered_key" translatable="false">ordered_preference</string>
+    <string name="pref_ordered_title" translatable="false">Order messages.</string>
+
+    <string name="pref_ordered_default" translatable="false">true</string>
+    <string name="pref_data_protocol_key" translatable="false">Subprotocol</string>
+    <string name="pref_data_protocol_title" translatable="false">Subprotocol.</string>
+    <string name="pref_data_protocol_dlg" translatable="false">Enter subprotocol.</string>
+
+    <string name="pref_data_protocol_default" translatable="false"></string>
+    <string name="pref_negotiated_key" translatable="false">negotiated_preference</string>
+    <string name="pref_negotiated_title" translatable="false">Negotiated.</string>
+
+    <string name="pref_negotiated_default" translatable="false">false</string>
+    <string name="pref_max_retransmit_time_ms_key" translatable="false">max_retransmit_time_ms_preference</string>
+    <string name="pref_max_retransmit_time_ms_title" translatable="false">Max delay to retransmit.</string>
+    <string name="pref_max_retransmit_time_ms_dlg" translatable="false">Enter max delay to retransmit (in ms).</string>
+
+    <string name="pref_max_retransmit_time_ms_default" translatable="false">-1</string>
+    <string name="pref_max_retransmits_key" translatable="false">max_retransmits_preference</string>
+    <string name="pref_max_retransmits_title" translatable="false">Max attempts to retransmit.</string>
+    <string name="pref_max_retransmits_dlg" translatable="false">Enter max attempts to retransmit.</string>
+
+    <string name="pref_max_retransmits_default" translatable="false">-1</string>
+    <string name="pref_data_id_key" translatable="false">data_id_preference</string>
+    <string name="pref_data_id_title" translatable="false">Data id.</string>
+    <string name="pref_data_id_dlg" translatable="false">Enter data channel id.</string>
+
+    <string name="pref_data_id_default" translatable="false">-1</string>
+    <string name="pref_miscsettings_key" translatable="false">misc_settings_key</string>
+
+    <string name="pref_miscsettings_title" translatable="false">Miscellaneous settings.</string>
+    <string name="pref_room_server_url_key" translatable="false">room_server_url_preference</string>
+    <string name="pref_room_server_url_title" translatable="false">Room server URL.</string>
+    <string name="pref_room_server_url_dlg" translatable="false">Enter a room server URL.</string>
+
+    <string name="pref_room_server_url_default" translatable="false">https://appr.tc</string>
+    <string name="pref_displayhud_key" translatable="false">displayhud_preference</string>
+    <string name="pref_displayhud_title" translatable="false">Display call statistics.</string>
+    <string name="pref_displayhud_dlg" translatable="false">Display call statistics.</string>
+
+    <string name="pref_displayhud_default" translatable="false">false</string>
+    <string name="pref_tracing_key" translatable="false">tracing_preference</string>
+    <string name="pref_tracing_title" translatable="false">Debug performance tracing.</string>
+    <string name="pref_tracing_dlg" translatable="false">Debug performance tracing.</string>
+
+    <string name="pref_tracing_default" translatable="false">false</string>
+    <string name="pref_enable_rtceventlog_key" translatable="false">enable_rtceventlog_key</string>
+    <string name="pref_enable_rtceventlog_title" translatable="false">Enable RtcEventLog.</string>
+
+    <string name="pref_enable_rtceventlog_default" translatable="false">false</string>
+    <string name="pref_use_legacy_audio_device_key" translatable="false">use_legacy_audio_device_key</string>
+    <string name="pref_use_legacy_audio_device_title" translatable="false">Use legacy audio device.</string>
+    <string name="pref_use_legacy_audio_device_default" translatable="false">false</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="filter_error_message">No user found. Change your filter options</string>
+    <string name="no_user_message">No user found. Try again later!</string>
+    <string name="gift_to_gems">You have %1$s Gifts worth (%2$s Coins)</string>
+    <string name="convert_gems">Convert Coins</string>
+    <string name="general_settings">General settings</string>
+    <string name="privacy">Account privacy</string>
+    <string name="invite_your_friends">Invite your friends</string>
+    <string name="help">Help center</string>
+    <string name="language">Language</string>
+    <string name="message">Message</string>
+    <string name="story_not_found">Story Not Found</string>
+    <string name="terms_of_use_warning">Please indicate that you have read and agree to the Terms and Conditions</string>
+    <string name="max_reached">You have reached the maximum character level..</string>
+    <string name="not_valid_url">URL not valid</string>
+    <string name="warning_sound">Please choose the sound file</string>
+    <string name="post_video_alert">Note: Videos to be against the Fundoo Community Guidelines (Like: sexually, harassment etc), we may remove such content from our Platform/block the user</string>
+    <string name="type_your_message">Type your message</string>
+  <!--  <string name="gems_description">By purchasing coins, you can apply filters to meet the people you want</string>-->
+    <string name="gems_description">By purchasing votes, you can send as gifts to your favorite videos.</string>
+    <string name="exit">Exit</string>
+    <string name="back_button_exit_description">Please click BACK again to exit</string>
+    <string name="valid_until">valid until</string>
+    <string name="one_week_subs">1W</string>
+    <string name="one_month_subs">1M</string>
+    <string name="three_month_subs">3M</string>
+    <string name="six_month_subs">6M</string>
+    <string name="one_year_subs">1Y</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="enter_your_message">Enter your message</string>
+    <string name="notification">Notification</string>
+    <string name="chat">Chat</string>
+    <string name="notify_if_anyone_follows">Notify if anyone follows</string>
+    <string name="poor_internet_connection">poor_internet_connection</string>
+    <string name="calling">Calling…</string>
+    <string name="call_ended">Call ended</string>
+    <string name="call_cancelled">Call cancelled</string>
+    <string name="clear_chat">Clear chat</string>
+    <string name="block">Block</string>
+    <string name="unblock">Unblock</string>
+    <string name="money">Money</string>
+    <string name="logout">Logout</string>
+    <string name="logged_out_successfully">Logged out successfully</string>
+    <string name="typing">Typing…</string>
+    <string name="online">Online</string>
+    <string name="unblock_description">Unblock the user to message</string>
+    <string name="referral_code_copied">Referral code copied to clip board</string>
+    <string name="gems_added_to_your_account">Coins added to your account</string>
+    <string name="video_time">Video will be available in</string>
+    <string name="last_seen_at">Last seen at</string>
+    <string name="contact_admin_desc">Your account will be active in 24 hours. For more info contact admin</string>
+    <string name="unblocked_successfully">User unblocked successfully</string>
+    <string name="user_blocked_successfully">User blocked successfully</string>
+    <string name="you_dont_have_any_gifts">Sorry! You don\'t have any Gifts</string>
+    <string name="you_dont_have_any_gold">Sorry! You don\'t have any Golden star</string>
+    <string name="mutual_followers_can_make_a_call">Only mutual fans can make a calls</string>
+    <string name="profile_image_updated">Profile image updated</string>
+    <string name="team">Team</string>
+    <string name="contact_us">Contact us</string>
+    <string name="missed_call_at">Missed call at</string>
+    <string name="missed_call">Missed call</string>
+    <string name="convert_money_error_desc">Option not available for now</string>
+    <string name="convert_gifts_to_gems_desc">Are you sure want to convert the gifts to coins?</string>
+    <string name="convert_gifts_to_money_desc">Request Forwarded To Admin?</string>
+    <string name="yes">Yes</string>
+    <string name="uploading">Uploading…</string>
+    <string name="convert_money">Withdraw money</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="search_for_users">Search for Users</string>
+    <string name="search_for_videos">Search for Videos</string>
+    <string name="search_for_sounds">Search for Sounds</string>
+    <string name="broadcast">Broadcast</string>
+    <string name="people">People</string>
+    <string name="no_videos">No Videos</string>
+    <string name="no_sound">No Sounds</string>
+    <string name="live">Live</string>
+    <string name="linkCopied">Link copied to clipboard</string>
+
+    <string name="search_user">Users</string>
+    <string name="search_video">Videos</string>
+    <string name="search_sound">Sounds</string>
+    <string name="search_hashtag">Hashtags</string>
+
+    <string name="time_just_now">Just now</string>
+    <string name="time_ago_seconds">%d s</string>
+    <string name="time_ago_minute">1 m</string>
+    <string name="time_ago_minutes">%d m</string>
+    <string name="time_ago_hour">1 h</string>
+    <string name="time_ago_hours">%d h</string>
+    <string name="time_ago_day">1 d</string>
+    <string name="time_ago_days">%d d</string>
+    <string name="time_ago_month">1 m</string>
+    <string name="time_ago_months">%d m</string>
+    <string name="time_ago_year">1 y</string>
+    <string name="time_ago_years">%d y</string>
+    <string name="search">Search</string>
+    <string name="my_videos">My videos</string>
+
+    <string name="msg_please_wait">Please wait </string>
+    <string name="processing">\tProcessing...</string>
+
+    <string name="videos">Videos</string>
+    <!--<string name="invite_description">Haven\'t tried %1$s yet? Sign up and get free votes! Download:\n\n\n%2$s</string>-->
+    <string name="invite_description">Have you tried the app %1$s yet? Signup with this link and get free votes and start making money. Download:\n\n\n%2$s</string>
+    <string name="share_link">Share Link</string>
+    <string name="share_broadcast">Share Broadcast</string>
+    <string name="no_broadcast_found">No Video found</string>
+    <string name="no_user">No User</string>
+    <string name="comments">Comments</string>
+    <string name="h">H</string>
+    <string name="m">M</string>
+    <string name="s">S</string>
+    <string name="k">K</string>
+    <string name="one_week">1 Week</string>
+    <string name="one_month">1 Month</string>
+    <string name="three_months">3 Months</string>
+    <string name="six_months">6 Months</string>
+    <string name="one_year">1 Year</string>
+    <string name="security">Security</string>
+    <string name="authentication_required">Authentication required</string>
+    <string name="password">Password</string>
+    <string name="fingerprint_not_recognized">Fingerprint not recognized</string>
+    <string name="app_locked">Locked</string>
+    <string name="touch_the_fingerprint_sensor">Touch the fingerprint sensor</string>
+    <string name="my_qr_code">My QR code</string>
+    <string name="share">Share</string>
+    <string name="username">Username</string>
+    <string name="discover">Discover</string>
+    <string name="recordedlive">Recorded live</string>
+    <string name="my_gifts">My Gifts</string>
+    <string name="gallery">Gallery</string>
+    <string name="touch_fingerprint_description">Touch your finger on the finger print sensor to unlock</string>
+    <string name="cancel">Cancel</string>
+    <string name="blocked_list">Block list</string>
+    <string name="no_user_you_blocked_yet">No user you blocked yet</string>
+    <string name="too_many_attempts">Too many attempts! Try with PIN unlock!</string>
+    <string name="unable_to_verify">Unable to verify</string>
+    <string name="rate_dialog_title">Enjoying %1$s?</string>
+    <string name="rate_dialog_message">Tap a start to rate it on the Google play</string>
+    <string name="rate_dialog_ok">Rate Us Now</string>
+    <string name="rate_dialog_cancel">Remind Me Later</string>
+    <string name="rate_dialog_no">Not now</string>
+    <string name="hashtag">Hashtag</string>
+    <string name="views">Views</string>
+    <string name="select_atleast_one_user">Select atleast one user</string>
+    <string name="popular_countries">Popular countries</string>
+    <string name="trending_hashtag">Trending Hashtag</string>
+    <string name="hash_symbol" translatable="false">#</string>
+    <string name="at_symbol" translatable="false">\@</string>
+    <string name="shared_a_stream">Shared a stream</string>
+    <string name="stream_share_description"><![CDATA[shared video. Click here to watch -> ]]></string>
+    <string name="camera">Camera</string>
+    <string name="unblock_call_description">Unblock the user to make a call</string>
+    <string name="search_for_hashtag">Search for Hashtag</string>
+    <string name="no_hashtags">No hashtags</string>
+    <string name="allow_pop_up_window">Allow pop-up window</string>
+    <string name="pop_up_permission_description">Allow the pop-up permission to enjoy the incoming call functionalities even if the app is not in the background</string>
+    <string name="don_t_ask_again">Don\'t ask again</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+    <string name="no_mutual_description">No mutual followers found. Make someone mutual in order to share private live</string>
+    <string name="no_stream_found">No Stream found</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="who_can_view">Who can view my video</string>
+    <string name="settings_everyone">Everyone</string>
+    <string name="settings_Fans">Fans</string>
+    <string name="settings_Off">Off</string>
+    <string name="notification_empty">No data found</string>
+
+
+    <string name="editor_selected_line_paint_color">@color/colorPrimary</string>
+    <!--<string name="search">Search</string>-->
+
+
+    //introducation screen
+
+
+    //introducation screen
+
+    <string name="edit_loading_text">Loading ...</string>
+
+    <string name="editor_error">Error</string>
+    <string name="editor_error_msg">Error</string>
+
+    // notification
+
+
+    // Hello Alex , How about Hello-Adele As ringtone for Explaination
+
+
+    <string name="application_permission">Application Permission</string>
+    <string name="permission_description">Ringtone Maker needs to Read your Music Library in order to use The application functions properly</string>
+    <!--<string name="editor_selected_line_paint_color">#565656</string>-->
+
+
+    <string name="editor_back_dialog_title">Pick an Action</string>
+    <string name="editor_back_dialog_discard">Discard</string>
+    <string name="editor_back_dialog_cancel">Cancel</string>
+
+
+    <string name="alert_audio_crop">Please Reduce the Song Duration %1$s sec</string>
+    <string name="almost_done">Almost Done...</string>
+
+    <string name="saved_to_gallery_filename">Saved to %1$s</string>
+    <string name="video_saved_to_gallery">Video saved to gallery</string>
+    <string name="cannot_save_to_gallery">Cannot save to gallery</string>
+    <string name="prime_description">Prime membership allows your user to match faster and can get ultimate discounts on the coins</string>
+    <string name="file_provider_authority" translatable="false">com.app.binggbongg.fileprovider</string>
+    <string name="prime_alert">Become prime member to use this feature</string>
+    <!--    <string name="gift_to_cash">Convert gift to cash</string>-->
+    <string name="gift_to_cash_no">You have %1$s Gifts</string>
+
+
+    <string name="gift_to_cash_not_enough">You don\'t have enough gifts</string>
+    <string name="update_paypal_id">Update your Paypal ID</string>
+
+    <!-- Addon Voice message-->
+    <string name="slide_to_cancel">Slide to cancel</string>
+    <string name="file_not_found">File not found</string>
+    <string name="audio_length_error">Audio length error</string>
+    <string name="hold_audio"> Hold to record audio</string>
+    <string name="audio">Audio</string>
+
+    <!-- Addon Emoji and Gif in chat-->
+    <string name="gif">Gif</string>
+
+    <!--Addon Chat Translate-->
+    <string name="translate">Translate</string>
+    <string name="google_api_key_" translatable="false">AIzaSyCnwt_jj_Pc9UPtQ0mLRAZT6rxXQ3WGFIA</string>
+    <string name="allow_pop_up_tecno">Protected Apps</string>
+
+    <string name="pop_up_permission_tecno">fundoo requires to be enabled in Protected Apps to background function properly.</string>
+
+    <string name="allow_pop_up_autostart_tecno">Enable AutoStart</string>
+
+    <string name="allow_pop_up_autostart_subtitle_tecno">To Open the app when it is backgrounded</string>
+
+    <string name="pop_up_permission_autostart_tecno_step1">Step1: Click the toolbox.</string>
+
+    <string name="pop_up_permission_autostart_tecno_step2">Step2: Click the Autostart Manager.</string>
+
+    <string name="pop_up_permission_autostart_tecno_step3">Step3: Enable fundoo</string>
+    <string name="connecting">Connecting…</string>
+    <string name="video_deleted">Video deleted successfully!!</string>
+    <string name="no_categories">No Categories</string>
+    <string name="category">Category</string>
+    <string name="audio_warning">Audio file format not supported</string>
+    <string name="loading">Loading...!</string>
+    <string name="please_vote">Please vote for my video</string>
+    <string name="vote">Vote</string>
+    <string name="hide_btm_bar_alert">Do you want to hide all icons?</string>
+    <string name="unhide_btm_bar_alert">Do you want to unhide all icons?</string>
+    <string name="votes">Votes available</string>
+    <string name="video_link">Video link</string>
+    <string name="auto_scroll_on">Auto scroll up is on</string>
+    <string name="auto_scroll_off">Auto scroll up is off</string>
+    <string name="instagram">Instagram</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="signup_title">"Sign up"</string>
+    <string name="signup_content">"Upload your videos or go live streaming and start making money right away. "</string>
+
+    <string name="signup_sub_title">Turn votes into cash $$$</string>
+    <string name="category_contest">Add your contest category</string>
+    <string name="refferal">Referral</string>
+    <string name="vote_history">Vote History</string>
+    <string name="vote_purchased">Vote Purchased</string>
+    <string name="vote_sent">Vote Sent</string>
+    <string name="purchase_history">Purchase History</string>
+    <string name="watch_live">Watch Live</string>
+    <string name="deepar_key">2111106af96db99fa5b4a536784539c2e16d92204dc2c1add6a5bafea9f2261ad971a6c91e8c2957</string>
+
+    <string-array name="effects">
+        <item name="none">@drawable/magic</item>
+        <item name="viking_helmet">@drawable/viking</item>
+        <item name="MakeupLook">@drawable/viking</item>
+        <item name="Split_View_Look">@drawable/split</item>
+        <item name="Emotions_Exaggerator">@drawable/emotion</item>
+        <!--  <item name="Emotion_Meter">@drawable/meter</item>-->
+        <item name="Stallone">@drawable/stallone</item>
+        <item name="flower_face">@drawable/flower_face</item>
+        <item name="galaxy_background">@drawable/galaxy</item>
+        <item name="Humanoid">@drawable/humanoid</item>
+        <item name="Neon_Devil_Horns">@drawable/diffuse</item>
+        <item name="Ping_Pong">@drawable/pingbong</item>
+        <item name="Pixel_Hearts">@drawable/heart_effect</item>
+        <item name="Snail">@drawable/snail</item>
+        <item name="Hope">@drawable/hope</item>
+        <item name="Vendetta_Mask">@drawable/vendatta</item>
+        <item name="Fire_Effect">@drawable/fire_effect</item>
+        <item name="burning_effect">@drawable/burning_effect</item>
+        <item name="Elephant_Trunk">@drawable/trunk_multiply</item>
+    </string-array>
+    <string name="have_not_account" tools:ignore="ExtraTranslation">Haven\'t an Account</string>
+    <string name="life_time_count">Life Time Votes</string>
+    <string name="video_id">Video id</string>
+    <string name="vote_count">Vote for current contest</string>
+    <string name="youtube">Youtube</string>
+    <string name="linkedIn">LinkedIn</string>
+    <string name="snapchat">Snapchat</string>
+    <string name="twitter">Twitter</string>
+    <string name="tiktok">Tiktok</string>
+    <string name="pinterest">Pinterest</string>
+    <string name="website">Websites</string>
+    <string name="social_media">Social Media Links</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="request">Request</string>
+    <string name="social_media_activtiy">My social media links</string>
+    <string name="signup"><u>Signup</u></string>
+    <string name="purchase_votes">Purchase votes</string>
+    <string name="invite_page">Add Bingg Bongg referral link for a member to copy and paste it to their other social media accounts for referral.</string>
+</resources>

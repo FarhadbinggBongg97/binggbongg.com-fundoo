@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:clickable="true"
+    android:focusable="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cc000000"
+        android:focusable="false"
+        android:visibility="visible" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/contentLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <include
+                android:id="@+id/stream_toolbar"
+                layout="@layout/activity_live_straming_toolbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorBlack"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWatchLive"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorBlack"
+                    android:fontFamily="@font/font_regular"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:text="@string/watch_live"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/text_normal"
+                    app:cornerRadius="0dp"
+                    app:rippleColor="@color/colorDarkGrey" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorSecondaryText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRecordedLive"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorBlack"
+                    android:fontFamily="@font/font_regular"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:text="@string/recorded_live"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/text_normal"
+                    app:cornerRadius="0dp"
+                    app:rippleColor="@color/colorDarkGrey" />
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddStream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_margin="20dp"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="2dp"
+            android:src="@drawable/ic_add_white"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="2dp"
+            app:fabSize="normal"
+            app:tint="@color/colorWhite" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>

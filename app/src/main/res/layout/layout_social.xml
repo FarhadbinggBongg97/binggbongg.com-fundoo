@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/social_media_activtiy"
+        android:textSize="@dimen/text_normal"
+        android:textColor="@color/colorWhite"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:weightSum="7"
+        android:orientation="horizontal">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/youtube"
+            android:id="@+id/youtubeIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/instagram"
+            android:id="@+id/instaIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/facebook"
+            android:id="@+id/facebookIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/whatsapp"
+            android:id="@+id/whatsappIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/linked_in"
+            android:id="@+id/linkedInIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/snapchat"
+            android:id="@+id/snapChatIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/twitter"
+            android:id="@+id/twitterIV"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect_oval_white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

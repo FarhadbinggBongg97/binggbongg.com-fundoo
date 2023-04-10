@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:windowSoftInputMode="adjustNothing"
+    android:background="@color/colorBlack">
+
+
+    <RelativeLayout
+        android:id="@+id/thumbnailLay"
+        android:layout_width="60dp"
+        android:layout_height="80dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loginscreen_bg"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:src="@drawable/video_play"
+            android:id="@+id/playPause"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true" />
+
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:id="@+id/circuleProgress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+
+        android:id="@+id/selectLay"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/thumbnailLay">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/fav"
+            android:singleLine="true"
+            android:id="@+id/trackTitle"
+            style="@style/TextWhiteBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/favourites"
+            android:textSize="@dimen/text_normal" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/fav"
+            android:tint="@color/colorWhite"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/add_favouite_black"
+            android:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/trackDuration"
+            style="@style/TextWhiteRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trackTitle"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/selecIcon"
+            android:text=""
+            android:textSize="@dimen/text_tiny" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/selecIcon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_below="@+id/trackTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/tick_primary_color"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

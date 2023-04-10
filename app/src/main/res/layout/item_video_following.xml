@@ -1,0 +1,713 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey">
+
+    <FrameLayout
+        android:id="@+id/mediaContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@color/colorBlack"
+        android:gravity="center"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+        <!-- <ProgressBar
+                    android:layout_gravity="center"
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme"
+                    android:visibility="visible" /> -->
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <!-- <View
+                    android:id="@+id/view_gradient2"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/footer_gra"
+                    android:visibility="visible" /> -->
+        <!-- <View
+                    android:id="@+id/view_gradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/header_gra"
+                    android:visibility="visible" /> -->
+        <ImageView
+            android:id="@+id/video_play_pause"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:srcCompat="@drawable/video_play" />
+        <!-- <ImageView
+                    android:id="@+id/ic_fav_heart"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:elevation="99dp"
+                    android:src="@drawable/ic_baseline_favorite_24"
+                    android:translationZ="1dp"
+                    android:visibility="invisible"
+                    tools:visibility="visible" /> -->
+        <ImageView
+            android:id="@+id/mediaCoverImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/ic_fav_heart"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/heart"
+            app:lottie_speed="0.8" />
+
+
+        <LinearLayout
+            android:id="@+id/lay_animGift"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/img_animGift"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/leftSideView"
+            android:layout_above="@+id/txt_description">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerHorizontal="true"
+                    android:adjustViewBounds="false"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/default_profile_image"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="0dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_title"
+                    style="@style/TextWhiteBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_toStartOf="@+id/leftSideView"
+                    android:lineSpacingExtra="5dp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:singleLine="true"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_medium" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:text="@string/follow"
+                    android:id="@+id/profileFollowIcon"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_tiny"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/round_corner" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:id="@+id/total_followers_tv"
+                    android:text="23.3K follower"
+                    style="@style/TextWhiteRegular"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_small"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_description"
+            style="@style/TextWhiteRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/giftLay"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@+id/leftSideView"
+            android:lineSpacingExtra="5dp"
+            android:padding="5dp"
+            android:text="@string/pop_up_permission_description"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_small" />
+
+        <RelativeLayout
+            android:id="@+id/giftLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_duration"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/leftSideView"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/voteTV"
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:drawableStart="@drawable/vote_for_myvideo"
+                android:drawablePadding="3dp"
+                android:layout_gravity="center"
+                android:paddingStart="5dp"
+                android:singleLine="true"
+                android:text="@string/please_vote"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_small"
+                android:textStyle="normal" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/voteIcon"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/round_button_white_border"
+                android:text="@string/vote"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/frame"
+            android:layout_toEndOf="@id/giftLay"
+            android:layout_height="10dp"
+            android:layout_toStartOf="@id/leftSideView"
+            android:layout_above="@id/progress_duration"/>
+
+
+        <RelativeLayout
+            android:id="@+id/leftSideView"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progress_duration"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/remain_duration_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:singleLine="true"
+                android:text="00:00"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal" />
+
+
+            <LinearLayout
+                android:layout_above="@id/remain_duration_tv"
+                android:id="@+id/hideBtmBarLay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ripple_effect_oval_white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/hideBtmBar"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/option" />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/lay_live_vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/votesCountLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/votes_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/votes"
+                        android:textColor="@color/colorWhite"
+                        android:visibility="visible" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="00"
+                        android:id="@+id/publisher_vote_count"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_small" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/liveLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/votesCountLay"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/live" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/videoLabelsLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lay_live_vote"
+                android:layout_above="@id/hideBtmBarLay">
+
+                <ImageView
+                    android:id="@+id/music_symbol"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/music" />
+
+                <LinearLayout
+                    android:id="@+id/shareLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/music_symbol"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/share" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:text="@string/share"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_small" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/messageLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/shareLay"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/message" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_comment_count"
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_small" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/view_count_lay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/messageLay"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/viewImageView"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/eye" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/giftImageView"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/eye" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_view_count"
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:digits="4"
+                        android:singleLine="true"
+                        android:text="111k"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_small" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/voteLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/view_count_lay"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/voteImageView"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/vote_taken" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_vote_count"
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:digits="4"
+                        android:singleLine="true"
+                        android:text="111k"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_small" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/autoLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/voteLay"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/autoImageView"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/scroll" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:text="Scroll"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_small" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/heartLay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/giftLay"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ripple_effect_oval_white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/heart"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/heart_white" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/heartAni"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:visibility="gone"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/heart"
+                        app:lottie_speed="2.0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_heart_count"
+                        style="@style/TextWhiteRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_tiny" />
+
+
+                </LinearLayout>
+
+
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/userLay"-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:layout_above="@+id/autoLay"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginEnd="12dp"-->
+<!--                    android:layout_marginBottom="15dp"-->
+<!--                    android:gravity="center_horizontal"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="gone">-->
+
+<!--                    <com.google.android.material.imageview.ShapeableImageView-->
+<!--                        android:id="@+id/profileImage"-->
+<!--                        android:layout_width="50dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:adjustViewBounds="false"-->
+<!--                        android:padding="2dp"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/default_profile_image"-->
+<!--                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"-->
+<!--                        app:strokeColor="@color/colorPrimary"-->
+<!--                        app:strokeWidth="2dp" />-->
+
+<!--                    <com.google.android.material.imageview.ShapeableImageView-->
+<!--                        android:id="@+id/profileFollowIcon"-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:paddingBottom="5dp"-->
+<!--                        android:src="@drawable/ic_follow" />-->
+<!--                </RelativeLayout>-->
+
+<!--                <com.makeramen.roundedimageview.RoundedImageView-->
+<!--                    android:id="@+id/liveStreaming"-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_above="@+id/userLay"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:layout_marginBottom="15dp"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:background="@color/colorBlack"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:src="@drawable/call_accept"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:riv_corner_radius="65dp"-->
+<!--                    app:riv_mutate_background="true" />-->
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_duration"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dp"
+            android:max="100"
+            android:progressBackgroundTint="@color/colorWhite"
+            android:progressBackgroundTintMode="screen"
+            android:progressTint="@color/colorPrimary"
+            android:visibility="visible" />
+
+
+        <LinearLayout
+            android:id="@+id/videoLinkLay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_effect_oval_white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:srcCompat="@drawable/video_link" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:text="@string/video_link"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_tiny" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

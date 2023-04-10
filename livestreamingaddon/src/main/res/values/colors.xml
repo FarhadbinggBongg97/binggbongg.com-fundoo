@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        <color name="purple_200">#FFBB86FC</color>
+        <color name="purple_500">#FF6200EE</color>
+        <color name="purple_700">#FF3700B3</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+    -->
+
+    <color name="colorPrimary">#9D17CB</color>
+    <color name="colorPrimaryVariant">#9D17CB</color>
+    <color name="colorAccent">#FF000000</color>
+
+    <color name="colorSecondary">#FFEB3B</color>
+    <color name="colorSecondaryVariant">#FF5722</color>
+
+    <color name="colorBlack">#FF000000</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorDarkGrey">#14161A</color>
+
+    <color name="colorPrimaryText">#252525</color>
+    <color name="colorSecondaryText">#6E6E6E</color>
+
+    <color name="colorBgBlack">#FF000000</color>
+
+    <color name="primarytext">#434343</color>
+    <color name="secondarytext">#a3a3a3</color>
+    <color name="colorDivider">#D5D5D5</color>
+    <color name="backgroundTrans">#ABABAB</color>
+
+    <color name="transparentBG">#1A000000</color>
+    <color name="colorCommentsBg">#57000000</color>
+    <color name="liveStatus">#DA2047</color>
+    <color name="colorTransparent">#99000000</color>
+    <color name="viewColor">#31ffffff</color>
+    <color name="transparentGrey">#50ffffff</color>
+    <color name="colorTransparentWhite">#59FFFFFF</color>
+    <color name="color_white_light">#f5f5f5</color>
+
+    <color name="transparentBlack">#c9000000</color>
+
+
+    <!-- VIDEO TRIMMER -->
+    <color name="gradient_start">@color/colorPrimary</color>
+    <color name="gradient_end">@color/colorPrimary</color>
+    <color name="chat_receive">@color/colorPrimary</color>
+    <color name="chat_sent">#054AC9</color>
+    <color name="background_video_color">#2f3031</color>
+    <color name="background_progress_color">#6C6D6D</color>
+    <color name="progress_color">@color/colorPrimary</color>
+    <color name="line_color">#0DC143</color>
+    <color name="shadow_color">#FF000000</color>
+    <color name="light_transparent">#97000000</color>
+    <color name="line_button">#565758</color>
+    <color name="black_translucent">#50000000</color>
+    <color name="colorText">#53002F</color>
+    <color name="grey">#dcdada</color>
+    <color name="white">#FFFFFF</color>
+    <color name="shimmerBackgroundColor">#b1b1b1</color>
+    <color name="colorTransparentOutline">#2A2A2A</color>
+    <color name="colorBottomNavigation">#4A000000</color>
+    <color name="colorGrey">#6E6E6E</color>
+
+</resources>

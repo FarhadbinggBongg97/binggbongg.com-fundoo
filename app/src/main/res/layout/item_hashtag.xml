@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemLay"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardMainLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:elevation="5dp"
+        android:focusable="true"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:rippleColor="@color/searchRippleGrey">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/count"
+                android:singleLine="true"
+                android:text="@string/search_for_users"
+                android:textSize="@dimen/text_medium" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/trendingHashTag"
+                style="@style/TextSecondaryRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="5dp"
+                android:layout_toStartOf="@+id/count"
+                android:singleLine="true"
+                android:text="@string/trending_hashtag"
+                android:textSize="@dimen/text_tiny" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/count"
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:text="@string/search_for_users"
+                android:textSize="@dimen/text_small" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--<FrameLayout
+        android:id="@+id/hashTagLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/hashtagImage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/circle_hashtag" />
+
+        <TextView
+            style="@style/TextPrimaryLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/hash_symbol"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_large_medium" />
+
+    </FrameLayout>-->
+
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toEndOf="@+id/hashTagLay">
+
+        <TextView
+            android:id="@+id/txtHashTagName"
+            style="@style/TextPrimaryLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
+            android:layout_toStartOf="@+id/optionLay"
+            android:hint="@string/hashtag"
+            android:maxLines="2"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text_medium" />
+
+        <FrameLayout
+            android:id="@+id/optionLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/txtHasTagCount"
+                style="@style/TextSecondaryLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="@string/views"
+                android:maxLines="1"
+                android:textAlignment="viewEnd"
+                android:textSize="@dimen/text_medium" />
+
+            <CheckBox
+                android:id="@+id/btnSelect"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end"
+                android:background="@drawable/hashtag_selector"
+                android:button="@null"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </RelativeLayout>-->
+
+</RelativeLayout>

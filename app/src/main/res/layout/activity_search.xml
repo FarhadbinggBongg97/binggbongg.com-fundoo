@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cc000000"
+        android:focusable="false"
+        android:visibility="visible" />-->
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/contentLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimaryDark"
+                app:contentInsetStart="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/btnBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_w_l" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtSearch"
+                        style="@style/EditTextPrimaryRegular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toStartOf="@+id/btnClear"
+                        android:layout_toEndOf="@+id/btnBack"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="@string/search_for_users"
+                        android:imeOptions="actionSearch"
+                        android:inputType="textCapSentences"
+                        android:maxLength="80"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorWhite"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/text_normal" />
+
+                    <ImageView
+                        android:id="@+id/btnClear"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="12dp"
+                        android:src="@drawable/close_white"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                style="@style/MyCustomTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/colorWhite"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/colorBlack"
+                app:tabTextColor="@color/colorSecondaryText" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/fragment_home_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@color/colorWhite"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>

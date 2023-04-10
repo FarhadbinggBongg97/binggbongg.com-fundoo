@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:layoutDirection="locale">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.app.binggbongg.fundoo.home.CustomViewPager
+            android:id="@+id/fragment_home_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_video_overlay" />
+
+        <LinearLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnFollowings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/font_regular"
+                    android:padding="10dp"
+                    android:text="@string/following"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorTransparentWhite"
+                    android:textSize="@dimen/text_normal" />
+
+                <TextView
+                    android:id="@+id/btnRecent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/font_regular"
+                    android:padding="10dp"
+                    android:text="@string/discover"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_normal" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/btnRecordedLive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_regular"
+                android:padding="10dp"
+                android:text="@string/recordedlive"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

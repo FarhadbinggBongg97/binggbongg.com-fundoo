@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:keepScreenOn="true"
+    android:windowSoftInputMode="stateHidden"
+    tools:ignore="MissingDefaultResource">
+
+    <include layout="@layout/activity_toolbar_black" />
+
+    <RelativeLayout
+        android:id="@+id/previewLayout"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="false"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextWhiteRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="@string/preview"
+            android:textSize="@dimen/text_tiny" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/previewLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:animateLayoutChanges="true">
+
+
+        <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
+            android:id="@+id/inputDescriptionTxt"
+            style="@style/TextBlackRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@null"
+            android:completionThreshold="1"
+            android:hint="@string/describe_your_video"
+            android:imeOptions="actionNext"
+            app:hashtagColor="@color/colorPrimary"
+            app:socialFlags="hashtag" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hashTagRecLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/inputDescriptionTxt"
+            android:background="@drawable/cursor_primary"
+            android:elevation="5dp"
+            android:visibility="gone"
+            tools:listitem="@layout/item_post_hashtag" />
+
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/inputDescriptionTxt"
+            android:background="@color/colorDivider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/hintDes"
+            style="@style/TextAshLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view1"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            android:text="@string/describe_sample_hashtag"
+            android:textSize="@dimen/text_tiny" />
+
+
+        <RelativeLayout
+            android:id="@+id/who_can"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hintDes"
+            android:layout_marginTop="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+        >
+
+            <com.google.android.material.textview.MaterialTextView
+
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/video_view_result"
+                android:singleLine="true"
+                android:text="@string/who_can_view"
+                android:textSize="@dimen/text_normal"
+                android:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/video_view_result"
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_centerVertical="true"
+                android:text="Everyone"
+                android:textSize="@dimen/text_normal" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/lay_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/who_can"
+            android:layout_marginTop="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/tv_cat_item"
+                android:singleLine="true"
+                android:text="@string/category_contest"
+                android:textSize="@dimen/text_normal"
+                android:layout_centerVertical="true"
+                android:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_cat_item"
+                style="@style/TextBlackRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:text="Select"
+                android:textSize="@dimen/text_normal" />
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/save_switch"
+            style="@style/SwitchButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay_category"
+            android:layout_marginEnd="-3dp"
+            android:checked="false"
+            android:minHeight="0dp"
+            android:text="@string/save_gallery"
+            android:textSize="@dimen/text_normal"
+            app:switchMinWidth="5dp" />
+
+        <TextView
+            android:id="@+id/tv_savedFilePath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/save_switch"
+            android:fontFamily="@font/font_regular"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text_small"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            tools:text="Saved to /storage/emulated/0/DCIM/Fundoo/Saved"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/view_save"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tv_savedFilePath"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorDivider" />
+
+
+        <EditText
+            android:id="@+id/et_videoLink"
+            style="@style/TextBlackRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_save"
+            android:hint="Add a link to this video"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/text_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPost"
+            style="@style/TextWhiteRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/war"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:letterSpacing="0"
+            android:text="@string/post"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_normal"
+            app:cornerRadius="8dp" />
+
+
+        <TextView
+            android:id="@+id/war"
+            style="@style/TextSecondaryRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="30dp"
+            android:text="@string/post_video_alert"
+            android:textSize="@dimen/text_tiny" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

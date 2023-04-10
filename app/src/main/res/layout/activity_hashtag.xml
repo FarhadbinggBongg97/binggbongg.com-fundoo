@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hashtag_placeholder" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8C000000" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hashTagName"
+                style="@style/TextWhiteRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/hashTagCount"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@string/okay"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hashTagCount"
+                style="@style/TextWhiteRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/hashTagImage"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:text="Original HashTag" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+
+                android:id="@+id/hashTagImage"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="false"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hashtag_placeholder"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                app:strokeColor="#ABB6B6B6"
+                app:strokeWidth="3dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUseHashTag"
+                style="@style/TextWhiteRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hashTagImage"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#ABB6B6B6"
+                android:insetTop="4dp"
+                android:insetBottom="4dp"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:text="@string/use_this_hash_tag"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRelatedVideos"
+                style="@style/TextWhiteRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnUseHashTag"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="#ABB6B6B6"
+                android:insetTop="4dp"
+                android:insetBottom="4dp"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:text="@string/related_videos"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp"
+                tools:ignore="MissingConstraints" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/activity_toolbar_transparent" />
+
+</RelativeLayout>

@@ -1,0 +1,53 @@
+// Top-level build file where you can add configuration options ui to all sub-projects/modules.
+
+buildscript {
+   // ext.kotlin_version = '1.1.51'
+    ext.kotlin_version = '1.6.0'
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.4'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.14.0'
+        /*classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10'*/
+        /*classpath 'org.jetbrains.kotlin:kotlin-android-extensions:1.1.51'*/
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 22
+    buildToolsVersion = '22.0.1'
+    targetSdkVersion = 22
+    minSdkVersion = 16
+    versionCode = 28
+    versionName = "0.3.2"
+    kotlin_version = '1.1.51'
+}

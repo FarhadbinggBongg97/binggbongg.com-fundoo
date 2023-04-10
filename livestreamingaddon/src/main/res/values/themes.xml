@@ -1,0 +1,158 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Bottom.ReportDialog" parent="Theme.Design.BottomSheetDialog">
+        <!--<item name="android:windowCloseOnTouchOutside">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@color/transparentBG</item>
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">0dp</item>
+    </style>
+
+    <style name="Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <item name="dialogCornerRadius">9dip</item>
+        <item name="android:fontFamily">@font/font_regular</item>
+        <item name="android:textAppearanceMedium">@style/CustomFont</item>
+        <item name="android:textAppearanceLarge">@style/CustomFont</item>
+        <item name="android:textAppearanceSmall">@style/CustomFont</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <style name="CustomFont" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/font_regular</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="TextInputLayoutDesign">
+        <item name="colorControlActivated">@color/primarytext</item>
+        <item name="colorControlHighlight">@color/colorDivider</item>
+        <item name="android:textColor">@color/primarytext</item>
+        <item name="android:textColorHint">@color/secondarytext</item>
+        <item name="android:textColorHighlight">@color/colorDivider</item>
+        <item name="android:textColorLink">@color/colorDivider</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="TextInputHintLabel" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="colorControlActivated">@color/primarytext</item>
+        <item name="colorControlHighlight">@color/colorDivider</item>
+        <item name="android:textColor">@color/primarytext</item>
+        <item name="android:textColorHint">@color/secondarytext</item>
+        <item name="android:textColorHighlight">@color/colorDivider</item>
+        <item name="android:textColorLink">@color/colorDivider</item>
+    </style>
+
+
+    <style name="Bottom.WhiteDialog" parent="Theme.Design.BottomSheetDialog">
+        <!--<item name="android:windowCloseOnTouchOutside">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="bottomSheetStyle">@style/BottomSheetWhiteStyle</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <style name="BottomSheetWhiteStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_background</item>
+    </style>
+
+<!--      <style name="PlayerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorBlack</item>
+        <item name="android:screenOrientation">portrait</item>
+        <item name="android:statusBarColor">@color/colorBlack</item>
+    </style>-->
+
+    <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowAnimationStyle">@style/CustomDialogAnimation</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="background">@drawable/round_corner</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="CustomDialogAnimation">
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:windowEnterAnimation">@anim/anim_toolbar_slide_down</item>
+        <item name="android:windowExitAnimation">@anim/anim_toolbar_slide_up</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+    </style>
+
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="Bottom.StreamDialog" parent="Theme.Design.BottomSheetDialog">
+        <!--<item name="android:windowCloseOnTouchOutside">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@color/transparentBG</item>
+        <item name="bottomSheetStyle">@style/StreamSheetStyle</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="StreamSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">0dp</item>
+    </style>
+
+    <style name="OverlayDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView">
+        <item name="minWidth">48dip</item>
+        <item name="maxWidth">48dip</item>
+        <item name="minHeight">48dip</item>
+        <item name="maxHeight">48dip</item>
+        <item name="indicatorName">BallPulseIndicator</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView.Large">
+        <item name="minWidth">76dip</item>
+        <item name="maxWidth">76dip</item>
+        <item name="minHeight">76dip</item>
+        <item name="maxHeight">76dip</item>
+        <item name="indicatorName">BallPulseIndicator</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView.Small">
+        <item name="minWidth">24dip</item>
+        <item name="maxWidth">24dip</item>
+        <item name="minHeight">24dip</item>
+        <item name="maxHeight">24dip</item>
+        <item name="indicatorName">BallPulseIndicator</item>
+    </style>
+
+
+
+</resources>

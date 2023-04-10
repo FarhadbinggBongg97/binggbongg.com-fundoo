@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="10dp"
+        app:cardCornerRadius="12dp">
+
+        <com.app.binggbongg.external.RippleView
+            android:id="@+id/itemMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rv_type="rectangle">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/thumbnail"
+                style="@style/ShapeAppearanceOverlay.App.CornerRadius"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/play_thumbnail" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/lay_info"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_info"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/info"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/heart"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fitsSystemWindows="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/heart" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/likeCount"
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="13dp"
+                android:layout_toEndOf="@+id/heart"
+                android:text="@string/favourites"
+                android:textSize="@dimen/text_tiny" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_view"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@id/tv_viewCount"
+                android:fitsSystemWindows="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/eye"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_viewCount"
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="13dp"
+                android:text="@string/favourites"
+                android:textSize="@dimen/text_tiny"
+                android:visibility="gone" />
+
+        </com.app.binggbongg.external.RippleView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/sendLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_effect_oval_white"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <TextView
+                    android:id="@+id/txtAttachmentName"
+                    style="@style/TextWhiteRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:text=""
+                    android:textSize="@dimen/text_normal" />
+
+                <TextView
+                    android:id="@+id/txtSend"
+                    style="@style/TextWhiteBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/send"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_normal" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp" />
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/pagerIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible"
+                    app:ci_drawable="@drawable/btn_bg_white"
+                    app:ci_drawable_unselected="@drawable/circle_secondary_bg" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

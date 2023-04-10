@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:splitMotionEvents="false"
+    android:layoutDirection="locale">
+
+    <include
+        layout="@layout/activity_toolbar_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/settingMainLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/settingsLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="15dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/profile_setting" />
+
+                <TextView
+                    style="@style/TextBlackRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    android:text="@string/general_settings"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_normal" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/privacyLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="15dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/profile_privacy" />
+
+                <TextView
+                    style="@style/TextBlackRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    android:text="@string/privacy"
+
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_normal" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/languageLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="15dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/profile_language"
+                    android:translationY="4dp" />
+
+                <TextView
+
+                    style="@style/TextBlackRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    android:text="@string/language"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_normal" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/helpLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="15dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/profile_help"
+                    android:translationY="2dp" />
+
+                <TextView
+
+                    style="@style/TextBlackRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    android:text="@string/help"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_normal" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/inviteLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="15dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/profile_invite_friends"
+                    android:translationY="2dp" />
+
+
+                <TextView
+
+                    style="@style/TextBlackRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    android:text="@string/invite_your_friends"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_normal" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/logoutLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="15dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/profile_logout" />
+
+                <TextView
+                    style="@style/TextBlackRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    android:text="@string/logout"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_normal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <include layout="@layout/layout_adview" />
+
+</RelativeLayout>

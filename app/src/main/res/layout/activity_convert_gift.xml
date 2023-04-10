@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack">
+
+    <include layout="@layout/activity_toolbar_black" />
+
+    <include
+        android:id="@+id/nullLay"
+        layout="@layout/null_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/topLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:padding="10dp"
+            android:src="@drawable/my_gift_box"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/countDisplay"
+            style="@style/TextWhiteRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_normal"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtGiftsCount"
+            style="@style/TextWhiteRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_normal"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="106dp"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.2"
+                    android:background="@drawable/bg_primary_curved"
+                    android:backgroundTint="@color/colorWhite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/starIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:id="@+id/goldstar_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/starIcon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="-"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="106dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.2"
+                    android:background="@drawable/bg_primary_curved"
+                    android:backgroundTint="@color/colorWhite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/diamondIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/diamond_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_blueDiamond"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="-"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="106dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.2"
+                    android:background="@drawable/bg_primary_curved"
+                    android:backgroundTint="@color/colorWhite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/giftIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/rose" />
+
+                    <TextView
+                        android:id="@+id/tv_diamondCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/giftIcon"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="0 Gifts"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="106dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.2"
+                    android:background="@drawable/bg_primary_curved"
+                    android:backgroundTint="@color/colorWhite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Icon4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/gift_box" />
+
+                    <TextView
+                        android:id="@+id/tv_giftCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Icon4"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="0 Gifts"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="106dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.2"
+                    android:background="@drawable/bg_primary_curved"
+                    android:backgroundTint="@color/colorWhite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/votesIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/vote_draw" />
+
+                    <TextView
+                        android:id="@+id/tv_voteCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/votesIcon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="0 Votes"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/content"
+                style="@style/TextWhiteRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone" />
+
+
+            <RadioGroup
+                android:id="@+id/optionLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <RadioButton
+                    android:id="@+id/btnGems"
+                    style="@style/TextWhiteRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorWhite"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/coins"
+                    android:textSize="@dimen/text_medium"
+                    android:visibility="gone" />
+
+                <!-- Gifts to Money Conversion-->
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWithdraw"
+                style="@style/TextWhiteRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:insetTop="4dp"
+                android:insetBottom="4dp"
+                android:letterSpacing="0"
+                android:lineSpacingExtra="1dp"
+                android:stateListAnimator="@null"
+                android:text="@string/withdraw"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                android:visibility="visible"
+                app:cornerRadius="8dp"
+                tools:ignore="MissingConstraints" />
+
+            <!--<com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWithdraw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/convert_gems"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_medium_large" />-->
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/CircularProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="200dp" />
+
+    <include layout="@layout/layout_adview" />
+
+
+</RelativeLayout>

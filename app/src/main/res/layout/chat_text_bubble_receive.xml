@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemLay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/userImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top"
+        android:layout_marginStart="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:riv_corner_radius="65dp"
+        app:riv_mutate_background="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_toEndOf="@+id/userImage"
+        android:background="@drawable/chat_receive_bg"
+        android:gravity="center_vertical"
+        android:minWidth="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtMessage"
+            style="@style/TextSecondaryRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:clickable="true"
+            android:lineSpacingExtra="5dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:text=""
+            android:textColorLink="@color/colorPrimary"
+            android:textSize="@dimen/text_medium" />
+
+        <TextView
+            android:id="@+id/txtChatTime"
+            style="@style/TextSecondaryRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text=""
+            android:textSize="@dimen/text_small" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/translatebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:text="@string/translate"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
