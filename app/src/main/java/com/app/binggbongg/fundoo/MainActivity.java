@@ -634,7 +634,7 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
         }
 
     }*/
- private void checkRecordPermissions() {
+ public void checkRecordPermissions() {
 
      if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
          if (ActivityCompat.checkSelfPermission(getApplicationContext(), CAMERA) != PackageManager.PERMISSION_GRANTED ||

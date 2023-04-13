@@ -8,16 +8,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.app.binggbongg.fundoo.MainActivity;
+import com.app.binggbongg.fundoo.profile.ProfileFragment;
 import com.app.binggbongg.model.GetSet;
 import com.app.binggbongg.utils.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,12 +38,15 @@ import com.app.binggbongg.utils.AppUtils;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import hitasoft.serviceteam.livestreamingaddon.LiveStreamActivity;
 import hitasoft.serviceteam.livestreamingaddon.StreamListActivity;
+import hitasoft.serviceteam.livestreamingaddon.broadcaster.liveVideoBroadcaster.PublishActivity;
 import timber.log.Timber;
 
 import static com.app.binggbongg.R2.id.bottom_navigation;
@@ -71,6 +82,8 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
     @BindView(bottom_navigation)
     BottomNavigationView bottomNavigation;
     TextView tvForYou, tvFollowing,tvRecordedLive;
+    private Spinner spinner;
+    String[] arrayForSpinner = {"Following", "Followers", "Live Streamers","Go Live","Category leaders and Winners"};
 
     private final ScreenOffsetListener mScreenOffsetListener = visible -> {
 
@@ -131,23 +144,75 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
         homeFragViewPager.setPageTransformer(false, new ZoomInTransformer());
 
+
+        spinner = rootView.findViewById(R.id.spinner);
+        spinner.setAdapter(new CustomSpinnerAdapter(getActivity(), R.layout.spinner_row, arrayForSpinner, getActivity().getString(R.string.discover)));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Handle item selection here
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                Toast.makeText(context, "Selected Item: " + selectedItem, Toast.LENGTH_SHORT).show();
+                switch (selectedItem){
+                    case "Following":
+                        if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
+                            homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
+                            homeFragViewPager.setCurrentItem(1);
+                            homeFollowing.getFollowingVideoFragment().followingExoplayerRecyclerView.setPlayControl(true);
+                        }
+                        break;
+                    case "Followers":
+                        if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
+                            homeFollowing.getFollowingVideoFragment().followingExoplayerRecyclerView.setPlayControl(false);
+                            homeFragViewPager.setCurrentItem(0);
+                            homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(true);
+                        }
+                        break;
+                    case "Live Streamers":
+                        Intent stream = new Intent(context, PublishActivity.class);
+                        stream.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        stream.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        stream.putExtra(Constants.TAG_USER_ID, GetSet.getUserId());
+                        stream.putExtra(Constants.TAG_USER_NAME, GetSet.getName());
+                        stream.putExtra(Constants.TAG_USER_IMAGE, GetSet.getUserImage());
+                        stream.putExtra(Constants.TAG_TOKEN, GetSet.getAuthToken());
+                        stream.putExtra(Constants.TAG_STREAM_BASE_URL, GetSet.getStreamBaseUrl());
+                        startActivity(stream);
+                        break;
+                    case "Go Live":
+                        Log.e(TAG, "onClickAddStory: ::::::::::::::" );
+                        try {
+//                            if (getActivity() != null && getActivity().homeForYou != null)
+//                                getActivity().homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
+
+                            ((MainActivity)getActivity()).checkRecordPermissions();
+
+                        } catch (Exception e) {
+                            Timber.i("Error onClickAddStory %s", e.getMessage());
+                        }
+                        break;
+                    case "Category leaders and Winners":
+//                       ProfileFragment profileFragment = new ProfileFragment();
+//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                        transaction.replace(R.id.fragment_home_viewpager, profileFragment);
+//                        transaction.addToBackStack(null);
+//                        transaction.commit();
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
+
         tvForYou.setOnClickListener(view -> {
 
-            if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
-                homeFollowing.getFollowingVideoFragment().followingExoplayerRecyclerView.setPlayControl(false);
-                homeFragViewPager.setCurrentItem(0);
-                homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(true);
-            }
-
         });
+
         tvFollowing.setOnClickListener(view -> {
-
-            if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
-                homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
-                homeFragViewPager.setCurrentItem(1);
-                homeFollowing.getFollowingVideoFragment().followingExoplayerRecyclerView.setPlayControl(true);
-            }
-
 
         });
 
@@ -239,10 +304,8 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
     }
 
-
     public class HomePagerAdapter extends FragmentPagerAdapter {
         private final ScreenOffsetListener mScreenOffsetListener;
-
 
         public HomePagerAdapter(FragmentManager fm, ScreenOffsetListener screenOffsetListener) {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -314,5 +377,52 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    public class CustomSpinnerAdapter extends ArrayAdapter<String>{
+
+        Context context;
+        String[] objects;
+        String firstElement;
+        boolean isFirstTime;
+
+        public CustomSpinnerAdapter(Context context, int textViewResourceId, String[] objects, String defaultText) {
+            super(context, textViewResourceId, objects);
+            this.context = context;
+            this.objects = objects;
+            this.isFirstTime = true;
+            setDefaultText(defaultText);
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            if(isFirstTime) {
+                objects[0] = firstElement;
+                isFirstTime = false;
+            }
+            return getCustomView(position, convertView, parent);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            notifyDataSetChanged();
+            return getCustomView(position, convertView, parent);
+        }
+
+        public void setDefaultText(String defaultText) {
+            this.firstElement = objects[0];
+            objects[0] = defaultText;
+        }
+
+        public View getCustomView(int position, View convertView, ViewGroup parent) {
+
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View row = inflater.inflate(R.layout.spinner_row, parent, false);
+            TextView label = (TextView) row.findViewById(R.id.btnRecent);
+            label.setText(objects[position]);
+
+            return row;
+        }
+
     }
 }

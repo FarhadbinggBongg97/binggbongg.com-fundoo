@@ -495,7 +495,7 @@
     <string name="my_qr_code">My QR code</string>
     <string name="share">Share</string>
     <string name="username">Username</string>
-    <string name="discover">Discover</string>
+    <string name="discover">Discover <b>+</b></string>
     <string name="recordedlive">Recorded live</string>
     <string name="my_gifts">My Gifts</string>
     <string name="gallery">Gallery</string>

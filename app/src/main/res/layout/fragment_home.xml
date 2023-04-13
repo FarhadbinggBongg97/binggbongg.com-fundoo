@@ -32,6 +32,9 @@
                 android:src="@drawable/logo" />
 
             <LinearLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:weightSum="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -39,8 +42,12 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button_white_border"
                     android:id="@+id/btnFollowings"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="5dp"
@@ -51,9 +58,25 @@
                     android:textColor="@color/colorTransparentWhite"
                     android:textSize="@dimen/text_normal" />
 
+                <Spinner
+                    android:layout_weight="1"
+                    android:text="@string/discover"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_normal"
+                    android:padding="10dp"
+                    android:background="@drawable/round_button_white_border"
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
                 <TextView
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button_white_border"
                     android:id="@+id/btnRecent"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="0dp"
@@ -66,6 +89,7 @@
 
 
             </LinearLayout>
+
 
 
             <TextView
