@@ -3,6 +3,8 @@ package com.app.binggbongg.fundoo.home;
 import static android.content.Context.CLIPBOARD_SERVICE;
 import static android.view.View.GONE;
 
+import static com.app.binggbongg.R2.id.publisher_vote_count;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -71,6 +73,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.app.binggbongg.fundoo.FollowersActivity;
+import com.app.binggbongg.fundoo.GemsStoreActivity;
 import com.app.binggbongg.fundoo.PrivacyActivity;
 import com.app.binggbongg.fundoo.home.eventbus.AutoScrollEnabled;
 import com.app.binggbongg.fundoo.home.eventbus.FollowAutoScrollEnabled;
@@ -80,6 +83,7 @@ import com.app.binggbongg.fundoo.home.eventbus.ForyouHideIcon;
 import com.app.binggbongg.fundoo.home.eventbus.HideIcon;
 import com.app.binggbongg.fundoo.home.eventbus.UserBlocked;
 import com.app.binggbongg.fundoo.home.eventbus.VideoAutoScrollEnabled;
+import com.app.binggbongg.model.ProfileResponse;
 import com.app.binggbongg.utils.SharedPref;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -276,6 +280,7 @@ public class FollowingVideoFragment extends Fragment {
 
     ProfileImageClickListener profileImageClickListener;
 
+    TextView tvPurchaseVote,tvNumberOfVote;
 
     public FollowingVideoFragment() {
         // Required empty public constructor
@@ -446,6 +451,7 @@ public class FollowingVideoFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_following_video, container, false);
+
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
@@ -3287,7 +3293,24 @@ public class FollowingVideoFragment extends Fragment {
         txtSend = sheetView.findViewById(R.id.txtSend);
         pagerIndicator = sheetView.findViewById(R.id.pagerIndicator);
 
+        tvPurchaseVote=sheetView.findViewById(R.id.tvPurchaseVote);
+        tvNumberOfVote=sheetView.findViewById(R.id.tvNumberOfVote);
+
         setViewPager();
+
+        tvNumberOfVote.setText("Vote Available "+GetSet.getGems().intValue());
+
+        tvPurchaseVote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+
+                Intent gemsIntent = new Intent(getActivity(), GemsStoreActivity.class);
+                gemsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(gemsIntent);
+            }
+        });
+
 
         sendLay.setVisibility(View.GONE);
         giftDialog.show();
@@ -3301,15 +3324,14 @@ public class FollowingVideoFragment extends Fragment {
 
 
     private void setViewPager() {
+        //        int count;
+//        if (AdminData.giftList.size() <= ITEM_LIMIT) {
+//            count = 1;
+//        } else {
+//            count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
+//        }
 
-        int count;
-        if (AdminData.giftList.size() <= ITEM_LIMIT) {
-            count = 1;
-        } else {
-            count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
-        }
-
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, count, Constants.TYPE_GIFTS);
+        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, 1, Constants.TYPE_GIFTS);
         viewPager.setAdapter(pagerAdapter);
         pagerIndicator.setViewPager(viewPager);
         viewPager.setCurrentItem(0);
@@ -3336,15 +3358,15 @@ public class FollowingVideoFragment extends Fragment {
 
         /*Set Array list by 8*/
 
-        int start = viewPager.getCurrentItem() * ITEM_LIMIT;
-        int end = start + (ITEM_LIMIT - 1);
-
-        if (end > AdminData.giftList.size()) {
-            end = AdminData.giftList.size() - 1;
-        } else if (AdminData.giftList.size() <= end) {
-            end = AdminData.giftList.size() - 1;
-        }
-        loadGifts(start, end);
+//        int start = viewPager.getCurrentItem() * ITEM_LIMIT;
+//        int end = start + (ITEM_LIMIT - 1);
+//
+//        if (end > AdminData.giftList.size()) {
+//            end = AdminData.giftList.size() - 1;
+//        } else if (AdminData.giftList.size() <= end) {
+//            end = AdminData.giftList.size() - 1;
+//        }
+        loadGifts(0, 11);
     }
 
 
@@ -3359,7 +3381,7 @@ public class FollowingVideoFragment extends Fragment {
         }
         giftAdapter = new GiftAdapter(context, tempGiftList);
         Timber.d("loadGifts: %s", new Gson().toJson(tempGiftList));
-        stickerLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
+        stickerLayoutManager = new GridLayoutManager(getActivity(), 4, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(stickerLayoutManager);
         recyclerView.setAdapter(giftAdapter);
         giftAdapter.notifyDataSetChanged();

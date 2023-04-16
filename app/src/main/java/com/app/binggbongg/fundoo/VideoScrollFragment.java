@@ -1455,6 +1455,7 @@ public class VideoScrollFragment extends Fragment {
         } else {
             count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
         }
+        Toast.makeText(getContext(), "Video Scroll Fragment", Toast.LENGTH_SHORT).show();
 
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, count, Constants.TYPE_GIFTS);
         viewPager.setAdapter(pagerAdapter);
@@ -2640,11 +2641,16 @@ public class VideoScrollFragment extends Fragment {
                 );
 
                 profileFollowIcon.setOnClickListener(v -> {
+                    Toast.makeText(getActivity(), "Clickedddd", Toast.LENGTH_SHORT).show();
                     profileFollowIcon.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.anim_zoom_out));
                     followAPI(mHomeApiResponse.get(getAdapterPosition()).getPublisherId(), mHomeApiResponse.get(getAdapterPosition()).getPublisherImage());
                 });
-                profileImage.setOnClickListener(v -> profileImageClickListener.onUserClicked(true));
+                profileImage.setOnClickListener(v ->
+                        profileImageClickListener.onUserClicked(true)
+                );
                 txt_title.setOnClickListener(v -> {
+                    Toast.makeText(getActivity(), "Clickedddd", Toast.LENGTH_SHORT).show();
+
                     if (mHomeApiResponse.get(getAdapterPosition()).getPlaytype().equals("video"))
                         profileImageClickListener.onUserClicked(true);
                 });
@@ -2762,7 +2768,7 @@ public class VideoScrollFragment extends Fragment {
 
                 Animation a = AnimationUtils.loadAnimation(getContext(), R.anim.tv_lhs_rhs);
                 vote_promotionTV.startAnimation(a);
-                vote_promotionTV.setText(contest_text+"");
+                vote_promotionTV.setText(contest_text+"hee this is check");
 
                 if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
                     //   videoLinkLay.setVisibility(View.GONE);

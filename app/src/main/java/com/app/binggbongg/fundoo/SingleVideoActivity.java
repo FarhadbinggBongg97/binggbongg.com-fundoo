@@ -810,6 +810,8 @@ public class SingleVideoActivity extends BaseFragmentActivity {
             count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
         }
 
+        Toast.makeText(this, "Single Video Activity", Toast.LENGTH_SHORT).show();
+
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(this, count, Constants.TYPE_GIFTS);
         viewPager.setAdapter(pagerAdapter);
         pagerIndicator.setViewPager(viewPager);

@@ -3,6 +3,8 @@ package com.app.binggbongg.fundoo.home;
 import static android.content.Context.CLIPBOARD_SERVICE;
 import static android.view.View.GONE;
 
+import static com.app.binggbongg.R2.id.publisher_vote_count;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -74,6 +76,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.app.binggbongg.fundoo.FollowersActivity;
+import com.app.binggbongg.fundoo.GemsStoreActivity;
 import com.app.binggbongg.fundoo.PrivacyActivity;
 import com.app.binggbongg.fundoo.home.eventbus.AutoScrollEnabled;
 import com.app.binggbongg.fundoo.home.eventbus.FollowAutoScrollEnabled;
@@ -257,6 +260,7 @@ public class ForYouVideoFragment extends Fragment {
     private String getSelectedReport = "";
     private int SelectedVideoPosition = -1;
     private Boolean isViewPagerVisible = false;
+    TextView tvPurchaseVote,tvNumberOfVote;
 
 
     Runnable r = new Runnable() {
@@ -462,7 +466,7 @@ public class ForYouVideoFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_foryou_video, container, false);
-
+        Toast.makeText(getActivity(), "ForYouVideoFragment", Toast.LENGTH_SHORT).show();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         mMediaLoader = MediaLoader.getInstance(getContext());
@@ -1419,6 +1423,23 @@ public class ForYouVideoFragment extends Fragment {
 
         setViewPager();
 
+        tvPurchaseVote=sheetView.findViewById(R.id.tvPurchaseVote);
+        tvNumberOfVote=sheetView.findViewById(R.id.tvNumberOfVote);
+
+        tvNumberOfVote.setText("Vote Available "+GetSet.getGems().intValue());
+
+        tvPurchaseVote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gemsIntent = new Intent(getActivity(), GemsStoreActivity.class);
+                gemsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(gemsIntent);
+            }
+        });
+
+
+
+
         sendLay.setVisibility(View.GONE);
         giftDialog.show();
 
@@ -1445,14 +1466,14 @@ public class ForYouVideoFragment extends Fragment {
 
     private void setViewPager() {
 
-        int count;
-        if (AdminData.giftList.size() <= ITEM_LIMIT) {
-            count = 1;
-        } else {
-            count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
-        }
+//        int count;
+//        if (AdminData.giftList.size() <= ITEM_LIMIT) {
+//            count = 1;
+//        } else {
+//            count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
+//        }
 
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, count, Constants.TYPE_GIFTS);
+        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, 1, Constants.TYPE_GIFTS);
         viewPager.setAdapter(pagerAdapter);
         pagerIndicator.setViewPager(viewPager);
         viewPager.setCurrentItem(0);
@@ -1480,15 +1501,15 @@ public class ForYouVideoFragment extends Fragment {
 
         /*Set Array list by 8*/
 
-        int start = viewPager.getCurrentItem() * ITEM_LIMIT;
-        int end = start + (ITEM_LIMIT - 1);
-
-        if (end > AdminData.giftList.size()) {
-            end = AdminData.giftList.size() - 1;
-        } else if (AdminData.giftList.size() <= end) {
-            end = AdminData.giftList.size() - 1;
-        }
-        loadGifts(start, end);
+//        int start = viewPager.getCurrentItem() * ITEM_LIMIT;
+//        int end = start + (ITEM_LIMIT - 1);
+//
+//        if (end > AdminData.giftList.size()) {
+//            end = AdminData.giftList.size() - 1;
+//        } else if (AdminData.giftList.size() <= end) {
+//            end = AdminData.giftList.size() - 1;
+//        }
+        loadGifts(0, 11);
     }
 
     private void loadGifts(int start, int end) {
@@ -1502,7 +1523,7 @@ public class ForYouVideoFragment extends Fragment {
         }
         giftAdapter = new GiftAdapter(context, tempGiftList);
         Timber.d("loadGifts: %s", new Gson().toJson(tempGiftList));
-        stickerLayoutManager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.HORIZONTAL, false);
+        stickerLayoutManager = new GridLayoutManager(getActivity(), 4, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(stickerLayoutManager);
         ((SimpleItemAnimator) Objects.requireNonNull(recyclerView.getItemAnimator())).setSupportsChangeAnimations(false);
         recyclerView.setAdapter(giftAdapter);

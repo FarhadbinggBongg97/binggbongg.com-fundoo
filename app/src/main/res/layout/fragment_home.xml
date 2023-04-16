@@ -41,7 +41,21 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
+                <Spinner
+                    android:padding="3dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/following"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_normal"
+                    android:background="@drawable/round_button_white_border"
+                    android:id="@+id/spinnerBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
                 <TextView
+                    android:visibility="gone"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_weight="1"
@@ -64,7 +78,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_normal"
-                    android:padding="10dp"
+                    android:padding="3dp"
                     android:background="@drawable/round_button_white_border"
                     android:id="@+id/spinner"
                     android:layout_width="match_parent"

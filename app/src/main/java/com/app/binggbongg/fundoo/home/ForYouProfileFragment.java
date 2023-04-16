@@ -487,6 +487,7 @@ public class ForYouProfileFragment extends Fragment {
         ViewGroup view = (ViewGroup) inflater.inflate(
                 R.layout.foryou_profile, container, false);
         initView(view);
+        Toast.makeText(getActivity(), "ForYouProfileFragment", Toast.LENGTH_SHORT).show();
         return view;
     }
 

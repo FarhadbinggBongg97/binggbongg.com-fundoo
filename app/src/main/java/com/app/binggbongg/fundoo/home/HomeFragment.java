@@ -82,8 +82,9 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
     @BindView(bottom_navigation)
     BottomNavigationView bottomNavigation;
     TextView tvForYou, tvFollowing,tvRecordedLive;
-    private Spinner spinner;
+    private Spinner spinner,spinnerBanner;
     String[] arrayForSpinner = {"Following", "Followers", "Live Streamers","Go Live","Category leaders and Winners"};
+    String[] arrayBanner = {"Facebook", "Instagram", "Twitter","Website","Youtube"};
 
     private final ScreenOffsetListener mScreenOffsetListener = visible -> {
 
@@ -146,13 +147,14 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
 
         spinner = rootView.findViewById(R.id.spinner);
+        spinnerBanner = rootView.findViewById(R.id.spinnerBanner);
         spinner.setAdapter(new CustomSpinnerAdapter(getActivity(), R.layout.spinner_row, arrayForSpinner, getActivity().getString(R.string.discover)));
+        spinnerBanner.setAdapter(new CustomSpinnerAdapter(getActivity(), R.layout.spinner_row, arrayBanner, getActivity().getString(R.string.scroll_banner)));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Handle item selection here
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(context, "Selected Item: " + selectedItem, Toast.LENGTH_SHORT).show();
                 switch (selectedItem){
                     case "Following":
                         if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
@@ -207,6 +209,36 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                 // Do nothing
             }
         });
+
+        spinnerBanner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Handle item selection here
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                switch (selectedItem){
+                    case "Facebook":
+                        break;
+                    case "Instagram":
+
+                        break;
+                    case "Twitter":
+                       break;
+                    case "Website":
+
+                        break;
+                    case "Youtube":
+
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
+
 
         tvForYou.setOnClickListener(view -> {
 
@@ -272,7 +304,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
             @Override
             public void onPageSelected(int position) {
-
 
                 if (position == 0) {
                     tvForYou.setTextColor(context.getResources().getColor(R.color.colorWhite));
