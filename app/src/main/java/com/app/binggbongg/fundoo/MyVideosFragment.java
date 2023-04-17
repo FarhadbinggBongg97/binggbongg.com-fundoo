@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -18,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -94,6 +94,7 @@ public class MyVideosFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
         customLinearLayoutManager = new CustomLinearLayoutManager(requireContext(), bottomSheetDialog);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -345,7 +346,7 @@ public class MyVideosFragment extends Fragment {
 
             final GetVideosResponse.Result video = discoverVideos.get(position);
 
-            viewHolder.videoInfo.setVisibility(View.VISIBLE);
+//            viewHolder.videoInfo.setVisibility(View.VISIBLE);
 
             if (position % 2 == 0) {
                 viewHolder.mainLay.setPadding(App.dpToPx(context, 15), App.dpToPx(context, 7), App.dpToPx(context, 7), App.dpToPx(context, 7));
@@ -363,15 +364,19 @@ public class MyVideosFragment extends Fragment {
             else*/
 
             if(getProfileId.equals(GetSet.getUserId())){
-                viewHolder.viewIcon.setVisibility(View.VISIBLE);
-                viewHolder.viewCount.setVisibility(View.VISIBLE);
-                viewHolder.videoInfo.setVisibility(View.VISIBLE);
+//                viewHolder.viewIcon.setVisibility(View.VISIBLE);
+//                viewHolder.viewCount.setVisibility(View.VISIBLE);
+//                viewHolder.videoInfo.setVisibility(View.VISIBLE);
             }else{
                 viewHolder.viewIcon.setVisibility(View.GONE);
                 viewHolder.viewCount.setVisibility(View.GONE);
                 viewHolder.videoInfo.setVisibility(View.GONE);
             }
 
+            viewHolder.tvVideoId.setText("Video # "+video.getVideoNumber());
+            viewHolder.tvLifeTimeVotes.setText(video.getLifetimeVoteCount());
+            viewHolder.tvVideoViews.setText(video.getViewCount());
+            viewHolder.tvCurrentContestVideo.setText(video.getVideoVoteCount());
             if(!TextUtils.isEmpty(video.getViewCount())){
                 viewHolder.viewCount.setText(video.getViewCount());
             }else{
@@ -462,8 +467,9 @@ public class MyVideosFragment extends Fragment {
 
             MaterialTextView likeCount, viewCount;
             ShapeableImageView heart, videoInfo, viewIcon;
+            TextView tvVideoId,tvLifeTimeVotes, tvVideoViews,tvCurrentContestVideo,btnPromote;
 
-
+            RelativeLayout relativeViews;
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
 
@@ -475,6 +481,14 @@ public class MyVideosFragment extends Fragment {
                 videoInfo = itemView.findViewById(R.id.img_info);
                 viewIcon = itemView.findViewById(R.id.img_view);
                 viewCount = itemView.findViewById(R.id.tv_viewCount);
+                tvVideoId = itemView.findViewById(R.id.tvVideoId);
+                tvLifeTimeVotes = itemView.findViewById(R.id.tvLifeTimeNumber);
+                tvVideoViews = itemView.findViewById(R.id.tvVideoViews);
+                tvCurrentContestVideo = itemView.findViewById(R.id.tvCurrentContestNumber);
+                btnPromote = itemView.findViewById(R.id.btnPromote);
+                relativeViews = itemView.findViewById(R.id.relativeViews);
+
+                relativeViews.setVisibility(View.VISIBLE);
 
                 mainLay.getLayoutParams().height = screenHalf + 30;
 

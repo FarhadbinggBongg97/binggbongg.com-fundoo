@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="10dp"
+        app:cardBackgroundColor="@color/background_color"
         app:cardCornerRadius="12dp">
 
         <com.app.binggbongg.external.RippleView
@@ -18,6 +19,7 @@
             app:rv_type="rectangle">
 
 
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/thumbnail"
                 style="@style/ShapeAppearanceOverlay.App.CornerRadius"
@@ -25,6 +27,109 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
 
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/relativeViews"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textSize="10dp"
+                    android:id="@+id/tvVideoId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_bold"
+                    android:hint="Video #15"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textSize="10dp"
+                        android:id="@+id/tvLifeTimeDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lifetime Votes"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_bold"/>
+                    <TextView
+                        android:textSize="11dp"
+                        android:layout_below="@+id/tvLifeTimeDes"
+                        android:id="@+id/tvLifeTimeNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="45.7K"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_bold"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:textSize="11dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/tvVideoViews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_bold"
+                    android:hint="2.5K"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:id="@+id/tvCurrentContestDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Current\ncontest"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_bold"/>
+                    <TextView
+                        android:gravity="center"
+                        android:textSize="11dp"
+                        android:layout_below="@+id/tvLifeTimeDes"
+                        android:id="@+id/tvCurrentContestNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="45.7K"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_bold"/>
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/btnPromote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/round_button_white_border"
+                    android:fontFamily="@font/font_bold"
+                    android:gravity="center"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="7dp"
+                    android:text="Promote"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="10dp" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -63,6 +168,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/heart"
+                android:visibility="gone"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_alignParentBottom="true"
@@ -78,6 +184,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/likeCount"
                 style="@style/TextWhiteRegular"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

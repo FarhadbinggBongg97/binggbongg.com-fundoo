@@ -111,6 +111,7 @@ public class LikedVideosFragment extends Fragment {
         nullImage = rootView.findViewById(R.id.nullImage);
         nullText = rootView.findViewById(R.id.nullText);
 
+
         loadMoreProgress = rootView.findViewById(R.id.loadMoreProgress);
 
         recyclerView.setHasFixedSize(true);
@@ -390,6 +391,7 @@ public class LikedVideosFragment extends Fragment {
             RelativeLayout mainLay;
             MaterialTextView likeCount;
             RippleView itemMain;
+            RelativeLayout relativeViews;
 
 
             public MyViewHolder(@NonNull View itemView) {
@@ -404,6 +406,9 @@ public class LikedVideosFragment extends Fragment {
 
                 mainLay.getLayoutParams().height = screenHalf + 30;
 
+                relativeViews = itemView.findViewById(R.id.relativeViews);
+
+                relativeViews.setVisibility(View.GONE);
                 //mainLay.getLayoutParams().height = mainLay.getLayoutParams().width / 100 * 30  +  mainLay.getLayoutParams().width ;
 
 

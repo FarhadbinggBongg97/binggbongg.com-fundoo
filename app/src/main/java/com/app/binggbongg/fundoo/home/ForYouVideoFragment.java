@@ -466,7 +466,6 @@ public class ForYouVideoFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_foryou_video, container, false);
-        Toast.makeText(getActivity(), "ForYouVideoFragment", Toast.LENGTH_SHORT).show();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         mMediaLoader = MediaLoader.getInstance(getContext());
