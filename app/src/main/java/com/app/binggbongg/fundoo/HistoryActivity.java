@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -36,10 +39,13 @@ import com.app.binggbongg.utils.ApiInterface;
 import com.app.binggbongg.utils.AppUtils;
 import com.app.binggbongg.utils.Constants;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,7 +56,7 @@ public class HistoryActivity extends AppCompatActivity {
     RecyclerView historyView;
     Toolbar toolbar;
     RelativeLayout nullLay;
-    TextView nullText, title;
+    TextView nullText, title,tvCopyReferralLink;
     ProgressBar progressBar;
     ImageView backBtn, btnSettings, nullImage;
     LinearLayout toolbarAction;
@@ -64,7 +70,7 @@ public class HistoryActivity extends AppCompatActivity {
     private int currentPage = 0, visibleItemCount, totalItemCount, firstVisibleItem, previousTotal, visibleThreshold;
     private boolean isLoading = true;
     private EndlessRecyclerOnScrollListener scrollListener;
-
+    private AppUtils appUtils;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +99,7 @@ public class HistoryActivity extends AppCompatActivity {
         title = findViewById(R.id.txtTitle);
         btnSettings = findViewById(R.id.btnSettings);
         nullImage = findViewById(R.id.nullImage);
+        tvCopyReferralLink = findViewById(R.id.tvCopyReferralLink);
 
 
         title.setTextColor(getColor(R.color.white));
@@ -106,6 +113,15 @@ public class HistoryActivity extends AppCompatActivity {
         historyView.setLayoutManager(itemManager);
         historyView.setAdapter(historyAdapter);
 
+        appUtils = new AppUtils(this);
+
+
+        tvCopyReferralLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                copyReferCode();
+            }
+        });
         scrollListener = new EndlessRecyclerOnScrollListener(itemManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
@@ -335,4 +351,27 @@ public class HistoryActivity extends AppCompatActivity {
         progressBar.setIndeterminate(false);
         progressBar.setVisibility(View.GONE);
     }
+    private void copyReferCode() {
+
+        Task<ShortDynamicLink> shortLinkTask = appUtils.getDynamicLink();
+
+        shortLinkTask.addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()) {
+                // Short link created
+                // Short link created
+                Uri shortLink = task.getResult().getShortLink();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                String msg = String.format(getString(R.string.invite_description), getString(R.string.app_name), shortLink);
+                ClipData clip = ClipData.newPlainText("label", "" + msg);
+                clipboard.setPrimaryClip(clip);
+                Toasty.success(this, getString(R.string.referral_code_copied), Toasty.LENGTH_SHORT).show();
+            } else {
+                // Error
+                // ...
+                Log.e(TAG, "onComplete: ");
+            }
+        }).addOnFailureListener(e -> Log.e(TAG, "onFailure: " + e.getMessage()));
+
+    }
+
 }
