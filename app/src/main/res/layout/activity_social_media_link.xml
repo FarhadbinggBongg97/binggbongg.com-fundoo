@@ -10,7 +10,7 @@
     <include
         android:id="@+id/lay_toolbar"
         layout="@layout/activity_toolbar_black"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,427 +25,585 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBlack"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:background="@color/colorBlack"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
                     android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
-                    android:elevation="5dp"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="2dp"
-                    app:rippleColor="@color/colorPrimary">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/round_button_white_border"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLinkNumber"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Link # 1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
 
                     <TextView
                         android:id="@+id/tv_titleYoutube"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
                         android:layout_gravity="start|center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:layout_marginEnd="4dp"
                         android:text="@string/youtube"
-                        android:layout_alignParentStart="true"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_youtube"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_titleYoutube"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.youtube.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.youtube.com"
+                        android:text="Hello"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textAlignment="viewEnd"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEdit"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
+                    android:background="@drawable/round_button_white_border"
                     android:elevation="5dp"
+                    android:orientation="horizontal"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
-                        android:id="@+id/tv_insta"
+                        android:id="@+id/tvLinkNumberInsta"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="Link # 2"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_title_insta"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:text="@string/instagram"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_instagram"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_insta"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.instagram.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:textAlignment="viewEnd"
-                        android:hint="www.instagram.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEditInsta"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
-                    android:elevation="5dp"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="2dp"
+                    android:background="@drawable/round_button_white_border"
+                    android:orientation="horizontal"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
-                        android:id="@+id/tv_facebook"
+                        android:id="@+id/tvLinkNumberFb"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="Link # 3"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_title_fb"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:text="@string/facebook"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_facebook"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_facebook"
-                        android:layout_gravity="end|center_vertical"
-                        android:background="@null"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.facebook.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.facebook.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textAlignment="viewEnd"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEditFB"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
+                    android:background="@drawable/round_button_white_border"
                     android:elevation="5dp"
+                    android:orientation="horizontal"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
-                        android:id="@+id/tv_whatsapp"
+                        android:id="@+id/tvLinkNumberWhatsApp"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Link # 4"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_title_whatsApp"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="@string/whatsApp"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_whatsapp"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_whatsapp"
-                        android:background="@null"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.whatsapp.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.whatsapp.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textAlignment="viewEnd"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEditWhatsapp"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
+                    android:background="@drawable/round_button_white_border"
                     android:elevation="5dp"
+                    android:orientation="horizontal"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
-                        android:id="@+id/tv_linkedIn"
+                        android:id="@+id/tvLinkNumberLinkedIn"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Link # 5"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_title_linkedIn"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="@string/linkedIn"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_linkedIn"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_linkedIn"
-                        android:background="@null"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.linkedIn.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.linkedIn.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textAlignment="viewEnd"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEditLinkedLin"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
+                    android:background="@drawable/round_button_white_border"
                     android:elevation="5dp"
+                    android:orientation="horizontal"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
-                        android:id="@+id/tv_snapchat"
+                        android:id="@+id/tvLinkNumberSnapchat"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Link # 6"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_title_snapchat"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="@string/snapchat"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_snapchat"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_snapchat"
-                        android:background="@null"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.snapchat.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.snapchat.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textAlignment="viewEnd"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEditSnapchat"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/colorBlack"
+                    android:background="@drawable/round_button_white_border"
                     android:elevation="5dp"
+                    android:orientation="horizontal"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
-                        android:id="@+id/tv_twitter"
+                        android:id="@+id/tvLinkNumberTwitter"
                         style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Link # 6"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_title_twitter"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="@string/twitter"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_normal" />
 
                     <EditText
                         android:id="@+id/et_twitter"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@id/tv_twitter"
-                        android:background="@null"
-                        android:gravity="end"
-                        android:imeOptions="actionNext"
+                        android:layout_weight="3"
+                        android:hint="www.twitter.com"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.twitter.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/colorChatReceive"
-                        android:textAlignment="viewEnd"
-                        android:textCursorDrawable="@color/colorPrimary"
+                        android:textCursorDrawable="@color/white"
                         android:textSize="@dimen/text_small"
+                        android:visibility="gone"
                         tools:ignore="RtlCompat" />
 
-                </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ivEditTwitter"
+                        style="@style/TextSecondaryRegular"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight=".2"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/edit"
+                        android:textSize="@dimen/text_normal" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@color/colorGrey" />
+
+                </LinearLayout>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
                     android:backgroundTint="@color/colorBlack"
                     android:elevation="5dp"
+                    android:visibility="gone"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
-                    android:visibility="gone"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
@@ -453,8 +611,8 @@
                         style="@style/TextSecondaryRegular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
                         android:layout_marginEnd="4dp"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
@@ -466,18 +624,18 @@
                         style="@style/TextWhiteRegular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
                         android:layout_alignParentEnd="true"
+                        android:layout_gravity="end|center_vertical"
                         android:layout_toEndOf="@id/tv_tiktok"
                         android:background="@null"
                         android:gravity="end"
+                        android:hint="www.tiktok.com"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.tiktok.com"
-                        android:textColorHint="@color/colorDivider"
                         android:textAlignment="viewEnd"
+                        android:textColorHint="@color/colorDivider"
                         android:textCursorDrawable="@color/colorPrimary"
                         android:textSize="@dimen/text_small"
                         tools:ignore="RtlCompat" />
@@ -487,26 +645,26 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-                    android:visibility="gone"
-                    android:background="@color/colorGrey" />
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorGrey"
+                    android:visibility="gone" />
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
                     android:backgroundTint="@color/colorBlack"
                     android:elevation="5dp"
+                    android:visibility="gone"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
-                    android:visibility="gone"
                     app:rippleColor="@color/colorPrimary">
 
                     <TextView
@@ -514,8 +672,8 @@
                         style="@style/TextSecondaryRegular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_gravity="start|center_vertical"
                         android:layout_marginEnd="4dp"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
@@ -527,18 +685,18 @@
                         style="@style/TextWhiteRegular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center_vertical"
                         android:layout_alignParentEnd="true"
+                        android:layout_gravity="end|center_vertical"
                         android:layout_toEndOf="@id/tv_pinterest"
                         android:background="@null"
                         android:gravity="end"
+                        android:hint="www.pinterest.com"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:hint="www.pinterest.com"
-                        android:textColorHint="@color/colorDivider"
                         android:textAlignment="viewEnd"
+                        android:textColorHint="@color/colorDivider"
                         android:textCursorDrawable="@color/colorWhite"
                         android:textSize="@dimen/text_small"
                         tools:ignore="RtlCompat" />
@@ -548,18 +706,17 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-                    android:visibility="gone"
-                    android:background="@color/colorGrey" />
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/colorGrey"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
-
 
 
     <com.google.android.material.button.MaterialButton
@@ -579,19 +736,19 @@
         android:textAllCaps="false"
         android:textSize="@dimen/text_normal"
         app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:rippleColor="@color/colorWhite"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        tools:ignore="MissingConstraints" />
 
     <ProgressBar
         android:id="@+id/progressBar"
+        style="@style/CircularProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        style="@style/CircularProgress"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

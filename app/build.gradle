@@ -294,6 +294,8 @@ dependencies {
 
     // For Kotlin
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    // SDP
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
 
 }
 

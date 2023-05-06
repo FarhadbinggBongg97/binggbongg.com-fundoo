@@ -612,41 +612,19 @@
                     android:padding="10dp" />
 
 
-                <com.google.android.material.card.MaterialCardView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/lay_socialMedia"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:backgroundTint="@color/colorBlack"
-                    android:elevation="5dp"
-                    android:visibility="visible"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="2dp"
-                    app:rippleColor="@color/colorPrimary">
-
-                    <TextView
-                        android:id="@+id/tv_socialMedia"
-                        style="@style/TextSecondaryRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:text="@string/social_media"
-                        android:textSize="@dimen/text_normal" />
-
-
-                    <ImageView
-                        android:id="@+id/img_socialMedia"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="end|center_vertical"
-                        android:gravity="end"
-                        android:src="@drawable/socialmedia_arrow" />
-
-                </com.google.android.material.card.MaterialCardView>
+                    android:background="@drawable/round_button_white_border"
+                    android:text="Add All Your Links Here"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
 
 
                 <View
@@ -658,26 +636,26 @@
                     android:padding="10dp" />
 
 
-                <com.google.android.material.button.MaterialButton
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/btnSave"
-                    style="@style/TextWhiteRegular"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="30dp"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/round_button_white_border"
                     android:insetTop="4dp"
                     android:insetBottom="4dp"
                     android:letterSpacing="0"
+                    android:textStyle="bold"
                     android:text="@string/save"
                     android:textAllCaps="false"
-                    android:textSize="@dimen/text_normal"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="@dimen/_13sdp"
                     app:cornerRadius="8dp"
-                    app:rippleColor="@color/colorWhite"
                     tools:ignore="MissingConstraints" />
-
 
             </LinearLayout>
 

@@ -38,10 +38,9 @@ public class SocialMediaLink extends BaseActivity implements View.OnClickListene
             instagram, linkedIn;
     MaterialButton save;
     ApiInterface apiInterface;
-    ImageView btnBack;
-    TextView title;
+    ImageView btnBack,ivEdit,ivInsta,ivFb,ivWhatsApp,ivLinkedlin,ivSnapchat,ivTwitter;
+    TextView title,tvLinkTitle,tvTitleInsta,tvTitleFb,tvTitleWhatsApp,tvTitleLinkedIn,tvTitleSnapchat,tvTitleTwitter;
     ProgressBar progressBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +71,29 @@ public class SocialMediaLink extends BaseActivity implements View.OnClickListene
         title = findViewById(R.id.txtTitle);
         save = findViewById(R.id.btnSave);
         progressBar = findViewById(R.id.progressBar);
+        ivEdit = findViewById(R.id.ivEdit);
+        ivInsta = findViewById(R.id.ivEditInsta);
+        ivFb = findViewById(R.id.ivEditFB);
+        ivWhatsApp = findViewById(R.id.ivEditWhatsapp);
+        ivLinkedlin = findViewById(R.id.ivEditLinkedLin);
+        ivSnapchat = findViewById(R.id.ivEditSnapchat);
+        ivTwitter = findViewById(R.id.ivEditTwitter);
+        tvLinkTitle = findViewById(R.id.tv_titleYoutube);
+        tvTitleInsta = findViewById(R.id.tv_title_insta);
+        tvTitleFb = findViewById(R.id.tv_title_fb);
+        tvTitleWhatsApp = findViewById(R.id.tv_title_whatsApp);
+        tvTitleLinkedIn = findViewById(R.id.tv_title_linkedIn);
+        tvTitleSnapchat = findViewById(R.id.tv_title_snapchat);
+        tvTitleTwitter = findViewById(R.id.tv_title_twitter);
 
         save.setOnClickListener(this);
+        ivEdit.setOnClickListener(this);
+        ivInsta.setOnClickListener(this);
+        ivFb.setOnClickListener(this);
+        ivWhatsApp.setOnClickListener(this);
+        ivLinkedlin.setOnClickListener(this);
+        ivSnapchat.setOnClickListener(this);
+        ivTwitter.setOnClickListener(this);
     }
 
     public void setData(){
@@ -97,6 +117,34 @@ public class SocialMediaLink extends BaseActivity implements View.OnClickListene
         switch(v.getId()){
             case R.id.btnSave:
                 updateSocialMediaLink();
+                break;
+            case R.id.ivEdit:
+                tvLinkTitle.setVisibility(View.GONE);
+                youtubeLink.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ivEditInsta:
+                tvTitleInsta.setVisibility(View.GONE);
+                instagram.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ivEditFB:
+                tvTitleFb.setVisibility(View.GONE);
+                fbLink.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ivEditWhatsapp:
+                tvTitleWhatsApp.setVisibility(View.GONE);
+                whatsAppLink.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ivEditLinkedLin:
+                tvTitleLinkedIn.setVisibility(View.GONE);
+                linkedIn.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ivEditSnapchat:
+                tvTitleSnapchat.setVisibility(View.GONE);
+                snapchatLink.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ivEditTwitter:
+                tvTitleTwitter.setVisibility(View.GONE);
+                twitterLink.setVisibility(View.VISIBLE);
                 break;
         }
 

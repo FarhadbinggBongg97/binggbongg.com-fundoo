@@ -123,7 +123,7 @@ public class EditProfileActivity extends BaseFragmentActivity {
     @BindView(R.id.paymentLay)
     MaterialCardView paymentLay;
     @BindView(R.id.btnSave)
-    Button btnSave;
+    TextView btnSave;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
     @BindView(R.id.adView)
@@ -131,7 +131,7 @@ public class EditProfileActivity extends BaseFragmentActivity {
     @BindView(R.id.parentLay)
     RelativeLayout parentLay;
     @BindView(R.id.lay_socialMedia)
-    MaterialCardView socialMediaLay;
+    TextView socialMediaLay;
     @BindView(R.id.et_cityName) TextView cityName;
     @BindView(R.id.et_countryName) TextView countryName;
     @BindView(R.id.et_stateName) TextView stateName;
