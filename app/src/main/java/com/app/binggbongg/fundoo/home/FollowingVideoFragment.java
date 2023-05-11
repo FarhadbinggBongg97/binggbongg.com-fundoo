@@ -1684,8 +1684,10 @@ public class FollowingVideoFragment extends Fragment {
                 });
 
                 profileImage.setOnClickListener(v -> profileImageClickListener.onUserClicked(true));
-                txt_title.setOnClickListener(v -> profileImageClickListener.onUserClicked(true));
-
+                txt_title.setOnClickListener(v -> {
+                    profileImageClickListener.onUserClicked(true);
+                    Toast.makeText(getActivity(), "FollowingClicked", Toast.LENGTH_SHORT).show();
+                });
 
                 //Live Streaming Addon
 

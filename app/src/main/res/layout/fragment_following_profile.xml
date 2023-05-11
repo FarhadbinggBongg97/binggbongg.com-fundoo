@@ -105,15 +105,15 @@
                 android:textSize="@dimen/text_normal" />
 
             <LinearLayout
-                android:layout_below="@+id/userBio"
+                android:id="@+id/giftLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4"
-                android:id="@+id/giftLay"
+                android:layout_below="@+id/userBio"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:visibility="gone">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="4">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -124,34 +124,34 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:alpha="0.2"
-                        android:backgroundTint="@color/colorWhite"
-                        android:background="@drawable/bg_primary_curved" />
+                        android:background="@drawable/bg_primary_curved"
+                        android:backgroundTint="@color/colorWhite" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/starIcon"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:src="@drawable/star"
-                            android:id="@+id/starIcon"/>
+                            android:src="@drawable/star" />
 
                         <TextView
                             android:id="@+id/tv_totalStar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="0"
-                            android:layout_gravity="center_horizontal"
                             android:layout_below="@id/starIcon"
                             android:layout_centerHorizontal="true"
-                            android:textColor="@color/colorWhite"
+                            android:layout_gravity="center_horizontal"
                             android:layout_marginTop="5dp"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/text_normal" />
+                            android:singleLine="true"
+                            android:text="0"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_normal"
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -168,69 +168,70 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:alpha="0.2"
-                        android:backgroundTint="@color/colorWhite"
-                        android:background="@drawable/bg_primary_curved" />
+                        android:background="@drawable/bg_primary_curved"
+                        android:backgroundTint="@color/colorWhite" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/diamondIcon"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:src="@drawable/diamond_profile"
-                            android:id="@+id/diamondIcon"/>
+                            android:src="@drawable/diamond_profile" />
 
                         <TextView
                             android:id="@+id/tv_totalDiamond"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
                             android:singleLine="true"
                             android:text="0"
-                            android:layout_gravity="center_horizontal"
                             android:textColor="@color/colorWhite"
-                            android:layout_marginTop="5dp"
-                            android:textStyle="bold"
                             android:textSize="@dimen/text_normal"
-                            />
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="106dp"
                     android:layout_marginStart="5dp"
-                    android:visibility="gone"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:visibility="gone">
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:alpha="0.2"
-                        android:backgroundTint="@color/colorWhite"
-                        android:background="@drawable/bg_primary_curved" />
+                        android:background="@drawable/bg_primary_curved"
+                        android:backgroundTint="@color/colorWhite" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/giftIcon"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:src="@drawable/rose"
-                            android:id="@+id/giftIcon"/>
+                            android:src="@drawable/rose" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/giftIcon"
+                            android:layout_gravity="center"
                             android:layout_marginTop="5dp"
                             android:singleLine="true"
-                            android:layout_gravity="center"
                             android:text="0 Gifts"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/text_normal"
@@ -251,14 +252,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:alpha="0.2"
-                        android:backgroundTint="@color/colorWhite"
-                        android:background="@drawable/bg_primary_curved" />
+                        android:background="@drawable/bg_primary_curved"
+                        android:backgroundTint="@color/colorWhite" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/Icon4"
@@ -270,15 +271,14 @@
                             android:id="@+id/tv_totalGifts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_below="@id/Icon4"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
                             android:singleLine="true"
                             android:text="0 Gifts"
-                            android:layout_gravity="center"
-                            android:layout_below="@id/Icon4"
                             android:textColor="@color/colorWhite"
-                            android:layout_marginTop="5dp"
-                            android:textStyle="bold"
                             android:textSize="@dimen/text_normal"
-                            />
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -286,42 +286,42 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:layout_height="106dp"
+                    android:layout_marginStart="5dp"
                     android:layout_weight="1">
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:alpha="0.2"
-                        android:backgroundTint="@color/colorWhite"
-                        android:background="@drawable/bg_primary_curved" />
+                        android:background="@drawable/bg_primary_curved"
+                        android:backgroundTint="@color/colorWhite" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/votesIcon"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:src="@drawable/vote_draw"
-                            android:id="@+id/votesIcon"/>
+                            android:src="@drawable/vote_draw" />
 
                         <TextView
                             android:id="@+id/tv_receivedVotes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="0"
-                            android:layout_gravity="center"
                             android:layout_below="@id/votesIcon"
                             android:layout_centerHorizontal="true"
-                            android:textColor="@color/colorWhite"
+                            android:layout_gravity="center"
                             android:layout_marginTop="5dp"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/text_normal" />
+                            android:singleLine="true"
+                            android:text="0"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_normal"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -336,13 +336,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/giftLay"
-                android:weightSum="4"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
                 android:visibility="invisible"
-               >
+                android:weightSum="4">
 
                 <LinearLayout
 
@@ -941,10 +940,10 @@
                         android:id="@+id/shareLay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp">
+                        android:layout_marginEnd="20dp"
+                        android:paddingBottom="20dp">
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/shareCard"
@@ -1006,9 +1005,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_below="@+id/shareCard"
-                            android:visibility="gone"
                             android:layout_marginTop="10dp"
-                            android:background="@color/colorGrey" />
+                            android:background="@color/colorGrey"
+                            android:visibility="gone" />
 
                     </RelativeLayout>
 
@@ -1021,7 +1020,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="40dp"
                         android:layout_marginBottom="20dp"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                     <include
                         layout="@layout/layout_renewal_banner"
@@ -1035,171 +1034,192 @@
 
                 </LinearLayout>
 
+
                 <LinearLayout
                     android:id="@+id/otherUserLay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
                     android:orientation="vertical"
-                    android:visibility="gone">
-
+                    android:visibility="visible">
 
                     <RelativeLayout
-                        android:id="@+id/otherVideoLay"
+                        android:id="@+id/vCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp">
+                        android:background="@drawable/round_button_white_border"
+                        android:gravity="center"
+                        android:padding="10dp">
 
-                        <com.google.android.material.card.MaterialCardView
-
-                            android:id="@+id/vCard"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/tvVideo"
+                            style="@style/TextSecondaryRegular"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/colorBlack"
-                            android:clickable="true"
-                            android:elevation="5dp"
-                            android:focusable="true"
-                            android:gravity="center"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="2dp"
-                            app:rippleColor="@color/colorPrimary">
+                            android:layout_centerVertical="true"
+                            android:text="@string/videos"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_normal" />
 
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp">
-
-                                <TextView
-
-                                    style="@style/TextSecondaryRegular"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_toEndOf="@+id/iVideo"
-                                    android:text="@string/videos"
-                                    android:textSize="@dimen/text_normal" />
-
-                                <TextView
-                                    android:id="@+id/txtOtherUserVCount"
-                                    style="@style/TextWhiteRegular"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_gravity="start|center_vertical"
-                                    android:text="100"
-                                    android:textSize="@dimen/text_normal" />
-
-                                <ImageView
-
-                                    android:id="@+id/iVideo"
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_alignParentStart="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginEnd="15dp"
-                                    android:src="@drawable/videos" />
-
-                            </RelativeLayout>
-
-
-                        </com.google.android.material.card.MaterialCardView>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_below="@+id/vCard"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorGrey" />
+                        <TextView
+                            android:id="@+id/txtOtherUserVCount"
+                            style="@style/TextWhiteRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_toEndOf="@+id/tvVideo"
+                            android:text="25"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_normal" />
 
 
                     </RelativeLayout>
 
-
-                    <com.google.android.material.button.MaterialButton
-
-                        android:id="@+id/btnFollow"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
-                        android:backgroundTint="@color/colorDarkGrey"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:letterSpacing="0"
-                        android:text="@string/unfollow"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/text_normal"
-                        app:cornerRadius="8dp" />
-
-                    <com.google.android.material.button.MaterialButton
-
-                        android:id="@+id/btnMessage"
-                        style="@style/TextWhiteRegular"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/colorDarkGrey"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:letterSpacing="0"
-                        android:text="@string/message"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/text_normal"
-                        app:cornerRadius="8dp" />
-
-                   <!-- Audio call Addon -->
-
-                    <com.google.android.material.button.MaterialButton
+                    <RelativeLayout
                         android:id="@+id/btnVideoCall"
-                        style="@style/TextWhiteRegular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/colorDarkGrey"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:letterSpacing="0"
-                        android:text="@string/video_call"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/text_normal"
-                        app:cornerRadius="8dp" />
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_button_white_border"
+                        android:gravity="center"
+                        android:padding="10dp">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnBlock"
-                        style="@style/TextWhiteRegular"
+                        <TextView
+                            android:id="@+id/tvVideoLive"
+                            style="@style/TextSecondaryRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Record Live"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_normal" />
+
+                        <TextView
+                            android:id="@+id/tvRecordLive"
+                            style="@style/TextWhiteRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_toEndOf="@+id/tvVideoLive"
+                            android:text="25"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_normal" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/shopBingg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:backgroundTint="@color/colorDarkGrey"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:letterSpacing="0"
-                        android:text="@string/block"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/text_normal"
-                        app:cornerRadius="8dp" />
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_button_white_border"
+                        android:gravity="center"
+                        android:padding="10dp">
 
+                        <TextView
+                            android:id="@+id/tvShopBingg"
+                            style="@style/TextSecondaryRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Shop Bingg"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_normal" />
+
+                        <TextView
+                            android:id="@+id/tvShopBinggTitle"
+                            style="@style/TextWhiteRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_toEndOf="@+id/tvShopBingg"
+                            android:text="25"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_normal" />
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/btnFollow"
+                            style="@style/TextWhiteRegular"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_button_white_border"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:letterSpacing="0"
+                            android:padding="10dp"
+                            android:text="@string/unfollow"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/text_normal"
+                            app:cornerRadius="8dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/btnMessage"
+                            style="@style/TextWhiteRegular"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_button_white_border"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:letterSpacing="0"
+                            android:padding="10dp"
+                            android:text="@string/message"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/text_normal"
+                            app:cornerRadius="8dp" />
+                        <!-- Audio call Addon-->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/btnBlock"
+                            style="@style/TextWhiteRegular"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_button_white_border"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:letterSpacing="0"
+                            android:padding="10dp"
+                            android:text="@string/block"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/text_normal"
+                            app:cornerRadius="8dp" />
+                    </LinearLayout>
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 
 
-            <include layout="@layout/layout_social"
-                android:layout_below="@id/userLay"
+            <include
+                layout="@layout/layout_social"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_below="@id/userLay"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="40dp"
-                />
+                android:layout_marginBottom="40dp" />
 
         </RelativeLayout>
 

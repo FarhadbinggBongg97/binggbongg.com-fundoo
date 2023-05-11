@@ -5,6 +5,8 @@ plugins {
     id("com.google.gms.google-services")
     id("com.jakewharton.butterknife")
     id("com.onesignal.androidsdk.onesignal-gradle-plugin")
+    id("org.jetbrains.dokka")
+
 }
 
 ext {

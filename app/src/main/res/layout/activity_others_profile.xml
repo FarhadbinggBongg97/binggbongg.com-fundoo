@@ -110,14 +110,14 @@
                         android:textSize="@dimen/text_normal" />
 
                     <LinearLayout
-                        android:layout_below="@+id/userBio"
+                        android:id="@+id/giftLay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="4"
-                        android:id="@+id/giftLay"
+                        android:layout_below="@+id/userBio"
                         android:layout_gravity="center"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -128,35 +128,34 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:alpha="0.2"
-                                android:backgroundTint="@color/colorWhite"
-                                android:background="@drawable/bg_primary_curved" />
+                                android:background="@drawable/bg_primary_curved"
+                                android:backgroundTint="@color/colorWhite" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_centerInParent="true">
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
 
                                 <ImageView
+                                    android:id="@+id/starIcon"
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
-                                    android:src="@drawable/star"
-                                    android:id="@+id/starIcon"/>
+                                    android:src="@drawable/star" />
 
                                 <TextView
                                     android:id="@+id/tv_totalStar"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:singleLine="true"
-                                    android:text="-"
-                                    android:layout_gravity="center_horizontal"
                                     android:layout_below="@id/starIcon"
                                     android:layout_centerHorizontal="true"
-                                    android:textColor="@color/colorWhite"
+                                    android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="5dp"
-                                    android:textStyle="bold"
+                                    android:singleLine="true"
+                                    android:text="-"
+                                    android:textColor="@color/colorWhite"
                                     android:textSize="@dimen/text_normal"
-                                    />
+                                    android:textStyle="bold" />
 
 
                             </LinearLayout>
@@ -173,8 +172,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:alpha="0.2"
-                                android:backgroundTint="@color/colorWhite"
-                                android:background="@drawable/bg_primary_curved" />
+                                android:background="@drawable/bg_primary_curved"
+                                android:backgroundTint="@color/colorWhite" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -208,35 +207,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="106dp"
                             android:layout_marginStart="5dp"
-                            android:visibility="gone"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:visibility="gone">
 
                             <FrameLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:alpha="0.2"
-                                android:backgroundTint="@color/colorWhite"
-                                android:background="@drawable/bg_primary_curved" />
+                                android:background="@drawable/bg_primary_curved"
+                                android:backgroundTint="@color/colorWhite" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_centerInParent="true">
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
 
                                 <ImageView
+                                    android:id="@+id/giftIcon"
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
-                                    android:src="@drawable/rose"
-                                    android:id="@+id/giftIcon"/>
+                                    android:src="@drawable/rose" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/giftIcon"
+                                    android:layout_gravity="center"
                                     android:layout_marginTop="5dp"
                                     android:singleLine="true"
-                                    android:layout_gravity="center"
                                     android:text="0 Gifts"
                                     android:textColor="@color/colorWhite"
                                     android:textSize="@dimen/text_normal"
@@ -257,8 +256,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:alpha="0.2"
-                                android:backgroundTint="@color/colorWhite"
-                                android:background="@drawable/bg_primary_curved" />
+                                android:background="@drawable/bg_primary_curved"
+                                android:backgroundTint="@color/colorWhite" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -291,43 +290,43 @@
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="5dp"
                             android:layout_height="106dp"
-                            android:layout_weight="1">
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:visibility="gone">
 
                             <FrameLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:alpha="0.2"
-                                android:backgroundTint="@color/colorWhite"
-                                android:background="@drawable/bg_primary_curved" />
+                                android:background="@drawable/bg_primary_curved"
+                                android:backgroundTint="@color/colorWhite" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_centerInParent="true">
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
 
                                 <ImageView
+                                    android:id="@+id/votesIcon"
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
-                                    android:src="@drawable/vote_draw"
-                                    android:id="@+id/votesIcon"/>
+                                    android:src="@drawable/vote_draw" />
 
                                 <TextView
                                     android:id="@+id/tv_receivedVotes"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:singleLine="true"
-                                    android:text="0"
-                                    android:layout_gravity="center"
                                     android:layout_below="@id/votesIcon"
                                     android:layout_centerHorizontal="true"
-                                    android:textColor="@color/colorWhite"
+                                    android:layout_gravity="center"
                                     android:layout_marginTop="5dp"
-                                    android:textStyle="bold"
+                                    android:singleLine="true"
+                                    android:text="0"
+                                    android:textColor="@color/colorWhite"
                                     android:textSize="@dimen/text_normal"
-                                    />
+                                    android:textStyle="bold" />
 
                             </LinearLayout>
 
@@ -475,418 +474,174 @@
                             android:orientation="vertical"
                             android:visibility="visible">
 
-
                             <RelativeLayout
-                                android:id="@+id/otherVideoLay"
+                                android:id="@+id/vCard"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp">
+                                android:background="@drawable/round_button_white_border"
+                                android:gravity="center"
+                                android:padding="10dp">
 
-                                <com.google.android.material.card.MaterialCardView
-
-                                    android:id="@+id/vCard"
-                                    android:layout_width="match_parent"
+                                <TextView
+                                    android:id="@+id/tvVideo"
+                                    style="@style/TextSecondaryRegular"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:backgroundTint="@color/colorBlack"
-                                    android:clickable="true"
-                                    android:elevation="5dp"
-                                    android:focusable="true"
-                                    android:gravity="center"
-                                    app:cardCornerRadius="5dp"
-                                    app:cardElevation="2dp"
-                                    app:rippleColor="@color/colorPrimary">
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/videos"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_normal" />
 
-                                    <RelativeLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:padding="5dp">
-
-                                        <TextView
-
-                                            style="@style/TextSecondaryRegular"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_centerVertical="true"
-                                            android:layout_toEndOf="@+id/iVideo"
-                                            android:text="@string/videos"
-                                            android:textSize="@dimen/text_normal" />
-
-                                        <TextView
-                                            android:id="@+id/txtOtherUserVCount"
-                                            style="@style/TextWhiteRegular"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_alignParentEnd="true"
-                                            android:layout_centerVertical="true"
-                                            android:layout_gravity="start|center_vertical"
-                                            android:text="-"
-                                            android:textSize="@dimen/text_normal" />
-
-                                        <ImageView
-
-                                            android:id="@+id/iVideo"
-                                            android:layout_width="20dp"
-                                            android:layout_height="20dp"
-                                            android:layout_alignParentStart="true"
-                                            android:layout_centerVertical="true"
-                                            android:layout_marginEnd="15dp"
-                                            android:src="@drawable/videos" />
-
-                                    </RelativeLayout>
+                                <TextView
+                                    android:id="@+id/txtOtherUserVCount"
+                                    style="@style/TextWhiteRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start|center_vertical"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:layout_toEndOf="@+id/tvVideo"
+                                    android:text="25"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_normal" />
 
 
-                                </com.google.android.material.card.MaterialCardView>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:id="@+id/btnVideoCall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/round_button_white_border"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:id="@+id/tvVideoLive"
+                                    style="@style/TextSecondaryRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="Record Live"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_normal" />
+
+                                <TextView
+                                    android:id="@+id/tvRecordLive"
+                                    style="@style/TextWhiteRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start|center_vertical"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:layout_toEndOf="@+id/tvVideoLive"
+                                    android:text="25"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_normal" />
 
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_below="@+id/vCard"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@color/colorGrey" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:id="@+id/shopBingg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/round_button_white_border"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:id="@+id/tvShopBingg"
+                                    style="@style/TextSecondaryRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="Shop Bingg"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_normal" />
+
+                                <TextView
+                                    android:id="@+id/tvShopBinggTitle"
+                                    style="@style/TextWhiteRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start|center_vertical"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:layout_toEndOf="@+id/tvShopBingg"
+                                    android:text="25"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_normal" />
 
 
                             </RelativeLayout>
 
-
-                            <com.google.android.material.button.MaterialButton
-
-                                android:id="@+id/btnFollow"
-                                style="@style/TextWhiteRegular"
+                            <LinearLayout
+                                android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="40dp"
-                                android:backgroundTint="@color/colorDarkGrey"
-                                android:insetTop="0dp"
-                                android:insetBottom="0dp"
-                                android:letterSpacing="0"
-                                android:text="@string/unfollow"
-                                android:textAllCaps="false"
-                                android:textSize="@dimen/text_normal"
-                                app:cornerRadius="8dp" />
-
-                            <com.google.android.material.button.MaterialButton
-
-                                android:id="@+id/btnMessage"
-                                style="@style/TextWhiteRegular"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:backgroundTint="@color/colorDarkGrey"
-                                android:insetTop="0dp"
-                                android:insetBottom="0dp"
-                                android:letterSpacing="0"
-                                android:text="@string/message"
-                                android:textAllCaps="false"
-                                android:textSize="@dimen/text_normal"
-                                app:cornerRadius="8dp" />
-
-                           <!-- Audio call Addon-->
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnVideoCall"
-                                style="@style/TextWhiteRegular"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:backgroundTint="@color/colorDarkGrey"
-                                android:insetTop="0dp"
-                                android:insetBottom="0dp"
-                                android:letterSpacing="0"
-                                android:text="@string/video_call"
-                                android:textAllCaps="false"
-                                android:textSize="@dimen/text_normal"
-                                app:cornerRadius="8dp" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnBlock"
-                                style="@style/TextWhiteRegular"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
-                                android:backgroundTint="@color/colorDarkGrey"
-                                android:insetTop="0dp"
-                                android:insetBottom="0dp"
-                                android:letterSpacing="0"
-                                android:text="@string/block"
-                                android:textAllCaps="false"
-                                android:textSize="@dimen/text_normal"
-                                app:cornerRadius="8dp" />
+                                android:orientation="horizontal">
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/btnFollow"
+                                    android:background="@drawable/round_button_white_border"
+                                    style="@style/TextWhiteRegular"
+                                    android:padding="10dp"
+                                    android:gravity="center"
+                                    android:layout_marginEnd="@dimen/_5sdp"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
+                                    android:letterSpacing="0"
+                                    android:text="@string/unfollow"
+                                    android:textAllCaps="false"
+                                    android:textSize="@dimen/text_normal"
+                                    app:cornerRadius="8dp" />
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_marginEnd="@dimen/_5sdp"
+                                    android:gravity="center"
+                                    android:background="@drawable/round_button_white_border"
+                                    android:id="@+id/btnMessage"
+                                    style="@style/TextWhiteRegular"
+                                    android:layout_width="0dp"
+                                    android:padding="10dp"
+                                    android:layout_weight="1"                                    android:layout_height="wrap_content"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
+                                    android:letterSpacing="0"
+                                    android:text="@string/message"
+                                    android:textAllCaps="false"
+                                    android:textSize="@dimen/text_normal"
+                                    app:cornerRadius="8dp" />
+                                <!-- Audio call Addon-->
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_marginEnd="@dimen/_5sdp"
+                                    android:padding="10dp"
+                                    android:gravity="center"
+                                    android:background="@drawable/round_button_white_border"
+                                    android:id="@+id/btnBlock"
+                                    style="@style/TextWhiteRegular"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"                                    android:layout_height="wrap_content"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
+                                    android:letterSpacing="0"
+                                    android:text="@string/block"
+                                    android:textAllCaps="false"
+                                    android:textSize="@dimen/text_normal"
+                                    app:cornerRadius="8dp" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
-
-                        <!--<LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/videoCountLay"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="?attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:elevation="5dp"
-                                android:focusable="true"
-                                app:cardCornerRadius="5dp">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <TextView
-                                        android:id="@+id/txtMyVideo"
-                                        style="@style/TextSecondaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_toEndOf="@+id/iconVideo"
-                                        android:hint="@string/my_video"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <TextView
-                                        android:id="@+id/txtVideoCount"
-                                        style="@style/TextPrimaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentEnd="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_gravity="start|center_vertical"
-                                        android:layout_marginEnd="15dp"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:text="-"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <ImageView
-                                        android:id="@+id/iconVideo"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_marginEnd="15dp"
-                                        android:src="@drawable/my_video" />
-
-                                </RelativeLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/videoHistoryLay"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="?attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:elevation="5dp"
-                                android:focusable="true"
-                                app:cardCornerRadius="5dp">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <TextView
-                                        style="@style/TextSecondaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_toEndOf="@+id/iconVideoHistory"
-                                        android:hint="@string/video_history"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <TextView
-                                        android:id="@+id/txtHistoryCount"
-                                        style="@style/TextPrimaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentEnd="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_gravity="start|center_vertical"
-                                        android:layout_marginEnd="15dp"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:text="-"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <ImageView
-                                        android:id="@+id/iconVideoHistory"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_marginEnd="15dp"
-                                        android:src="@drawable/video_history" />
-
-                                </RelativeLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/gemsLay"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="?attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:elevation="5dp"
-                                android:focusable="true"
-                                app:cardCornerRadius="5dp">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <TextView
-                                        android:id="@+id/txtGems"
-                                        style="@style/TextSecondaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_toEndOf="@+id/iconDiamond"
-                                        android:hint="@string/gems"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <TextView
-                                        android:id="@+id/txtGemsCount"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentEnd="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_gravity="start|center_vertical"
-                                        android:layout_marginEnd="15dp"
-                                        android:fontFamily="@font/font_regular"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:text="-"
-                                        android:textAppearance="@style/TextPrimaryRegular"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <ImageView
-                                        android:id="@+id/iconDiamond"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_marginEnd="15dp"
-                                        android:src="@drawable/diamond" />
-
-                                </RelativeLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/giftsLay"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="?attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:elevation="5dp"
-                                android:focusable="true"
-                                app:cardCornerRadius="5dp">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <TextView
-                                        style="@style/TextSecondaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_toEndOf="@+id/iconGift"
-                                        android:hint="@string/gifts"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <TextView
-                                        android:id="@+id/txtGiftsCount"
-                                        style="@style/TextPrimaryRegular"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentEnd="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_gravity="start|center_vertical"
-                                        android:layout_marginEnd="15dp"
-                                        android:paddingTop="15dp"
-                                        android:paddingBottom="15dp"
-                                        android:text="-"
-                                        android:textSize="@dimen/text_medium" />
-
-                                    <ImageView
-                                        android:id="@+id/iconGift"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginStart="15dp"
-                                        android:src="@drawable/gift" />
-
-                                </RelativeLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <include
-                                layout="@layout/layout_prime_banner"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="20dp" />
-
-                            <include
-                                layout="@layout/layout_renewal_banner"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="gone" />
-
-                        </LinearLayout>-->
-
                     </LinearLayout>
 
-                    <include layout="@layout/layout_social"
+                    <include
+                        layout="@layout/layout_social"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="40dp"
-                        />
+                        android:layout_marginBottom="40dp" />
 
                     <include layout="@layout/layout_adview" />
 

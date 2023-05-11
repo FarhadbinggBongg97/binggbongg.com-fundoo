@@ -108,10 +108,11 @@ public class ForYouProfileFragment extends Fragment {
             shareCount, viewCount;
     LinearLayout ownUserLay, otherUserLay, fansLay, followingLay, displayCountLay, sdgvLayout;
     ProgressBar progrssBar;
-    RelativeLayout favLay, videoLay, coinsLay, giftsLay, otherVideoLay, parentLay, premiumLay;
+    RelativeLayout favLay, videoLay, coinsLay, giftsLay, parentLay, premiumLay;
     RelativeLayout referralLay, shareLay, viewsLay;
-    MaterialButton btnFollow, btnMessage, btnVideoCall, btnBlock;
-    MaterialCardView vCard, videoCard, giftsCard, coinsCard, favCard, renewalLay, subscribeLay,
+    TextView btnFollow, btnMessage, btnBlock;
+    RelativeLayout vCard,btnVideoCall;
+    MaterialCardView  videoCard, giftsCard, coinsCard, favCard, renewalLay, subscribeLay,
     shareCard, referralCard, viewsCard;
     String profile_id;
     ProfileResponse profile;
@@ -199,7 +200,6 @@ public class ForYouProfileFragment extends Fragment {
         referralLay = rootView.findViewById(R.id.referralLay);
         subscribeLay = rootView.findViewById(R.id.subscribeLay);
         renewalLay = rootView.findViewById(R.id.renewalLay);
-        otherVideoLay = rootView.findViewById(R.id.otherVideoLay);
         vCard = rootView.findViewById(R.id.vCard);
         txtOtherUserVCount = rootView.findViewById(R.id.txtOtherUserVCount);
         btnFollow = rootView.findViewById(R.id.btnFollow);

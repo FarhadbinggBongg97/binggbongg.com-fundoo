@@ -100,10 +100,11 @@ public class FollowingProfileFragment extends Fragment {
             txtVideoCount, txtCoinsCount, txtGiftCount, txtOtherUserVCount, totalVotes, totalDiamond,
             totalStar, totalGifts, receivedVotes, referralCount, shareCount, viewCount;
     LinearLayout ownUserLay, otherUserLay, fansLay, followingLay, displayCountLay;
-    RelativeLayout favLay, videoLay, coinsLay, giftsLay, otherVideoLay, parentLay, sharelay, viewsLay
+    RelativeLayout favLay, videoLay, coinsLay, giftsLay, parentLay, sharelay, viewsLay
             , referralLay;
-    MaterialButton btnFollow, btnMessage, btnVideoCall, btnBlock;
-    MaterialCardView vCard, videoCard, giftsCard, coinsCard, favCard, renewalLay, subscribeLay, shareCard
+    TextView btnFollow, btnMessage, btnBlock;
+    RelativeLayout vCard,btnVideoCall;
+    MaterialCardView  videoCard, giftsCard, coinsCard, favCard, renewalLay, subscribeLay, shareCard
             , referralCard, viewsCard;
     String profile_id;
     ProgressBar progrssBar;
@@ -272,7 +273,6 @@ public class FollowingProfileFragment extends Fragment {
         giftsLay = rootView.findViewById(R.id.giftsLay);
         subscribeLay = rootView.findViewById(R.id.subscribeLay);
         renewalLay = rootView.findViewById(R.id.renewalLay);
-        otherVideoLay = rootView.findViewById(R.id.otherVideoLay);
         sharelay = rootView.findViewById(R.id.shareLay);
         referralLay = rootView.findViewById(R.id.referralLay);
         viewsLay = rootView.findViewById(R.id.viewsLay);
