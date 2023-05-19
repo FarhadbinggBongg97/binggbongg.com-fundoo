@@ -26,6 +26,201 @@
 
     </FrameLayout>
 
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/videoUpload"
+            style="@style/TextWhiteBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Video Upload"
+            android:textSize="@dimen/text_large_medium" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_40sdp"
+            android:layout_below="@+id/videoUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextWhiteBold"
+                    android:id="@+id/switchCamera"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/round_button_white_border"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:padding="10dp"
+                    android:text="@string/flip_camera"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_normal"
+                    app:cornerRadius="8dp" />
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextWhiteBold"
+                    android:id="@+id/timerLay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_button_white_border"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:padding="10dp"
+                    android:text="@string/start_timer"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_normal"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextWhiteBold"
+                    android:id="@+id/filterLay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/round_button_white_border"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:padding="10dp"
+                    android:text="@string/add_filter"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_normal"
+                    app:cornerRadius="8dp" />
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextWhiteBold"
+                    android:id="@+id/soundLay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_button_white_border"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:padding="10dp"
+                    android:text="@string/upload_sound"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_normal"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteBold"
+                android:id="@+id/gallaryLay"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_white_border"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="5dp"
+                android:text="Upload a video from any\nsocial media platform"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteBold"
+                android:id="@+id/tv_liveBtn"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_white_border"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="10dp"
+                android:text="Go Live"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteBold"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_white_border"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="10dp"
+                android:text="Shop Bingg Live"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteBold"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_white_border"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="10dp"
+                android:text="upload a shop bingg video "
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteBold"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_white_border"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="10dp"
+                android:text="Upload Next Video"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextWhiteBold"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_white_border"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="10dp"
+                android:text="Upload Video"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_normal"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/cameraPageCloseButton"
@@ -60,8 +255,11 @@
         android:id="@+id/recordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:visibility="visible">
 
         <ProgressBar
@@ -104,16 +302,6 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_liveBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/BeforeVideoRecordingLayout"
-            android:text="Go Live"
-            android:padding="10dp"
-            android:layout_marginStart="25dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_medium"/>
 
         <LinearLayout
             android:id="@+id/BeforeVideoRecordingLayout"
@@ -121,56 +309,8 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/progress_bar"
             android:orientation="horizontal"
-            android:visibility="visible"
-            android:weightSum="3">
+            android:visibility="visible">
 
-            <LinearLayout
-
-                android:id="@+id/soundLay"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="?android:selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                >
-
-                <!-- <com.hitasoft.app.fundoo.external.RippleView
-                     android:id="@+id/rippleLay"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     ripple:rv_type="rectangle">
-
-                     <LinearLayout
-                         android:layout_width="match_parent"
-                         android:layout_height="match_parent"
-                         android:gravity="center"
-                         android:orientation="vertical">-->
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/camera_music" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    style="@style/TextWhiteRegular"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:singleLine="true"
-                    android:text="@string/sounds"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_tiny" />
-
-                <!--</LinearLayout>
-
-            </com.hitasoft.app.fundoo.external.RippleView>-->
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -186,39 +326,6 @@
                     android:layout_gravity="center"
                     android:background="@drawable/ripple_effect_oval_white"
                     android:src="@drawable/video_start" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-
-                android:id="@+id/gallaryLay"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="?android:selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-            >
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/galler" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    style="@style/TextWhiteRegular"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:singleLine="true"
-                    android:text="@string/gallery"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_tiny" />
 
             </LinearLayout>
 
@@ -285,209 +392,10 @@
 
     </RelativeLayout>
 
-
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="@dimen/text_size_13sp"-->
-<!--        android:textColor="@color/colorWhite"-->
-<!--        android:text="None"-->
-<!--        android:paddingStart="10dp"-->
-<!--        android:paddingEnd="10dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:paddingTop="5dp"-->
-<!--        android:paddingBottom="5dp"-->
-<!--        android:backgroundTint="@color/colorPrimary"-->
-<!--        android:background="@drawable/curved_accent"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_below="@id/filterRecLay"-->
-<!--        android:id="@+id/filter"/>-->
-
-
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/filterRecLay"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="160dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:background="@color/transparentBlack"-->
-<!--        android:visibility="invisible">-->
-
-<!--        <TextView-->
-<!--            style="@style/TextWhiteRegular"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_toStartOf="@+id/filterClose"-->
-<!--            android:text="@string/portrait"-->
-<!--            android:textSize="@dimen/text_small" />-->
-
-
-<!--        <ImageView-->
-<!--            android:id="@+id/filterClose"-->
-<!--            android:layout_width="18dp"-->
-<!--            android:layout_height="18dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:src="@drawable/close_white" />-->
-
-
-<!--        &lt;!&ndash;<com.makeramen.roundedimageview.RoundedImageView-->
-<!--            android:id="@+id/filterClose"-->
-<!--            android:layout_width="18dp"-->
-<!--            android:padding="5dp"-->
-<!--            android:layout_height="18dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"-->
-<!--            app:srcCompat="@drawable/close_white_without_circule"-->
-<!--            app:strokeColor="@color/colorWhite"-->
-<!--            app:strokeWidth="1dp" />-->
-
-<!--        <com.makeramen.roundedimageview.RoundedImageView-->
-<!--            android:visibility="gone"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:id="@+id/filterClose"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginStart="25dp"-->
-
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/close_white_without_circule"-->
-<!--            app:riv_corner_radius="65dp"-->
-<!--            app:riv_border_color="@color/colorWhite"-->
-<!--            app:riv_border_width="2dp"-->
-<!--            app:riv_oval="true"-->
-<!--            app:riv_mutate_background="true" />&ndash;&gt;-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/filterRecyclerview"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="140dp"-->
-<!--            android:layout_below="@+id/filterClose"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:visibility="visible"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            tools:listitem="@layout/item_filter" />-->
-
-<!--    </RelativeLayout>-->
-
-
-    <!--<ListView
-        android:id="@+id/filterListview"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"></ListView>-->
-
-
     <RelativeLayout
         android:id="@+id/cameraOptions"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/switchCamera"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:visibility="visible"
-                app:srcCompat="@drawable/flip" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txt_comment_count"
-                style="@style/TextWhiteRegular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:singleLine="true"
-                android:text="@string/flip"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_tiny" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/filterLay"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/switchCamera"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            >
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:visibility="visible"
-                app:srcCompat="@drawable/filter" />
-
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextWhiteRegular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:singleLine="true"
-                android:text="@string/filter"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_tiny" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/timerLay"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/filterLay"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            >
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:visibility="visible"
-                app:srcCompat="@drawable/timer" />
-
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextWhiteRegular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:singleLine="true"
-                android:text="@string/timer"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_tiny" />
-
-        </LinearLayout>
 
 
         <LinearLayout

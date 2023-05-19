@@ -132,7 +132,7 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
     public static final String TAG = "DeeparActivity";
     public static int SELECT_VIDEO = 101;
     private boolean toggleClick = false;
-    private LinearLayout soundLay, gallaryLay, BeforeVideoRecordingLayout;
+    private LinearLayout BeforeVideoRecordingLayout;
     private ShapeableImageView flashIcon;
     String getRecordTime = "0", ChangeRecordTime = "0";
     public int i = 0;
@@ -155,7 +155,7 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
     Bitmap icon;
     private CountDownAnimation countDownAnimation;
     private Boolean isCountDownRunning = false;
-    TextView textView;
+    TextView textView,gallaryLay,soundLay;
     String sound_id = "", video_id = "";
     GlFilter setfilter;
     String getSound_id, getSound_title, getSound_url, getSound_isfav, getSound_cover, gethashTag;
@@ -216,6 +216,7 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deepar);
 
+        Toast.makeText(this, "Deeeeee", Toast.LENGTH_SHORT).show();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             recordPermissions = recordPermissions12;
             mRequiredPermissions = mRequiredPermissions12;
@@ -593,7 +594,7 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
 
         soundLay = findViewById(R.id.soundLay);
         gallaryLay = findViewById(R.id.gallaryLay);
-        LinearLayout timerLay = findViewById(R.id.timerLay);
+        TextView timerLay = findViewById(R.id.timerLay);
         LinearLayout flashLay = findViewById(R.id.flashLay);
         flashIcon = findViewById(R.id.flashIcon);
         progress_bar = findViewById(R.id.progress_bar);
@@ -602,7 +603,7 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
         recordLayout = findViewById(R.id.recordLayout);
         filterRecLay = findViewById(R.id.filterRecLay);
         ImageView filterClose = findViewById(R.id.filterClose);
-        LinearLayout filterLay = findViewById(R.id.filterLay);
+        TextView filterLay = findViewById(R.id.filterLay);
         goLiveBtn = findViewById(R.id.tv_liveBtn);
 
         textView = findViewById(R.id.textView);
@@ -779,7 +780,7 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
 //            }
 //        });
 
-        LinearLayout switchCamera = findViewById(R.id.switchCamera);
+        TextView switchCamera = findViewById(R.id.switchCamera);
         switchCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
