@@ -38,7 +38,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,22 +46,8 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.binggbongg.Deepar.DeeparActivity;
-import com.app.binggbongg.model.FilterDetailsModel;
-import com.app.binggbongg.utils.ApiClient;
-import com.app.binggbongg.utils.ApiInterface;
-import com.daasuu.gpuv.camerarecorder.CameraRecordListener;
-import com.daasuu.gpuv.camerarecorder.GPUCameraRecorder;
-import com.daasuu.gpuv.camerarecorder.GPUCameraRecorderBuilder;
-import com.daasuu.gpuv.camerarecorder.LensFacing;
-import com.daasuu.gpuv.egl.filter.GlBrightnessFilter;
-import com.daasuu.gpuv.egl.filter.GlFilter;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.gson.Gson;
-import com.gowtham.library.utils.TrimType;
-import com.gowtham.library.utils.TrimVideo;
 import com.app.binggbongg.BuildConfig;
+import com.app.binggbongg.Deepar.DeeparActivity;
 import com.app.binggbongg.R;
 import com.app.binggbongg.fundoo.Video.FilterType;
 import com.app.binggbongg.fundoo.Video.ImageFilterType;
@@ -72,10 +57,21 @@ import com.app.binggbongg.helper.CountDownAnimation;
 import com.app.binggbongg.helper.NetworkReceiver;
 import com.app.binggbongg.helper.StorageUtils;
 import com.app.binggbongg.model.GetSet;
+import com.app.binggbongg.utils.ApiClient;
+import com.app.binggbongg.utils.ApiInterface;
 import com.app.binggbongg.utils.AppUtils;
 import com.app.binggbongg.utils.Constants;
 import com.app.binggbongg.utils.SharedPref;
-import com.makeramen.roundedimageview.RoundedImageView;
+import com.daasuu.gpuv.camerarecorder.CameraRecordListener;
+import com.daasuu.gpuv.camerarecorder.GPUCameraRecorder;
+import com.daasuu.gpuv.camerarecorder.GPUCameraRecorderBuilder;
+import com.daasuu.gpuv.camerarecorder.LensFacing;
+import com.daasuu.gpuv.egl.filter.GlBrightnessFilter;
+import com.daasuu.gpuv.egl.filter.GlFilter;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.imageview.ShapeableImageView;
+import com.gowtham.library.utils.TrimType;
+import com.gowtham.library.utils.TrimVideo;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -88,16 +84,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import es.dmoral.toasty.Toasty;
 import jp.co.cyberagent.android.gpuimage.GPUImage;
 import jp.co.cyberagent.android.gpuimage.GPUImageView;
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import timber.log.Timber;
 
 public class CameraActivity extends BaseFragmentActivity implements CountDownAnimation.CountDownListener {

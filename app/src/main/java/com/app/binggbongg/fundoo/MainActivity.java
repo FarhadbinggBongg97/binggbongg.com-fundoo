@@ -59,7 +59,9 @@ import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesResponseListener;
 import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.QueryPurchaseHistoryParams;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
@@ -1956,12 +1958,12 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
                                            billingResult, @Nullable List<Purchase> purchases) {
         if (purchases != null && purchases.size() > 0) {
             Log.i(TAG, "onPurchasesUpdated: " + purchases.size());
-            Log.i(TAG, "onPurchasesUpdated: " + purchases.get(purchases.size() - 1).getSku());
+            Log.i(TAG, "onPurchasesUpdated: " + purchases.get(purchases.size() - 1).getSkus());
             /* Purchases size should be 1. */
             billingClient.endConnection();
             RenewalRequest request = new RenewalRequest();
             request.setUserId(GetSet.getUserId());
-            request.setPackageId(purchases.get(purchases.size() - 1).getSku());
+            request.setPackageId(purchases.get(purchases.size() - 1).getSkus().get(0));
             request.setRenewalTime(GetSet.getPremiumExpiry());
             Call<HashMap<String, String>> call = apiInterface.verifyPayment(request);
             call.enqueue(new Callback<HashMap<String, String>>() {
@@ -2038,12 +2040,14 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
 
     public void querySubscriptions(BillingResult billingResult) {
 
-        Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.SUBS);
-        if (billingClient == null ||
-                purchasesResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-            return;
-        }
-        onPurchasesUpdated(billingResult, purchasesResult.getPurchasesList());
+        billingClient.queryPurchasesAsync(BillingClient.SkuType.SUBS, new PurchasesResponseListener() {
+            @Override
+            public void onQueryPurchasesResponse(@NonNull BillingResult billingResult, @NonNull List<Purchase> list) {
+                onPurchasesUpdated(billingResult, list);
+
+            }
+
+        });
     }
 
 

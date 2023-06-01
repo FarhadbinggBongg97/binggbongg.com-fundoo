@@ -439,7 +439,7 @@ public class GemsStoreActivity extends BaseFragmentActivity implements Purchases
         if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK
                 && purchases != null) {
             for (Purchase purchase : purchases) {
-                if (purchaseSku.equals(purchase.getSku())) {
+                if (purchaseSku.equals(purchase.getSkus())) {
                     payInApp(purchase);
                     //Consume Item to purchase again.
                     if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
@@ -458,7 +458,7 @@ public class GemsStoreActivity extends BaseFragmentActivity implements Purchases
                 public void onPurchaseHistoryResponse(BillingResult billingResult, List<PurchaseHistoryRecord> purchasesList) {
                     if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                         for (PurchaseHistoryRecord purchase : purchasesList) {
-                            if (purchaseSku.equals(purchase.getSku())) {
+                            if (purchaseSku.equals(purchase.getSkus())) {
                                 AcknowledgePurchaseParams params = AcknowledgePurchaseParams.newBuilder()
                                         .setPurchaseToken(purchase.getPurchaseToken())
                                         .build();

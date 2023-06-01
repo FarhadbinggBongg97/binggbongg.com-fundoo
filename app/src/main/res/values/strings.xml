@@ -2,11 +2,16 @@
 
     <string name="app_name" translatable="false">Bingg Bongg</string>
     <string name="facebook_app_id" translatable="false">691514755320348</string>
+    //Real Ids
     <string name="banner_ad_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="video_ad_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="video_ad_id" translatabable="false">ca-app-pub-3940256099942544~3347511713</string>
+    //Test Ids
+<!--    <string name="banner_ad_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="video_ad_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>-->
+
     <string name="dynamic_link_filter" translatable="false">binggbongg.page.link</string>
     <string name="ios_bundle_id" translatable="false">com.app.livza</string>
-    <string name="ios_app_store_id" translatable="false"></string>
+    <string name="ios_app_store_id" translatable="false"/>
     <string name="notification_channel_id" translatable="false">binggbongg_notification_channel</string>
 
     <string name="layout_direction">0</string>

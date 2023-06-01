@@ -21,16 +21,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.app.binggbongg.R;
 import com.app.binggbongg.helper.LocaleManager;
 import com.app.binggbongg.helper.NetworkReceiver;
@@ -41,12 +31,14 @@ import com.app.binggbongg.utils.ApiInterface;
 import com.app.binggbongg.utils.AppUtils;
 import com.app.binggbongg.utils.Constants;
 import com.app.binggbongg.utils.SharedPref;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrPosition;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,7 +49,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 @SuppressLint("NonConstantResourceId")
-public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVideoAdListener {
+public class EarnGemsActivity extends BaseFragmentActivity {
 
     private static final String TAG = EarnGemsActivity.class.getSimpleName();
     ApiInterface apiInterface;
@@ -84,7 +76,6 @@ public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVi
     TextView txtVideoTime;
     boolean watchVideoButton = false;
     private LinearLayout.LayoutParams linearParams;
-    private RewardedVideoAd mRewardedVideoAd;
     private CountDownTimer timer;
     private AppUtils appUtils;
     private ProgressDialog progressDialog;
@@ -167,14 +158,10 @@ public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVi
 
         btnCopy.setImageDrawable(getDrawable(R.drawable.copy));
         txtTitle.setText(getString(R.string.invite_friends));
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
 
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
-        loadRewardedVideoAd();
         if (!AdminData.showVideoAd.equals("1")) {
             btnWatchVideo.setVisibility(View.INVISIBLE);
         }
-        loadAd();
 
         if (LocaleManager.isRTL()) {
             btnBack.setRotation(180);
@@ -183,57 +170,6 @@ public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVi
         }
 
 
-    }
-
-    private void loadAd() {
-        Log.d(TAG, "loadAd: " + AdminData.isAdEnabled());
-        if (AdminData.isAdEnabled()) {
-            MobileAds.initialize(this,
-                    AdminData.googleAdsId);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-                    Log.d(TAG, "onAdLoaded: ");
-                    dismissLoading();
-                }
-
-
-                @Override
-                public void onAdFailedToLoad(LoadAdError loadAdError) {
-                    super.onAdFailedToLoad(loadAdError);
-                    Log.d(TAG, "onAdFailedToLoad: " + loadAdError.getMessage());
-                }
-
-                @Override
-                public void onAdOpened() {
-                    // Code to be executed when an ad opens an overlay that
-                    // covers the screen.
-                    Log.d(TAG, "onAdOpened: ");
-                }
-
-                @Override
-                public void onAdClicked() {
-                    // Code to be executed when the user clicks on an ad.
-                    Log.d(TAG, "onAdClicked: ");
-                }
-
-                @Override
-                public void onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-                    Log.d(TAG, "onAdLeftApplication: ");
-                }
-
-                @Override
-                public void onAdClosed() {
-                    // Code to be executed when the user is about to return
-                    // to the app after tapping on an ad.
-                    Log.d(TAG, "onAdClosed: ");
-                }
-            });
-        }
     }
 
     private void dismissLoading() {
@@ -265,21 +201,13 @@ public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVi
                 App.preventMultipleClick(btnWatchVideo);
                 btnWatchVideo.setEnabled(false);
                 watchVideoButton = true;
-                if (mRewardedVideoAd.isLoaded()) {
-                    mRewardedVideoAd.show();
-                } else {
-                    openVideo();
-                }
+
                 break;
             case R.id.btnRefer:
                 App.preventMultipleClick(btnRefer);
                 openShare();
                 break;
         }
-    }
-
-    private void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(getString(R.string.video_ad_id), new AdRequest.Builder().build());
     }
 
     private void openShare() {
@@ -326,94 +254,7 @@ public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVi
     }
 
     private void openVideo() {
-        loadRewardedVideoAd();
         showLoading();
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-        if (watchVideoButton && mRewardedVideoAd.isLoaded()) {
-            mRewardedVideoAd.show();
-        }
-        dismissLoading();
-        Log.d(TAG, "onRewardedVideoAdLoaded: ");
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-        Log.d(TAG, "onRewardedVideoAdOpened: ");
-        dismissLoading();
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-        Log.d(TAG, "onRewardedVideoStarted: ");
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        Log.d(TAG, "onRewardedVideoAdClosed: ");
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-        watchVideoButton = false;
-        Log.d(TAG, "onRewarded: ");
-        updateRewards(rewardItem.getAmount());
-        SharedPref.putLong(SharedPref.VIDEO_END_TIME, (SystemClock.elapsedRealtime() + TimeUnit.MINUTES.toMillis(AdminData.videoAdsDuration)));
-        Long endTime = SharedPref.getLong(SharedPref.VIDEO_END_TIME, 0);
-        btnWatchVideo.setEnabled(false);
-        btnWatchVideo.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-        txtVideoTime.setVisibility(View.VISIBLE);
-        timer = new CountDownTimer(TimeUnit.MINUTES.toMillis(AdminData.videoAdsDuration), 1000) {
-            @Override
-            public void onTick(long l) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        btnWatchVideo.setEnabled(false);
-                        long hours = (((endTime - SystemClock.elapsedRealtime()) / 1000) / 60) / 60;
-                        long minutes = ((endTime - SystemClock.elapsedRealtime()) / 1000) / 60;
-                        long seconds = ((endTime - SystemClock.elapsedRealtime()) / 1000) % 60;
-                        String videoTime = getString(R.string.video_time) + " " + AppUtils.twoDigitString(hours) + " " +
-                                getString(R.string.h).toLowerCase() + " " + AppUtils.twoDigitString(minutes) + getString(R.string.m).toLowerCase() +
-                                " " + AppUtils.twoDigitString(seconds) + getString(R.string.s).toLowerCase();
-                        txtVideoTime.setText(videoTime);
-                    }
-                });
-            }
-
-            @Override
-            public void onFinish() {
-                runOnUiThread(() -> {
-                    timer.cancel();
-                    txtVideoTime.setVisibility(View.INVISIBLE);
-                    btnWatchVideo.setEnabled(true);
-                    btnWatchVideo.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
-                });
-            }
-        };
-        timer.start();
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-        Log.d(TAG, "onRewardedVideoAdLeftApplication: ");
-    }
-
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-
-        Log.d(TAG, "onRewardedVideoAdFailedToLoad: ");
-        dismissLoading();
-        App.makeToast("Failed to ads load");
-
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-        Log.d(TAG, "onRewardedVideoCompleted: ");
     }
 
     @Override
@@ -421,25 +262,18 @@ public class EarnGemsActivity extends BaseFragmentActivity implements RewardedVi
         super.onResume();
         btnWatchVideo.setEnabled(true);
         AppUtils.showSnack(getApplicationContext(), findViewById(R.id.parentLay), NetworkReceiver.isConnected());
-        mRewardedVideoAd.resume(this);
         registerNetworkReceiver();
     }
 
     @Override
     protected void onDestroy() {
         unregisterNetworkReceiver();
-        mRewardedVideoAd.destroy(this);
         if (timer != null) {
             timer.cancel();
         }
         super.onDestroy();
     }
 
-    @Override
-    public void onPause() {
-        mRewardedVideoAd.pause(this);
-        super.onPause();
-    }
 
     private void updateRewards(int amount) {
         Call<Map<String, String>> call = apiInterface.updateVideoGems(GetSet.getUserId());

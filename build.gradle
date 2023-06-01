@@ -49,7 +49,7 @@ ext {
     buildToolsVersion = '22.0.1'
     targetSdkVersion = 22
     minSdkVersion = 16
-    versionCode = 35
-    versionName = "1.0.5"
+    versionCode = 53
+    versionName = "2.0.3"
     kotlin_version = '1.1.51'
 }

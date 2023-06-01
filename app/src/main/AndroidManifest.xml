@@ -30,7 +30,7 @@
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
-
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -49,8 +49,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+<!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />-->
+<!--    <uses-permission android:name="android.permission.SEND_SMS" />-->
     <uses-permission android:name="oppo.permission.OPPO_COMPONENT_SAFE"/>
     <uses-permission android:name="com.huawei.permission.external_app_settings.USE_COMPONENT"/>
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
@@ -82,7 +82,7 @@
         <activity
             android:name=".fundoo.VideoScrollActivity"
             android:exported="false"
-            android:theme="@style/SliderThemeBlack"></activity>
+            android:theme="@style/SliderThemeBlack"/>
 
         <activity
             android:name=".fundoo.profile.SocialMediaLink"
@@ -185,12 +185,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="appr.tc"
-                    android:scheme="https" />
-                <data
-                    android:host="appr.tc"
-                    android:scheme="http" />
+<!--                <data-->
+<!--                    android:host="appr.tc"-->
+<!--                    android:scheme="https" />-->
+<!--                <data-->
+<!--                    android:host="appr.tc"-->
+<!--                    android:scheme="http" />-->
                 <data
                     android:host="@string/dynamic_link_filter"
                     android:pathPattern=".*"
@@ -359,16 +359,8 @@
             android:windowSoftInputMode="stateHidden" />
 
         <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/banner_ad_id" />
-        <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
-        <!--
-<meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ad_mob_id" />
-        -->
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider691514755320348"

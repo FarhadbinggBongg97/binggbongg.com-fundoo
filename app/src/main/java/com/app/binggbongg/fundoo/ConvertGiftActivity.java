@@ -183,48 +183,6 @@ public class ConvertGiftActivity extends BaseFragmentActivity {
 
     }
 
-    private void loadAd() {
-        if (AdminData.isAdEnabled()) {
-            MobileAds.initialize(this,
-                    AdminData.googleAdsId);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-                }
-
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                    // Code to be executed when an ad request fails.
-                }
-
-                @Override
-                public void onAdOpened() {
-                    // Code to be executed when an ad opens an overlay that
-                    // covers the screen.
-                }
-
-                @Override
-                public void onAdClicked() {
-                    // Code to be executed when the user clicks on an ad.
-                }
-
-                @Override
-                public void onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-                }
-
-                @Override
-                public void onAdClosed() {
-                    // Code to be executed when the user is about to return
-                    // to the app after tapping on an ad.
-                }
-            });
-        }
-    }
-
     public void showDialog(Activity activity, String goldStar){
         TextView starCount, increment, decrement;
         MaterialButton requestBtn;
@@ -678,7 +636,6 @@ public class ConvertGiftActivity extends BaseFragmentActivity {
                             blueDiamond.setText(profile.getBluediamond_count()!=null? profile.getBluediamond_count():"0");
                             goldenStarCount.setText(profile.getGoldenstar_count()!=null? profile.getGoldenstar_count():"0");
 
-                            loadAd();
                             //getGems();
                             topLay.setAlpha(1f);
                             btnBack.setEnabled(true);

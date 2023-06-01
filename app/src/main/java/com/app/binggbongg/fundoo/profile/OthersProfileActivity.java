@@ -240,9 +240,6 @@ public class OthersProfileActivity extends BaseFragmentActivity {
         }else{
             sdgvLayout.setVisibility(GONE);
         }
-
-        loadAd();
-
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -281,40 +278,6 @@ public class OthersProfileActivity extends BaseFragmentActivity {
     protected void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
-    }
-
-    private void loadAd() {
-        if (AdminData.isAdEnabled()) {
-            MobileAds.initialize(this,
-                    AdminData.googleAdsId);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                }
-
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                }
-
-                @Override
-                public void onAdOpened() {
-                }
-
-                @Override
-                public void onAdClicked() {
-                }
-
-                @Override
-                public void onAdLeftApplication() {
-                }
-
-                @Override
-                public void onAdClosed() {
-                }
-            });
-        }
     }
 
     @Override

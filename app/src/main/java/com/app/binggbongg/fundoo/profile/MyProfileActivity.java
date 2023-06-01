@@ -269,7 +269,6 @@ public class MyProfileActivity extends BaseFragmentActivity {
         getProfile();
 
        // initPrimeView();
-        loadAd();
     }
 
     /*private void initView() {
@@ -324,51 +323,6 @@ public class MyProfileActivity extends BaseFragmentActivity {
             profileResponse.setPrivacyContactMe(GetSet.getPrivacyContactMe());*/
             profileResponse.setBio(GetSet.getBio());
             setProfile(profileResponse);
-        }
-    }
-
-    private void loadAd() {
-        if (AdminData.isAdEnabled()) {
-            MobileAds.initialize(this,
-                    AdminData.googleAdsId);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-                    Log.i(TAG, "onAdLoaded: ");
-                }
-
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                    // Code to be executed when an ad request fails.
-                    Log.e(TAG, "onAdFailedToLoad: " + errorCode);
-                }
-
-                @Override
-                public void onAdOpened() {
-                    // Code to be executed when an ad opens an overlay that
-                    // covers the screen.
-                    Log.i(TAG, "onAdOpened: ");
-                }
-
-                @Override
-                public void onAdClicked() {
-                    // Code to be executed when the user clicks on an ad.
-                }
-
-                @Override
-                public void onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-                }
-
-                @Override
-                public void onAdClosed() {
-                    // Code to be executed when the user is about to return
-                    // to the app after tapping on an ad.
-                }
-            });
         }
     }
 

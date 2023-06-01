@@ -13,9 +13,9 @@ ext {
     applicationId = "com.app.binggbongg"
     minSdkVersion = 23 // Lollipop
     compileSdkVersion = 33 // Android 11
-    versionMajor = 2    // major changes
-    versionMinor = 1    // minor changes
-    versionPatch = 3  // bug fixes
+    versionMajor = 3    // major changes
+    versionMinor = 2   // minor changes
+    versionPatch = 6  // bug fixes
     versionClassifier = null    // version classifier eg. alpha (a), beta (b)
     isSnapshot = false   // test build before production
 }
@@ -49,13 +49,17 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'armeabi', 'mips'
         }
         renderscriptTargetApi 33      //must match target sdk and build tools
         renderscriptSupportModeEnabled true
 
-        setProperty("archivesBaseName", "Bingg Bongg")
+        def date = new Date()
+        def formattedDate = date.format('dd-MMM-hh-mm-a')
+        setProperty("archivesBaseName", "Bingg_Bongg"+ "-" + formattedDate)
+
     }
 
 
@@ -118,14 +122,16 @@ dependencies {
     // Snackbar
     implementation 'com.github.matecode:Snacky:1.0.2'
 
-    implementation 'com.android.billingclient:billing:3.0.2'
+    //IAP
+    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+    implementation 'com.android.billingclient:billing:5.0.0'
 
     // Material Design
     implementation 'com.google.android.material:material:1.2.1'
 
     // Play services
     implementation 'com.google.android.play:core:1.8.3'
-    implementation 'com.google.android.gms:play-services-ads:19.5.0'
+    implementation 'com.google.android.gms:play-services-ads:20.1.0'
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
 
     // Firebase
