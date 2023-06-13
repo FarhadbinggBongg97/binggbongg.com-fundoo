@@ -245,7 +245,7 @@
                     app:srcCompat="@drawable/home_share" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:visibility="gone"
+                    android:visibility="visible"
                     style="@style/TextWhiteRegular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -387,7 +387,7 @@
                     app:srcCompat="@drawable/vote_taken" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:id="@+id/txt_vote_count"
                     style="@style/TextWhiteRegular"
                     android:layout_width="wrap_content"

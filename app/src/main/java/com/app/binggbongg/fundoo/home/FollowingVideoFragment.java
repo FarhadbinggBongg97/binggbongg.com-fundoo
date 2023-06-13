@@ -1099,7 +1099,7 @@ public class FollowingVideoFragment extends Fragment {
 
     private void reportAndFav(int adapterPosition) {
 
-        LinearLayout favLay, reportLay;
+        LinearLayout favLay, reportLay,linearHideShow;
 
         TextView txtFav, txtReport;
 
@@ -1113,7 +1113,28 @@ public class FollowingVideoFragment extends Fragment {
         txtFav = bottom_sheet_longpress.findViewById(R.id.txtFav);
         reportLay = bottom_sheet_longpress.findViewById(R.id.reportLay);
         txtReport = bottom_sheet_longpress.findViewById(R.id.txtReport);
+        linearHideShow = bottom_sheet_longpress.findViewById(R.id.linearHideShow);
 
+        linearHideShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle payload = new Bundle();
+                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
+                    SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
+                    isBottomBarHide = false;
+                } else {
+                    SharedPref.putBoolean(SharedPref.HIDE_ICONS, true);
+                    isBottomBarHide = true;
+                }
+                hide_btm_bar(isBottomBarHide);
+                payload.putString("hide_icon", String.valueOf(isBottomBarHide));
+                videoAdapter.notifyItemChanged(adapterPosition, payload);
+                EventBus.getDefault().post(new HideIcon(isBottomBarHide, homeApiResponse.get(adapterPosition).getVideoId()));
+                EventBus.getDefault().post(new ForyouHideIcon(isBottomBarHide, homeApiResponse.get(adapterPosition).getVideoId()));
+                Log.e(TAG, "onClick: ::::::::::::::" + isBottomBarHide);
+                bottomSheetLongPressDi.dismiss();
+            }
+        });
         if (homeApiResponse.get(adapterPosition).getVideoIsFavorite())
             txtFav.setText(R.string.unFav);
         else txtFav.setText(R.string.addafav);
@@ -1416,7 +1437,6 @@ public class FollowingVideoFragment extends Fragment {
                             Toast.makeText(getContext(), getString(R.string.auto_scroll_off), Toast.LENGTH_SHORT).show();
                         } else {
                             isAutoScroll = true;
-                            Toast.makeText(getContext(), getString(R.string.auto_scroll_on), Toast.LENGTH_SHORT).show();
                         }
 
                         AutoScrollAPI(isAutoScroll, getAdapterPosition());
@@ -1430,11 +1450,9 @@ public class FollowingVideoFragment extends Fragment {
                   //  hideIcon(homeApiResponse.get(getAdapterPosition()).getVideoId(), getAdapterPosition());
                     Bundle payload = new Bundle();
                     if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
-                        Toast.makeText(requireActivity(), "Your i-cons are now unhidden", Toast.LENGTH_LONG).show();
                         SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
                         isBottomBarHide = false;
                     } else {
-                        Toast.makeText(requireActivity(), "Your i-cons are now hidden", Toast.LENGTH_LONG).show();
                         SharedPref.putBoolean(SharedPref.HIDE_ICONS, true);
                         isBottomBarHide = true;
                     }
@@ -1686,7 +1704,7 @@ public class FollowingVideoFragment extends Fragment {
                 profileImage.setOnClickListener(v -> profileImageClickListener.onUserClicked(true));
                 txt_title.setOnClickListener(v -> {
                     profileImageClickListener.onUserClicked(true);
-                    Toast.makeText(getActivity(), "FollowingClicked", Toast.LENGTH_SHORT).show();
+
                 });
 
                 //Live Streaming Addon
@@ -3305,8 +3323,6 @@ public class FollowingVideoFragment extends Fragment {
         tvPurchaseVote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
-
                 Intent gemsIntent = new Intent(getActivity(), GemsStoreActivity.class);
                 gemsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(gemsIntent);

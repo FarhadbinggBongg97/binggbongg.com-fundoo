@@ -101,7 +101,6 @@ public class HomeFollowing extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.following_homepage, container, false);
-        Toast.makeText(getActivity(), "ForYouProfileFragment", Toast.LENGTH_SHORT).show();
 
         ButterKnife.bind(this, Objects.requireNonNull(rootView));
 

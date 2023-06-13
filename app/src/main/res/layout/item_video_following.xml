@@ -280,6 +280,7 @@
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_above="@id/remain_duration_tv"
                 android:id="@+id/hideBtmBarLay"
                 android:layout_width="50dp"
@@ -552,7 +553,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:singleLine="true"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:text="Scroll"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_small" />

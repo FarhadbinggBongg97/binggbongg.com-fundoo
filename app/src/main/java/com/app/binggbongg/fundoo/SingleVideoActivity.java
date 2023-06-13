@@ -975,6 +975,7 @@ public class SingleVideoActivity extends BaseFragmentActivity {
 
                         hideBtmBarLay.setOnClickListener(view -> {
                             hideIcons(singleVideoResponse.getResult().get(0).getVideoId());
+                            Toast.makeText(SingleVideoActivity.this, "HMMM", Toast.LENGTH_SHORT).show();
                         });
 
 

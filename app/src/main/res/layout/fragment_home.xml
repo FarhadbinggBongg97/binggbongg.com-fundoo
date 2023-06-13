@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parentLay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,17 +32,211 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/logo" />
 
-            <LinearLayout
+            <RelativeLayout
+                android:animateLayoutChanges="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
-                android:weightSum="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
+                <TextView
+                    android:visibility="gone"
+                    android:background="@drawable/round_button_white_border"
+                    android:id="@+id/btnScrollBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/font_regular"
+                    android:padding="10dp"
+                    android:layout_toStartOf="@+id/view"
+                    android:text="@string/scroll_banner"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_normal" />
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="1dp"
+                    android:id="@+id/view"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_toEndOf="@+id/view"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/round_button_white_border"
+                    android:id="@+id/btnDiscover"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/font_regular"
+                    android:padding="10dp"
+                    android:text="@string/discover"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_normal" />
+
+                <ViewFlipper
+                    android:layout_toStartOf="@+id/view"
+                    android:layout_below="@+id/btnScrollBanner"
+                    android:id="@+id/viewFlipperScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:backgroundTint="#3b5998"
+                        android:id="@+id/fb_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="@string/facebook"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:backgroundTint="#FD1D1D"
+                        android:id="@+id/insta_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="@string/instagram"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:backgroundTint="#00acee"
+                        android:id="@+id/twitter_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:text="@string/twitter"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:backgroundTint="#e98716"
+                        android:id="@+id/website_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:text="@string/website"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:backgroundTint="@color/colorRed"
+                        android:id="@+id/youtube_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="@string/youtube"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                </ViewFlipper>
+
+                <ViewFlipper
+                    android:layout_toEndOf="@+id/view"
+                    android:layout_below="@+id/btnDiscover"
+                    android:id="@+id/viewFlipper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:id="@+id/tv_following_dis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="@string/following"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:id="@+id/tv_follower_dis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="Followers"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:id="@+id/tv_live_stream_dis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="@string/live_streams"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:id="@+id/tv_go_live_dis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:text="@string/go_live"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_normal" />
+                    <TextView
+                        android:background="@drawable/flipper_bg"
+                        android:id="@+id/tv_category_dis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/font_regular"
+                        android:padding="8dp"
+                        android:textColor="@color/white"
+                        android:text="Category leaders &amp; Winners"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                </ViewFlipper>
+
+
                 <Spinner
+                    android:visibility="gone"
                     android:padding="3dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1"
@@ -53,26 +248,8 @@
                     android:id="@+id/spinnerBanner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-
-                <TextView
-                    android:visibility="gone"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/round_button_white_border"
-                    android:id="@+id/btnFollowings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="5dp"
-                    android:fontFamily="@font/font_regular"
-                    android:padding="10dp"
-                    android:text="@string/following"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorTransparentWhite"
-                    android:textSize="@dimen/text_normal" />
-
                 <Spinner
+                    android:visibility="gone"
                     android:layout_weight="1"
                     android:text="@string/discover"
                     android:textAllCaps="false"
@@ -102,7 +279,7 @@
                     android:textSize="@dimen/text_normal" />
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
 
 

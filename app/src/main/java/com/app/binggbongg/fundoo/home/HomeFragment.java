@@ -8,24 +8,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.app.binggbongg.fundoo.MainActivity;
-import com.app.binggbongg.fundoo.profile.ProfileFragment;
 import com.app.binggbongg.model.GetSet;
 import com.app.binggbongg.utils.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,21 +37,16 @@ import com.app.binggbongg.utils.AppUtils;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import hitasoft.serviceteam.livestreamingaddon.LiveStreamActivity;
-import hitasoft.serviceteam.livestreamingaddon.StreamListActivity;
 import hitasoft.serviceteam.livestreamingaddon.broadcaster.liveVideoBroadcaster.PublishActivity;
 import timber.log.Timber;
 
 import static com.app.binggbongg.R2.id.bottom_navigation;
 
 
-public class HomeFragment extends Fragment implements ForYouVideoFragment.onHideBottomBarEventListener {
+public class HomeFragment extends Fragment implements ForYouVideoFragment.onHideBottomBarEventListener, View.OnClickListener {
 
     public static final String TAG = HomeFragment.class.getSimpleName();
 
@@ -81,11 +75,14 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
     @BindView(bottom_navigation)
     BottomNavigationView bottomNavigation;
-    TextView tvForYou, tvFollowing,tvRecordedLive;
+    TextView tvForYou,tvRecordedLive;
     private Spinner spinner,spinnerBanner;
     String[] arrayForSpinner = {"Following", "Followers", "Live Streamers","Go Live","Category leaders and Winners"};
     String[] arrayBanner = {"Facebook", "Instagram", "Twitter","Website","Youtube"};
 
+    boolean scroll=false;
+    boolean discover=false;
+    ViewFlipper viewFlipper,viewFlipperScroll;
     private final ScreenOffsetListener mScreenOffsetListener = visible -> {
 
         if (visible.equals("visible")) {
@@ -116,7 +113,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         initView(rootView);
         appUtils = new AppUtils(getActivity());
-        ButterKnife.bind(this, Objects.requireNonNull(getActivity()));
+        ButterKnife.bind(this, requireActivity());
 
         bundle=new Bundle();
         bundle.putBoolean("isShow",isShow);
@@ -139,12 +136,54 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
         tabLayout = rootView.findViewById(R.id.tabLayout);
         tvForYou = rootView.findViewById(R.id.btnRecent);
-        tvFollowing = rootView.findViewById(R.id.btnFollowings);
         tvRecordedLive = rootView.findViewById(R.id.btnRecordedLive);
         homeFragViewPager = rootView.findViewById(R.id.fragment_home_viewpager);
 
         homeFragViewPager.setPageTransformer(false, new ZoomInTransformer());
+        TextView btnScrollBanner=rootView.findViewById(R.id.btnScrollBanner);
+        TextView btnDiscover=rootView.findViewById(R.id.btnDiscover);
 
+        TextView tvFollowing=rootView.findViewById(R.id.tv_following_dis);
+        TextView tvFollowers=rootView.findViewById(R.id.tv_follower_dis);
+        TextView tvLiveStreamers=rootView.findViewById(R.id.tv_live_stream_dis);
+        TextView tvGoLive=rootView.findViewById(R.id.tv_go_live_dis);
+        TextView tvCategory=rootView.findViewById(R.id.tv_category_dis);
+
+        tvFollowing.setOnClickListener(this);
+        tvFollowers.setOnClickListener(this);
+        tvLiveStreamers.setOnClickListener(this);
+        tvGoLive.setOnClickListener(this);
+        tvCategory.setOnClickListener(this);
+
+        viewFlipper = rootView.findViewById(R.id.viewFlipper);
+        viewFlipperScroll = rootView.findViewById(R.id.viewFlipperScroll);
+
+        setViewFlipper();
+        btnScrollBanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (scroll){
+                    scroll=false;
+                    viewFlipperScroll.setVisibility(View.GONE);
+                }else {
+                    scroll=true;
+                    viewFlipperScroll.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnDiscover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (discover){
+                    discover=false;
+                    viewFlipper.setVisibility(View.GONE);
+                }else {
+                    discover=true;
+                    viewFlipper.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         spinner = rootView.findViewById(R.id.spinner);
         spinnerBanner = rootView.findViewById(R.id.spinnerBanner);
@@ -182,13 +221,8 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                         startActivity(stream);
                         break;
                     case "Go Live":
-                        Log.e(TAG, "onClickAddStory: ::::::::::::::" );
                         try {
-//                            if (getActivity() != null && getActivity().homeForYou != null)
-//                                getActivity().homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
-
                             ((MainActivity)getActivity()).checkRecordPermissions();
-
                         } catch (Exception e) {
                             Timber.i("Error onClickAddStory %s", e.getMessage());
                         }
@@ -244,9 +278,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
         });
 
-        tvFollowing.setOnClickListener(view -> {
-
-        });
 
         tvRecordedLive.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -277,7 +308,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                     } else {
 
                         tvForYou.setTextColor(context.getResources().getColor(R.color.colorWhite));
-                        tvFollowing.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                         tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     }
                 } else if (previousPosition==1){
@@ -286,7 +316,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                     } else {
 
                         tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
-                        tvFollowing.setTextColor(context.getResources().getColor(R.color.colorWhite));
                         tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     }
                 }
@@ -297,7 +326,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
                         tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                         tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorWhite));
-                        tvFollowing.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     }
                 }
             }
@@ -307,15 +335,12 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
                 if (position == 0) {
                     tvForYou.setTextColor(context.getResources().getColor(R.color.colorWhite));
-                    tvFollowing.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                 } else if (position == 1) {
 
                     tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
-                    tvFollowing.setTextColor(context.getResources().getColor(R.color.colorWhite));
                     tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                 }else if (position==2){
-                    tvFollowing.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorWhite));
                     tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                 }
@@ -333,6 +358,46 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         });
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_following_dis:
+                if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
+                    homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
+                    homeFragViewPager.setCurrentItem(1);
+                    homeFollowing.getFollowingVideoFragment().followingExoplayerRecyclerView.setPlayControl(true);
+                }
+                break;
+            case R.id.tv_follower_dis:
+                if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
+                    homeFollowing.getFollowingVideoFragment().followingExoplayerRecyclerView.setPlayControl(false);
+                    homeFragViewPager.setCurrentItem(0);
+                    homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(true);
+                }
+                break;
+            case R.id.tv_live_stream_dis:
+                Intent stream = new Intent(context, PublishActivity.class);
+                stream.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                stream.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                stream.putExtra(Constants.TAG_USER_ID, GetSet.getUserId());
+                stream.putExtra(Constants.TAG_USER_NAME, GetSet.getName());
+                stream.putExtra(Constants.TAG_USER_IMAGE, GetSet.getUserImage());
+                stream.putExtra(Constants.TAG_TOKEN, GetSet.getAuthToken());
+                stream.putExtra(Constants.TAG_STREAM_BASE_URL, GetSet.getStreamBaseUrl());
+                startActivity(stream);
+                break;
+            case R.id.tv_go_live_dis:
+                try {
+                    ((MainActivity)getActivity()).checkRecordPermissions();
+                } catch (Exception e) {
+                    Timber.i("Error onClickAddStory %s", e.getMessage());
+                }
+                break;
+            case R.id.tv_category_dis:
+                break;
+        }
     }
 
     public class HomePagerAdapter extends FragmentPagerAdapter {
@@ -399,16 +464,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        //   EventBus.getDefault().unregister(this);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 
     public class CustomSpinnerAdapter extends ArrayAdapter<String>{
 
@@ -456,4 +511,30 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         }
 
     }
+    public void setViewFlipper()
+    {
+        // -------View Flipper
+        //1 - Create the animations, we will load the animations from
+        //    the already made animations in the android.R.anim folder
+        //    custom animations can be added into to res/anim folder
+        Animation anim_in = AnimationUtils.loadAnimation(context,R.anim.anim_rtl_right_in);
+        Animation anim_out = AnimationUtils.loadAnimation(context,R.anim.anim_slide_left_out);
+
+        //3 - Assisgn the animations
+        viewFlipper.setInAnimation(anim_in);
+        viewFlipper.setOutAnimation(anim_out);
+
+        viewFlipperScroll.setInAnimation(anim_in);
+        viewFlipperScroll.setOutAnimation(anim_out);
+
+        //4 - Set the flipping interval, that is the time between flips
+        viewFlipper.setFlipInterval(2000);
+        viewFlipperScroll.setFlipInterval(2000);
+
+        //5 - Start FLipping - optional here, can also be
+        //    called on click for click to flip
+        viewFlipper.startFlipping();
+        viewFlipperScroll.startFlipping();
+    }
+
 }

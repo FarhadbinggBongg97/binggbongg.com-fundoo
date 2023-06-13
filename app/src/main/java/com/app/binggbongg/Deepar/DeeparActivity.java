@@ -216,7 +216,6 @@ public class DeeparActivity extends BaseFragmentActivity implements SurfaceHolde
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deepar);
 
-        Toast.makeText(this, "Deeeeee", Toast.LENGTH_SHORT).show();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             recordPermissions = recordPermissions12;
             mRequiredPermissions = mRequiredPermissions12;

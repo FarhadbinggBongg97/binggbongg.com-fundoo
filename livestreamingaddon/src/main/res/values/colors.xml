@@ -11,6 +11,7 @@
     <color name="colorPrimary">#9D17CB</color>
     <color name="colorPrimaryVariant">#9D17CB</color>
     <color name="colorAccent">#FF000000</color>
+    <color name="black">#000</color>
 
     <color name="colorSecondary">#FFEB3B</color>
     <color name="colorSecondaryVariant">#FF5722</color>

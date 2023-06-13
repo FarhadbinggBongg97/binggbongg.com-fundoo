@@ -1113,7 +1113,7 @@ public class ForYouVideoFragment extends Fragment {
 
     private void reportAndFav(int adapterPosition) {
 
-        LinearLayout favLay, reportLay;
+        LinearLayout favLay, reportLay,linearHideShow;
 
         TextView txtFav, txtReport;
 
@@ -1128,7 +1128,30 @@ public class ForYouVideoFragment extends Fragment {
         reportLay = bottom_sheet_longpress.findViewById(R.id.reportLay);
         txtReport = bottom_sheet_longpress.findViewById(R.id.txtReport);
 
+        linearHideShow = bottom_sheet_longpress.findViewById(R.id.linearHideShow);
 
+        linearHideShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle payload = new Bundle();
+                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
+                    SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
+                    isBottomBarHide = false;
+                } else {
+                    SharedPref.putBoolean(SharedPref.HIDE_ICONS, true);
+                    isBottomBarHide = true;
+                }
+                hide_btm_bar(isBottomBarHide);
+                payload.putString("hide_icon", String.valueOf(isBottomBarHide));
+                videoAdapter.notifyItemChanged(adapterPosition, payload);
+                EventBus.getDefault().post(new HideIcon(isBottomBarHide, homeApiResponse.get(adapterPosition).getVideoId()));
+                EventBus.getDefault().post(new ForyouHideIcon(isBottomBarHide, homeApiResponse.get(adapterPosition).getVideoId()));
+                Log.e(TAG, "onClick: ::::::::::::::" + isBottomBarHide);
+                bottomSheetLongPressDiloag.dismiss();
+
+            }
+        });
         Timber.d("foryou VideoReported: %s", homeApiResponse.get(0).getIsVideoReported());
         Timber.d("foryou VideoIsFavorite: %s", homeApiResponse.get(0).getVideoIsFavorite());
 
@@ -2381,10 +2404,10 @@ public class ForYouVideoFragment extends Fragment {
                     public void onClick(View view) {
                         if (isAutoScroll) {
                             isAutoScroll = false;
-                            Toast.makeText(getContext(), getString(R.string.auto_scroll_off), Toast.LENGTH_SHORT).show();
+
                         } else {
                             isAutoScroll = true;
-                            Toast.makeText(getContext(), getString(R.string.auto_scroll_on), Toast.LENGTH_SHORT).show();
+
                         }
 
                         AutoScrollAPI(isAutoScroll, getAdapterPosition());
@@ -2397,11 +2420,9 @@ public class ForYouVideoFragment extends Fragment {
                  //  hideIcons(homeApiResponse.get(getAdapterPosition()).getVideoId(), getAdapterPosition());
                     Bundle payload = new Bundle();
                     if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
-                        Toast.makeText(requireActivity(), "Your i-cons are now unhidden", Toast.LENGTH_LONG).show();
                         SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
                         isBottomBarHide = false;
                     } else {
-                        Toast.makeText(requireActivity(), "Your i-cons are now hidden", Toast.LENGTH_LONG).show();
                         SharedPref.putBoolean(SharedPref.HIDE_ICONS, true);
                         isBottomBarHide = true;
                     }

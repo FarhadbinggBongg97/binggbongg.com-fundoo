@@ -302,6 +302,7 @@
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_above="@id/remain_duration_tv"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
