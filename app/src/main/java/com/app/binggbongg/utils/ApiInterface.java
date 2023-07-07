@@ -64,6 +64,8 @@ import com.app.binggbongg.model.TermsResponse;
 import com.app.binggbongg.model.TrendingStreamResponse;
 import com.app.binggbongg.model.UserList;
 import com.app.binggbongg.model.VideoCommentResponse;
+import com.app.binggbongg.model.VoteDataModel;
+import com.app.binggbongg.model.VoteMessage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -468,4 +470,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("/livestreams/share")
     Call<HashMap<String, String>> setShareCount(@FieldMap Map<String,String> params);
+
+    @GET("votemessages/get-all-vote-messages")
+    Call<VoteDataModel> getVotingData();
 }

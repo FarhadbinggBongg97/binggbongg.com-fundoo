@@ -365,6 +365,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/liveLay"
                     android:layout_width="50dp"
                     android:layout_height="50dp"

@@ -3,8 +3,6 @@ package com.app.binggbongg.fundoo.home;
 import static android.content.Context.CLIPBOARD_SERVICE;
 import static android.view.View.GONE;
 
-import static com.app.binggbongg.R2.id.publisher_vote_count;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -183,7 +181,7 @@ public class ForYouVideoFragment extends Fragment {
 
     private onHideBottomBarEventListener btmBarEventListener;
 
-    boolean isBottomBarHide = true, isAutoScroll;
+    boolean isBottomBarHide = false, isAutoScroll;
 
     String contest_text="";
     private int finalGiftPosition;
@@ -261,7 +259,6 @@ public class ForYouVideoFragment extends Fragment {
     private int SelectedVideoPosition = -1;
     private Boolean isViewPagerVisible = false;
     TextView tvPurchaseVote,tvNumberOfVote;
-
 
     Runnable r = new Runnable() {
         @Override
@@ -359,7 +356,8 @@ public class ForYouVideoFragment extends Fragment {
         //SharedPref.putBoolean(SharedPref.HIDE_ICONS, event.iconVisible);
         isBottomBarHide = event.iconVisible;
         videoAdapter.notifyDataSetChanged();
-        hide_btm_bar(isBottomBarHide);
+//        hide_btm_bar(isBottomBarHide);
+        hide_btm_bar(event.iconVisible);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -464,6 +462,8 @@ public class ForYouVideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+        Toast.makeText(context, "ForYOU Fragment = "+SharedPref.getBoolean(SharedPref.HIDE_ICONS, true), Toast.LENGTH_SHORT).show();
+
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_foryou_video, container, false);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -478,7 +478,7 @@ public class ForYouVideoFragment extends Fragment {
         progressDialog.setTitle("Loading..");
         progressDialog.setIndeterminate(true);
         Log.e(TAG, "onMessageEvent: ::::::BTm:::::"+isBottomBarHide );
-        hide_btm_bar(SharedPref.getBoolean(SharedPref.HIDE_ICONS, true));
+        hide_btm_bar(isBottomBarHide);
         return rootView;
     }
 
@@ -1765,6 +1765,8 @@ public class ForYouVideoFragment extends Fragment {
             super.onBindViewHolder(holder, position, payloads);
 
             if (holder instanceof VideoViewHolder) {
+                Toast.makeText(context, "forYOU=="+payloads.size(), Toast.LENGTH_SHORT).show();
+
                 if (payloads.size() > 0) {
                     Bundle payload = (Bundle) payloads.get(0);
 
@@ -1773,39 +1775,44 @@ public class ForYouVideoFragment extends Fragment {
                     final String likesCount = payload.getString("likes_count", null);
                     final String likesStatus = payload.getString("likes_status", null);
                     final String giftCount = payload.getString("gift_count", null);
-                    final String updateGiftCount = payload.getString("update_gift_count", null);
                     final String videoCommentCount = payload.getString("video_comment_count", null);
                     final String follow = payload.getString("follow", null);
-                    final String Report = payload.getString("Report", null);
-                    final String Fav = payload.getString("Fav", null);
+                    final String updateGiftCount = payload.getString("update_gift_count", null);
                     final String follower_count = payload.getString("followers", "0");
-                    final String publisher_vote_count = payload.getString("publisher_vote_count", "0");
                     final String view_count = payload.getString("video_views_count", null);
+                    final String publisher_vote_count = payload.getString("publisher_vote_count", "0");
+//                    final String view_count = payload.getString("video_views_count", null);
                     final String hideIcon = payload.getString("hide_icon", "true");
-
-
-                    if (view_count != null) {
-                        ((VideoViewHolder) holder).txt_view_count.setText(view_count);
-                    } else {
-                        ((VideoViewHolder) holder).txt_view_count.setText("0");
-                    }
-
                     if (likesCount != null) {
+
                         if (likesStatus.equals("true")) {
-                            ((VideoViewHolder) holder).heart.setImageResource(R.drawable.heart_color);
+                            ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).heart.setImageResource(R.drawable.heart_color);
                         } else {
-                            ((VideoViewHolder) holder).heart.setImageResource(R.drawable.heart_white);
+                            /*((VideoViewHolder) holder).heartAni.cancelAnimation();
+                            ((VideoViewHolder) holder).heartAni.setVisibility(View.GONE);
+                            ((VideoViewHolder) holder).heartAni.setAlpha(0f);*/
+                            ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).heart.setImageResource(R.drawable.heart_white);
                         }
-                        ((VideoViewHolder) holder).heartAni.cancelAnimation();
-                        ((VideoViewHolder) holder).heartAni.clearAnimation();
+
+
+                        /*((VideoViewHolder) holder).txt_heart_count.setText(likesCount);
                         ((VideoViewHolder) holder).heartAni.setVisibility(View.GONE);
-                        ((VideoViewHolder) holder).txt_heart_count.setText(likesCount);
+                        ((VideoViewHolder) holder).heartAni.setAlpha(0f);
+
                         ((VideoViewHolder) holder).heart.setVisibility(View.VISIBLE);
-                        ((VideoViewHolder) holder).txt_heart_count.setVisibility(View.VISIBLE);
+                        ((VideoViewHolder) holder).txt_heart_count.setAlpha(1f);
+                        ((VideoViewHolder) holder).heartAni.cancelAnimation();*/
+
+                        ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).heartAni.cancelAnimation();
+                        ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).heartAni.clearAnimation();
+                        ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).heartAni.setVisibility(View.GONE);
+                        ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).txt_heart_count.setText(likesCount);
+                        ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).heart.setVisibility(View.VISIBLE);
+                        ((FollowingVideoFragment.VideoAdapter.VideoViewHolder) holder).txt_heart_count.setVisibility(View.VISIBLE);
+
 
                     } else if (giftCount != null) {
 
-                        Log.d(TAG, "onBindViewHolder: :::::anim");
                         ((VideoViewHolder) holder).animGiftLay.setVisibility(View.VISIBLE);
                         ((VideoViewHolder) holder).animGiftLay.clearAnimation();
 
@@ -1817,8 +1824,6 @@ public class ForYouVideoFragment extends Fragment {
                             @Override
                             public void onAnimationStart(Animator animation) {
                                 super.onAnimationStart(animation);
-                                ((VideoViewHolder) holder).animgiftImage.setVisibility(View.VISIBLE);
-                                Log.d(TAG, "onAnimationStart: ::::::animStart  "+tempGiftList.get(giftPosition).getGiftIcon());
                                 ((VideoViewHolder) holder).animGiftLay.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.anim_zoom_out_length));
                                 Glide.with(getActivity())
                                         .load(tempGiftList.get(giftPosition).getGiftIcon())
@@ -1837,8 +1842,9 @@ public class ForYouVideoFragment extends Fragment {
                             }
                         });
                         anim.start();
-                        ((VideoViewHolder) holder).txt_vote_count.setText(giftCount);
+
                         ((VideoViewHolder) holder).publisher_vote_count.setText(publisher_vote_count);
+                        ((VideoViewHolder) holder).txt_vote_count.setText(giftCount);
 
                     } else if (videoCommentCount != null) {
 //                        ((VideoViewHolder) holder).txt_gift_count.setText(videoCommentCount);
@@ -1850,14 +1856,19 @@ public class ForYouVideoFragment extends Fragment {
                             ((VideoViewHolder) holder).profileFollowIcon.setVisibility(View.VISIBLE);
                     } else if (updateGiftCount != null) {
 //                        ((VideoViewHolder) holder).txt_gift_count.setText(updateGiftCount);
-                    }else if(hideIcon!=null){
+                    } else if (hideIcon != null) {
                         if (hideIcon.equals("true")) {
+                            // videoLinkLay.setVisibility(View.GONE);
                             ((VideoViewHolder) holder).videoLabelsLay.setVisibility(View.GONE);
                         } else {
+                            //  videoLinkLay.setVisibility(View.VISIBLE);
+
                             ((VideoViewHolder) holder).videoLabelsLay.setVisibility(View.VISIBLE);
                         }
+
                     }
                 }
+
             }
         }
 
@@ -2809,11 +2820,11 @@ public class ForYouVideoFragment extends Fragment {
                 vote_promotionTV.setText(contest_text+"");
 
                 Log.e(TAG, "onBind: :::::::::::::::::::::"+ SharedPref.getBoolean(SharedPref.HIDE_ICONS,true) );
-                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS,true)) {
-                    videoLabelsLay.setVisibility(View.GONE);
-                } else {
-                    videoLabelsLay.setVisibility(View.VISIBLE);
-                }
+//                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS,true)) {
+//                    videoLabelsLay.setVisibility(View.GONE);
+//                } else {
+//                    videoLabelsLay.setVisibility(View.VISIBLE);
+//                }
 
                 if(!TextUtils.isEmpty(videoItem.getLink_url())){
                     videoLinkLay.setVisibility(View.VISIBLE);

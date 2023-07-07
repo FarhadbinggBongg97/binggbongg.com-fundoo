@@ -259,8 +259,9 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        isFirstTime=false;
 
+
+        isFirstTime=false;
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (nm != null) nm.cancelAll();
@@ -454,7 +455,8 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
     }
 
     @SuppressLint("NonConstantResourceId")
-    private void setupCustomViewPager(CustomViewPager viewPager) {
+    private void
+    setupCustomViewPager(CustomViewPager viewPager) {
         bottomNavigation.setItemIconTintList(null);
         bottomNavigation.getMenu().clear();
         bottomNavigation.inflateMenu(R.menu.fundoo_home_menu);
@@ -667,7 +669,6 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
     @Override
     public void onHideEvent(boolean s) {
         Log.e(TAG, "onHideEvent: :::::::::::::"+s );
-
         if (s){
             bottomNavigation.getMenu().removeItem(R.id.menuLive);
             bottomNavigation.getMenu().removeItem(R.id.menuSearch);

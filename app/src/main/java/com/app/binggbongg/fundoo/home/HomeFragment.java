@@ -3,8 +3,8 @@ package com.app.binggbongg.fundoo.home;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -70,19 +71,22 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
     @Override
     public void onHideEvent(boolean s) {
-        isShow=s;
+        isShow = s;
     }
 
     @BindView(bottom_navigation)
     BottomNavigationView bottomNavigation;
-    TextView tvForYou,tvRecordedLive;
-    private Spinner spinner,spinnerBanner;
-    String[] arrayForSpinner = {"Following", "Followers", "Live Streamers","Go Live","Category leaders and Winners"};
-    String[] arrayBanner = {"Facebook", "Instagram", "Twitter","Website","Youtube"};
+    TextView tvForYou, tvRecordedLive;
+    private Spinner spinner, spinnerBanner;
+    String[] arrayForSpinner = {"Following", "Followers", "Live Streamers", "Go Live", "Category leaders and Winners"};
+    String[] arrayBanner = {"Facebook", "Instagram", "Twitter", "Website", "Youtube"};
 
-    boolean scroll=false;
-    boolean discover=false;
-    ViewFlipper viewFlipper,viewFlipperScroll;
+    boolean scroll = false;
+    boolean discover = false;
+    ViewFlipper viewFlipperDiscover, viewFlipperBanner;
+
+    TextView fb_scroll, inst_scorll, website_scroll, twitter_scroll, youtube_scroll;
+
     private final ScreenOffsetListener mScreenOffsetListener = visible -> {
 
         if (visible.equals("visible")) {
@@ -103,7 +107,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
     }
 
     public HomeFragment() {
-       }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,8 +119,8 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         appUtils = new AppUtils(getActivity());
         ButterKnife.bind(this, requireActivity());
 
-        bundle=new Bundle();
-        bundle.putBoolean("isShow",isShow);
+        bundle = new Bundle();
+        bundle.putBoolean("isShow", isShow);
 
         return rootView;
     }
@@ -140,14 +144,14 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         homeFragViewPager = rootView.findViewById(R.id.fragment_home_viewpager);
 
         homeFragViewPager.setPageTransformer(false, new ZoomInTransformer());
-        TextView btnScrollBanner=rootView.findViewById(R.id.btnScrollBanner);
-        TextView btnDiscover=rootView.findViewById(R.id.btnDiscover);
+        TextView btnScrollBanner = rootView.findViewById(R.id.btnScrollBanner);
+        TextView btnDiscover = rootView.findViewById(R.id.btnDiscover);
 
-        TextView tvFollowing=rootView.findViewById(R.id.tv_following_dis);
-        TextView tvFollowers=rootView.findViewById(R.id.tv_follower_dis);
-        TextView tvLiveStreamers=rootView.findViewById(R.id.tv_live_stream_dis);
-        TextView tvGoLive=rootView.findViewById(R.id.tv_go_live_dis);
-        TextView tvCategory=rootView.findViewById(R.id.tv_category_dis);
+        TextView tvFollowing = rootView.findViewById(R.id.tv_following_dis);
+        TextView tvFollowers = rootView.findViewById(R.id.tv_follower_dis);
+        TextView tvLiveStreamers = rootView.findViewById(R.id.tv_live_stream_dis);
+        TextView tvGoLive = rootView.findViewById(R.id.tv_go_live_dis);
+        TextView tvCategory = rootView.findViewById(R.id.tv_category_dis);
 
         tvFollowing.setOnClickListener(this);
         tvFollowers.setOnClickListener(this);
@@ -155,19 +159,59 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         tvGoLive.setOnClickListener(this);
         tvCategory.setOnClickListener(this);
 
-        viewFlipper = rootView.findViewById(R.id.viewFlipper);
-        viewFlipperScroll = rootView.findViewById(R.id.viewFlipperScroll);
+        fb_scroll = rootView.findViewById(R.id.fb_scroll);
+        twitter_scroll = rootView.findViewById(R.id.twitter_scroll);
+        website_scroll = rootView.findViewById(R.id.website_scroll);
+        youtube_scroll = rootView.findViewById(R.id.youtube_scroll);
+        inst_scorll = rootView.findViewById(R.id.insta_scroll);
+
+        fb_scroll.setOnClickListener(this);
+        twitter_scroll.setOnClickListener(this);
+        website_scroll.setOnClickListener(this);
+        youtube_scroll.setOnClickListener(this);
+        inst_scorll.setOnClickListener(this);
+
+        viewFlipperDiscover = rootView.findViewById(R.id.viewFlipper);
+        viewFlipperBanner = rootView.findViewById(R.id.viewFlipperScroll);
+        LinearLayout linearVerticleBanner=rootView.findViewById(R.id.linearScroll);
+        LinearLayout linearVerticleDiscover=rootView.findViewById(R.id.linearDiscover);
+
+        viewFlipperBanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (scroll) {
+                    scroll = false;
+                    linearVerticleBanner.setVisibility(View.GONE);
+                } else {
+                    scroll = true;
+                    linearVerticleBanner.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        viewFlipperDiscover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (discover) {
+                    discover = false;
+                    linearVerticleDiscover.setVisibility(View.GONE);
+                } else {
+                    discover = true;
+                    linearVerticleDiscover.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         setViewFlipper();
         btnScrollBanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (scroll){
-                    scroll=false;
-                    viewFlipperScroll.setVisibility(View.GONE);
-                }else {
-                    scroll=true;
-                    viewFlipperScroll.setVisibility(View.VISIBLE);
+                if (scroll) {
+                    scroll = false;
+                    viewFlipperBanner.setVisibility(View.GONE);
+                } else {
+                    scroll = true;
+                    viewFlipperBanner.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -175,12 +219,12 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         btnDiscover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (discover){
-                    discover=false;
-                    viewFlipper.setVisibility(View.GONE);
-                }else {
-                    discover=true;
-                    viewFlipper.setVisibility(View.VISIBLE);
+                if (discover) {
+                    discover = false;
+                    viewFlipperDiscover.setVisibility(View.GONE);
+                } else {
+                    discover = true;
+                    viewFlipperDiscover.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -194,7 +238,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Handle item selection here
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                switch (selectedItem){
+                switch (selectedItem) {
                     case "Following":
                         if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
                             homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
@@ -222,7 +266,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                         break;
                     case "Go Live":
                         try {
-                            ((MainActivity)getActivity()).checkRecordPermissions();
+                            ((MainActivity) getActivity()).checkRecordPermissions();
                         } catch (Exception e) {
                             Timber.i("Error onClickAddStory %s", e.getMessage());
                         }
@@ -249,14 +293,15 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Handle item selection here
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                switch (selectedItem){
+                switch (selectedItem) {
                     case "Facebook":
+
                         break;
                     case "Instagram":
 
                         break;
                     case "Twitter":
-                       break;
+                        break;
                     case "Website":
 
                         break;
@@ -310,7 +355,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                         tvForYou.setTextColor(context.getResources().getColor(R.color.colorWhite));
                         tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     }
-                } else if (previousPosition==1){
+                } else if (previousPosition == 1) {
                     if (positionOffset > 1) {
 
                     } else {
@@ -318,8 +363,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                         tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                         tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     }
-                }
-                else {
+                } else {
                     if (positionOffset > 1) {
 
                     } else {
@@ -340,7 +384,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
                     tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                     tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
-                }else if (position==2){
+                } else if (position == 2) {
                     tvRecordedLive.setTextColor(context.getResources().getColor(R.color.colorWhite));
                     tvForYou.setTextColor(context.getResources().getColor(R.color.colorTransparentWhite));
                 }
@@ -360,9 +404,14 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
     }
 
+    private void socialMediaLinksOpen(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_following_dis:
                 if (homeForYou != null && homeForYou.getForYouVideoFragment() != null && homeFollowing.getFollowingVideoFragment() != null) {
                     homeForYou.getForYouVideoFragment().exoplayerRecyclerViewForYou.setPlayControl(false);
@@ -390,13 +439,29 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
                 break;
             case R.id.tv_go_live_dis:
                 try {
-                    ((MainActivity)getActivity()).checkRecordPermissions();
+                    ((MainActivity) getActivity()).checkRecordPermissions();
                 } catch (Exception e) {
                     Timber.i("Error onClickAddStory %s", e.getMessage());
                 }
                 break;
-            case R.id.tv_category_dis:
+            case R.id.fb_scroll:
+                String fb = "https://www.facebook.com";
+                socialMediaLinksOpen(fb);
                 break;
+            case R.id.twitter_scroll:
+                socialMediaLinksOpen("https://www.twitter.com");
+                break;
+            case R.id.youtube_scroll:
+                socialMediaLinksOpen("https://www.youtube.com");
+                break;
+            case R.id.website_scroll:
+                socialMediaLinksOpen(Constants.SITE_URL);
+                break;
+            case R.id.insta_scroll:
+                socialMediaLinksOpen("https://www.instagram.com/");
+                break;
+
+
         }
     }
 
@@ -460,12 +525,12 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
     @Override
     public void onPause() {
         super.onPause();
-        bundle.putBoolean("isShow",isShow);
+        bundle.putBoolean("isShow", isShow);
 
     }
 
 
-    public class CustomSpinnerAdapter extends ArrayAdapter<String>{
+    public class CustomSpinnerAdapter extends ArrayAdapter<String> {
 
         Context context;
         String[] objects;
@@ -482,7 +547,7 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
 
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            if(isFirstTime) {
+            if (isFirstTime) {
                 objects[0] = firstElement;
                 isFirstTime = false;
             }
@@ -511,30 +576,30 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         }
 
     }
-    public void setViewFlipper()
-    {
+
+    public void setViewFlipper() {
         // -------View Flipper
         //1 - Create the animations, we will load the animations from
         //    the already made animations in the android.R.anim folder
         //    custom animations can be added into to res/anim folder
-        Animation anim_in = AnimationUtils.loadAnimation(context,R.anim.anim_rtl_right_in);
-        Animation anim_out = AnimationUtils.loadAnimation(context,R.anim.anim_slide_left_out);
+        Animation anim_in = AnimationUtils.loadAnimation(context, R.anim.anim_rtl_right_in);
+        Animation anim_out = AnimationUtils.loadAnimation(context, R.anim.anim_slide_left_out);
 
         //3 - Assisgn the animations
-        viewFlipper.setInAnimation(anim_in);
-        viewFlipper.setOutAnimation(anim_out);
+        viewFlipperDiscover.setInAnimation(anim_in);
+        viewFlipperDiscover.setOutAnimation(anim_out);
 
-        viewFlipperScroll.setInAnimation(anim_in);
-        viewFlipperScroll.setOutAnimation(anim_out);
+        viewFlipperBanner.setInAnimation(anim_in);
+        viewFlipperBanner.setOutAnimation(anim_out);
 
         //4 - Set the flipping interval, that is the time between flips
-        viewFlipper.setFlipInterval(2000);
-        viewFlipperScroll.setFlipInterval(2000);
+        viewFlipperDiscover.setFlipInterval(2000);
+        viewFlipperBanner.setFlipInterval(2000);
 
         //5 - Start FLipping - optional here, can also be
         //    called on click for click to flip
-        viewFlipper.startFlipping();
-        viewFlipperScroll.startFlipping();
+        viewFlipperDiscover.startFlipping();
+        viewFlipperBanner.startFlipping();
     }
 
 }

@@ -14,7 +14,7 @@ ext {
     minSdkVersion = 23 // Lollipop
     compileSdkVersion = 33 // Android 11
     versionMajor = 3    // major changes
-    versionMinor = 3   // minor changes
+    versionMinor = 5   // minor changes
     versionPatch = 6  // bug fixes
     versionClassifier = null    // version classifier eg. alpha (a), beta (b)
     isSnapshot = false   // test build before production

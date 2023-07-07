@@ -18,6 +18,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/ivShowHide"
             android:tint="@color/black"
             android:layout_width="18dp"
             android:layout_height="18dp"
