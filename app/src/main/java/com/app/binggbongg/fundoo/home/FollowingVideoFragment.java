@@ -3,6 +3,8 @@ package com.app.binggbongg.fundoo.home;
 import static android.content.Context.CLIPBOARD_SERVICE;
 import static android.view.View.GONE;
 
+import static com.app.binggbongg.R2.id.publisher_vote_count;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -71,6 +73,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.app.binggbongg.fundoo.FollowersActivity;
+import com.app.binggbongg.fundoo.GemsStoreActivity;
 import com.app.binggbongg.fundoo.PrivacyActivity;
 import com.app.binggbongg.fundoo.home.eventbus.AutoScrollEnabled;
 import com.app.binggbongg.fundoo.home.eventbus.FollowAutoScrollEnabled;
@@ -80,6 +83,7 @@ import com.app.binggbongg.fundoo.home.eventbus.ForyouHideIcon;
 import com.app.binggbongg.fundoo.home.eventbus.HideIcon;
 import com.app.binggbongg.fundoo.home.eventbus.UserBlocked;
 import com.app.binggbongg.fundoo.home.eventbus.VideoAutoScrollEnabled;
+import com.app.binggbongg.model.ProfileResponse;
 import com.app.binggbongg.utils.SharedPref;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -276,6 +280,7 @@ public class FollowingVideoFragment extends Fragment {
 
     ProfileImageClickListener profileImageClickListener;
 
+    TextView tvPurchaseVote,tvNumberOfVote;
 
     public FollowingVideoFragment() {
         // Required empty public constructor
@@ -342,7 +347,7 @@ public class FollowingVideoFragment extends Fragment {
         Log.e(TAG, "onMessageEvent: :::::::::::" + event.iconVisible);
         Bundle payload = new Bundle();
         isBottomBarHide = event.iconVisible;
-        hide_btm_bar(event.iconVisible);
+        hide_btm_bar(isBottomBarHide);
         videoAdapter.notifyDataSetChanged();
     }
 
@@ -446,6 +451,7 @@ public class FollowingVideoFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_following_video, container, false);
+
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
@@ -1093,7 +1099,7 @@ public class FollowingVideoFragment extends Fragment {
 
     private void reportAndFav(int adapterPosition) {
 
-        LinearLayout favLay, reportLay;
+        LinearLayout favLay, reportLay,linearHideShow;
 
         TextView txtFav, txtReport;
 
@@ -1107,7 +1113,28 @@ public class FollowingVideoFragment extends Fragment {
         txtFav = bottom_sheet_longpress.findViewById(R.id.txtFav);
         reportLay = bottom_sheet_longpress.findViewById(R.id.reportLay);
         txtReport = bottom_sheet_longpress.findViewById(R.id.txtReport);
+        linearHideShow = bottom_sheet_longpress.findViewById(R.id.linearHideShow);
 
+        linearHideShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle payload = new Bundle();
+                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
+                    SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
+                    isBottomBarHide = false;
+                } else {
+                    SharedPref.putBoolean(SharedPref.HIDE_ICONS, true);
+                    isBottomBarHide = true;
+                }
+                hide_btm_bar(isBottomBarHide);
+                payload.putString("hide_icon", String.valueOf(isBottomBarHide));
+                videoAdapter.notifyItemChanged(adapterPosition, payload);
+                EventBus.getDefault().post(new HideIcon(isBottomBarHide, homeApiResponse.get(adapterPosition).getVideoId()));
+                EventBus.getDefault().post(new ForyouHideIcon(isBottomBarHide, homeApiResponse.get(adapterPosition).getVideoId()));
+                Log.e(TAG, "onClick: ::::::::::::::" + isBottomBarHide);
+                bottomSheetLongPressDi.dismiss();
+            }
+        });
         if (homeApiResponse.get(adapterPosition).getVideoIsFavorite())
             txtFav.setText(R.string.unFav);
         else txtFav.setText(R.string.addafav);
@@ -1215,6 +1242,7 @@ public class FollowingVideoFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position, @NonNull List<Object> payloads) {
             super.onBindViewHolder(holder, position, payloads);
+            Toast.makeText(context, "Following=="+payloads.size(), Toast.LENGTH_SHORT).show();
 
             if (holder instanceof VideoViewHolder) {
                 if (payloads.size() > 0) {
@@ -1410,7 +1438,6 @@ public class FollowingVideoFragment extends Fragment {
                             Toast.makeText(getContext(), getString(R.string.auto_scroll_off), Toast.LENGTH_SHORT).show();
                         } else {
                             isAutoScroll = true;
-                            Toast.makeText(getContext(), getString(R.string.auto_scroll_on), Toast.LENGTH_SHORT).show();
                         }
 
                         AutoScrollAPI(isAutoScroll, getAdapterPosition());
@@ -1424,11 +1451,9 @@ public class FollowingVideoFragment extends Fragment {
                   //  hideIcon(homeApiResponse.get(getAdapterPosition()).getVideoId(), getAdapterPosition());
                     Bundle payload = new Bundle();
                     if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
-                        Toast.makeText(requireActivity(), "Your i-cons are now unhidden", Toast.LENGTH_LONG).show();
                         SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
                         isBottomBarHide = false;
                     } else {
-                        Toast.makeText(requireActivity(), "Your i-cons are now hidden", Toast.LENGTH_LONG).show();
                         SharedPref.putBoolean(SharedPref.HIDE_ICONS, true);
                         isBottomBarHide = true;
                     }
@@ -1678,8 +1703,10 @@ public class FollowingVideoFragment extends Fragment {
                 });
 
                 profileImage.setOnClickListener(v -> profileImageClickListener.onUserClicked(true));
-                txt_title.setOnClickListener(v -> profileImageClickListener.onUserClicked(true));
+                txt_title.setOnClickListener(v -> {
+                    profileImageClickListener.onUserClicked(true);
 
+                });
 
                 //Live Streaming Addon
 
@@ -1784,7 +1811,7 @@ public class FollowingVideoFragment extends Fragment {
 
 
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp"));
                         startActivity(intent);
                     }
@@ -1804,7 +1831,7 @@ public class FollowingVideoFragment extends Fragment {
                         ShareDialog.show(requireActivity(), fbShare);
 
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.facebook.katana"));
                         startActivity(intent);
                     }
@@ -1823,7 +1850,7 @@ public class FollowingVideoFragment extends Fragment {
                         sendIntent.setPackage("com.facebook.orca");
                         startActivity(sendIntent);
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.facebook.orca"));
                         startActivity(intent);
                     }
@@ -1842,7 +1869,7 @@ public class FollowingVideoFragment extends Fragment {
                         sendIntent.setPackage("com.instagram.android");
                         startActivity(sendIntent);
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.instagram.android"));
                         startActivity(intent);
                     }
@@ -1861,7 +1888,7 @@ public class FollowingVideoFragment extends Fragment {
                         sendIntent.setPackage("com.twitter.android");
                         startActivity(sendIntent);
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.twitter.android"));
                         startActivity(intent);
                     }
@@ -1879,7 +1906,7 @@ public class FollowingVideoFragment extends Fragment {
                         sendIntent.setPackage("com.snapchat.android");
                         startActivity(sendIntent);
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.snapchat.android"));
                         startActivity(intent);
                     }
@@ -1921,7 +1948,7 @@ public class FollowingVideoFragment extends Fragment {
                         }
                         else // For early versions, do what worked for you before.
                         {
-                            Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+                            Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
                             smsIntent.setType("vnd.android-dir/mms-sms");
                             // smsIntent.putExtra("address","phoneNumber");
                             smsIntent.putExtra("sms_body",link);
@@ -2925,30 +2952,30 @@ public class FollowingVideoFragment extends Fragment {
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View itemView = LayoutInflater.from(context)
                     .inflate(R.layout.item_report, parent, false);
-            viewHolder = new MyViewHolder(itemView);
+            viewHolder = new ReportAdapter.MyViewHolder(itemView);
 
             return viewHolder;
         }
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-            ((MyViewHolder) holder).txtReport.setText(reportList.get(position).getTitle());
+            ((ReportAdapter.MyViewHolder) holder).txtReport.setText(reportList.get(position).getTitle());
 
-            ((MyViewHolder) holder).txtReport.setOnClickListener(v -> {
+            ((ReportAdapter.MyViewHolder) holder).txtReport.setOnClickListener(v -> {
 
-                getSelectedReport = ((MyViewHolder) holder).txtReport.getText().toString();
+                getSelectedReport = ((ReportAdapter.MyViewHolder) holder).txtReport.getText().toString();
 
                 selectedPosition = position;
                 notifyDataSetChanged();
             });
 
-            ((MyViewHolder) holder).radioButton.setOnClickListener(v -> {
+            ((ReportAdapter.MyViewHolder) holder).radioButton.setOnClickListener(v -> {
                 selectedPosition = position;
-                getSelectedReport = ((MyViewHolder) holder).txtReport.getText().toString();
+                getSelectedReport = ((ReportAdapter.MyViewHolder) holder).txtReport.getText().toString();
                 notifyDataSetChanged();
             });
 
-            ((MyViewHolder) holder).radioButton.setChecked(selectedPosition == position);
+            ((ReportAdapter.MyViewHolder) holder).radioButton.setChecked(selectedPosition == position);
         }
 
         @Override
@@ -3287,7 +3314,22 @@ public class FollowingVideoFragment extends Fragment {
         txtSend = sheetView.findViewById(R.id.txtSend);
         pagerIndicator = sheetView.findViewById(R.id.pagerIndicator);
 
+        tvPurchaseVote=sheetView.findViewById(R.id.tvPurchaseVote);
+        tvNumberOfVote=sheetView.findViewById(R.id.tvNumberOfVote);
+
         setViewPager();
+
+        tvNumberOfVote.setText("Vote Available "+GetSet.getGems().intValue());
+
+        tvPurchaseVote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gemsIntent = new Intent(getActivity(), GemsStoreActivity.class);
+                gemsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(gemsIntent);
+            }
+        });
+
 
         sendLay.setVisibility(View.GONE);
         giftDialog.show();
@@ -3301,15 +3343,14 @@ public class FollowingVideoFragment extends Fragment {
 
 
     private void setViewPager() {
+        //        int count;
+//        if (AdminData.giftList.size() <= ITEM_LIMIT) {
+//            count = 1;
+//        } else {
+//            count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
+//        }
 
-        int count;
-        if (AdminData.giftList.size() <= ITEM_LIMIT) {
-            count = 1;
-        } else {
-            count = AdminData.giftList.size() % ITEM_LIMIT == 0 ? AdminData.giftList.size() / ITEM_LIMIT : (AdminData.giftList.size() / ITEM_LIMIT) + 1;
-        }
-
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, count, Constants.TYPE_GIFTS);
+        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(context, 1, Constants.TYPE_GIFTS);
         viewPager.setAdapter(pagerAdapter);
         pagerIndicator.setViewPager(viewPager);
         viewPager.setCurrentItem(0);
@@ -3336,15 +3377,15 @@ public class FollowingVideoFragment extends Fragment {
 
         /*Set Array list by 8*/
 
-        int start = viewPager.getCurrentItem() * ITEM_LIMIT;
-        int end = start + (ITEM_LIMIT - 1);
-
-        if (end > AdminData.giftList.size()) {
-            end = AdminData.giftList.size() - 1;
-        } else if (AdminData.giftList.size() <= end) {
-            end = AdminData.giftList.size() - 1;
-        }
-        loadGifts(start, end);
+//        int start = viewPager.getCurrentItem() * ITEM_LIMIT;
+//        int end = start + (ITEM_LIMIT - 1);
+//
+//        if (end > AdminData.giftList.size()) {
+//            end = AdminData.giftList.size() - 1;
+//        } else if (AdminData.giftList.size() <= end) {
+//            end = AdminData.giftList.size() - 1;
+//        }
+        loadGifts(0, 11);
     }
 
 
@@ -3359,7 +3400,7 @@ public class FollowingVideoFragment extends Fragment {
         }
         giftAdapter = new GiftAdapter(context, tempGiftList);
         Timber.d("loadGifts: %s", new Gson().toJson(tempGiftList));
-        stickerLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
+        stickerLayoutManager = new GridLayoutManager(getActivity(), 4, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(stickerLayoutManager);
         recyclerView.setAdapter(giftAdapter);
         giftAdapter.notifyDataSetChanged();
@@ -3500,10 +3541,10 @@ public class FollowingVideoFragment extends Fragment {
             if (viewType == VIEW_TYPE_ITEM) {
                 View itemView = LayoutInflater.from(context)
                         .inflate(R.layout.item_gifts, parent, false);
-                viewHolder = new MyViewHolder(itemView);
+                viewHolder = new GiftAdapter.MyViewHolder(itemView);
             } else if (viewType == VIEW_TYPE_FOOTER) {
                 View v = LayoutInflater.from(context).inflate(R.layout.item_loading, parent, false);
-                viewHolder = new FooterViewHolder(v);
+                viewHolder = new GiftAdapter.FooterViewHolder(v);
             }
 
             return viewHolder;
@@ -3514,10 +3555,10 @@ public class FollowingVideoFragment extends Fragment {
 
             final Gift gift = giftList.get(position);
 
-            if (holder instanceof MyViewHolder) {
+            if (holder instanceof GiftAdapter.MyViewHolder) {
 
-                ((MyViewHolder) holder).progressBar.setVisibility(View.VISIBLE);
-                ((MyViewHolder) holder).giftImage.setVisibility(View.INVISIBLE);
+                ((GiftAdapter.MyViewHolder) holder).progressBar.setVisibility(View.VISIBLE);
+                ((GiftAdapter.MyViewHolder) holder).giftImage.setVisibility(View.INVISIBLE);
 
                 Glide.with(context)
                         .load(gift.getGiftIcon())
@@ -3525,28 +3566,28 @@ public class FollowingVideoFragment extends Fragment {
                         .listener(new RequestListener<Drawable>() {
                             @Override
                             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                                ((MyViewHolder) holder).progressBar.setVisibility(View.GONE);
-                                ((MyViewHolder) holder).giftImage.setImageDrawable(context.getDrawable(R.drawable.gift));
-                                ((MyViewHolder) holder).giftImage.setVisibility(View.VISIBLE);
+                                ((GiftAdapter.MyViewHolder) holder).progressBar.setVisibility(View.GONE);
+                                ((GiftAdapter.MyViewHolder) holder).giftImage.setImageDrawable(context.getDrawable(R.drawable.gift));
+                                ((GiftAdapter.MyViewHolder) holder).giftImage.setVisibility(View.VISIBLE);
                                 return false;
                             }
 
                             @Override
                             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                                ((MyViewHolder) holder).progressBar.setVisibility(View.GONE);
-                                ((MyViewHolder) holder).giftImage.setImageDrawable(resource);
-                                ((MyViewHolder) holder).giftImage.setVisibility(View.VISIBLE);
+                                ((GiftAdapter.MyViewHolder) holder).progressBar.setVisibility(View.GONE);
+                                ((GiftAdapter.MyViewHolder) holder).giftImage.setImageDrawable(resource);
+                                ((GiftAdapter.MyViewHolder) holder).giftImage.setVisibility(View.VISIBLE);
                                 return false;
                             }
                         }).apply(new RequestOptions().error(R.drawable.gift))
-                        .into(((MyViewHolder) holder).giftImage);
+                        .into(((GiftAdapter.MyViewHolder) holder).giftImage);
 
 
-                ((MyViewHolder) holder).txtGiftPrice.setText((GetSet.getPremiumMember().equals(Constants.TAG_TRUE)) ? "" + gift.getGiftGemsPrime() : "" + gift.getGiftGems());
+                ((GiftAdapter.MyViewHolder) holder).txtGiftPrice.setText((GetSet.getPremiumMember().equals(Constants.TAG_TRUE)) ? "" + gift.getGiftGemsPrime() : "" + gift.getGiftGems());
 
 
-            } else if (holder instanceof FooterViewHolder) {
-                FooterViewHolder footerHolder = (FooterViewHolder) holder;
+            } else if (holder instanceof GiftAdapter.FooterViewHolder) {
+                GiftAdapter.FooterViewHolder footerHolder = (GiftAdapter.FooterViewHolder) holder;
                 footerHolder.progressBar.setIndeterminate(true);
                 footerHolder.progressBar.setVisibility(View.VISIBLE);
             }
@@ -3820,7 +3861,7 @@ public class FollowingVideoFragment extends Fragment {
         }
 
         @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public CommentUserAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             View itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_username, parent, false);
@@ -3829,7 +3870,7 @@ public class FollowingVideoFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(final MyViewHolder holder, int position) {
+        public void onBindViewHolder(final CommentUserAdapter.MyViewHolder holder, int position) {
             try {
                 final UserList.Result tempMap = Items.get(position);
 

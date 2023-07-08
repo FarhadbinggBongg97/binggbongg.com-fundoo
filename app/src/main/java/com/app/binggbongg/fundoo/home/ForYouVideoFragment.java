@@ -181,7 +181,7 @@ public class ForYouVideoFragment extends Fragment {
 
     private onHideBottomBarEventListener btmBarEventListener;
 
-    boolean isBottomBarHide = false, isAutoScroll;
+    boolean isBottomBarHide = true, isAutoScroll;
 
     String contest_text="";
     private int finalGiftPosition;
@@ -356,8 +356,8 @@ public class ForYouVideoFragment extends Fragment {
         //SharedPref.putBoolean(SharedPref.HIDE_ICONS, event.iconVisible);
         isBottomBarHide = event.iconVisible;
         videoAdapter.notifyDataSetChanged();
-//        hide_btm_bar(isBottomBarHide);
-        hide_btm_bar(event.iconVisible);
+        hide_btm_bar(isBottomBarHide);
+//        hide_btm_bar(event.iconVisible);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
