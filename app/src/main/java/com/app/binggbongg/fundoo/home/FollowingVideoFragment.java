@@ -459,7 +459,7 @@ public class FollowingVideoFragment extends Fragment {
         isAutoScroll = SharedPref.getBoolean(SharedPref.isAUTO_SCROLL, false);
 
         initView(rootView);
-        hide_btm_bar(SharedPref.getBoolean(SharedPref.HIDE_ICONS, true));
+//        hide_btm_bar(SharedPref.getBoolean(SharedPref.HIDE_ICONS, false));
         Log.e(TAG, "onMessageEvent: ::::::BTm:::::" + isBottomBarHide);
         return rootView;
     }
@@ -1242,7 +1242,6 @@ public class FollowingVideoFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position, @NonNull List<Object> payloads) {
             super.onBindViewHolder(holder, position, payloads);
-            Toast.makeText(context, "Following=="+payloads.size(), Toast.LENGTH_SHORT).show();
 
             if (holder instanceof VideoViewHolder) {
                 if (payloads.size() > 0) {
@@ -1335,12 +1334,13 @@ public class FollowingVideoFragment extends Fragment {
                     } else if (updateGiftCount != null) {
 //                        ((VideoViewHolder) holder).txt_gift_count.setText(updateGiftCount);
                     }else if(hideIcon!=null){
+
                         if (hideIcon.equals("true")) {
                             // videoLinkLay.setVisibility(View.GONE);
-                            ((VideoViewHolder) holder).videoLabelsLay.setVisibility(View.GONE);
+                            ((VideoViewHolder) holder).videoLabelsLay.setVisibility(View.VISIBLE);
                         } else {
                             //  videoLinkLay.setVisibility(View.VISIBLE);
-                            ((VideoViewHolder) holder).videoLabelsLay.setVisibility(View.VISIBLE);
+                            ((VideoViewHolder) holder).videoLabelsLay.setVisibility(GONE);
                         }
 
                     }
@@ -2081,9 +2081,9 @@ public class FollowingVideoFragment extends Fragment {
                 vote_promotionTV.startAnimation(a);
 
                 if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
-                    videoLabelsLay.setVisibility(View.GONE);
-                } else {
                     videoLabelsLay.setVisibility(View.VISIBLE);
+                } else {
+                    videoLabelsLay.setVisibility(GONE);
                 }
 
                 if(!TextUtils.isEmpty(videoItem.getLink_url())){

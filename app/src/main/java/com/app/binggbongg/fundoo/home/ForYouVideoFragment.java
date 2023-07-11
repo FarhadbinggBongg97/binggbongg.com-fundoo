@@ -356,8 +356,8 @@ public class ForYouVideoFragment extends Fragment {
         //SharedPref.putBoolean(SharedPref.HIDE_ICONS, event.iconVisible);
         isBottomBarHide = event.iconVisible;
         videoAdapter.notifyDataSetChanged();
-        hide_btm_bar(isBottomBarHide);
-//        hide_btm_bar(event.iconVisible);
+//        hide_btm_bar(isBottomBarHide);
+        hide_btm_bar(event.iconVisible);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -462,7 +462,6 @@ public class ForYouVideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        Toast.makeText(context, "ForYOU Fragment = "+SharedPref.getBoolean(SharedPref.HIDE_ICONS, true), Toast.LENGTH_SHORT).show();
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_foryou_video, container, false);
@@ -1133,7 +1132,6 @@ public class ForYouVideoFragment extends Fragment {
         linearHideShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Bundle payload = new Bundle();
                 if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
                     SharedPref.putBoolean(SharedPref.HIDE_ICONS, false);
@@ -1765,7 +1763,12 @@ public class ForYouVideoFragment extends Fragment {
             super.onBindViewHolder(holder, position, payloads);
 
             if (holder instanceof VideoViewHolder) {
-                Toast.makeText(context, "forYOU=="+payloads.size(), Toast.LENGTH_SHORT).show();
+                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS, true)) {
+                    ((VideoViewHolder) holder).videoLabelsLay.setVisibility(View.VISIBLE);
+                } else {
+                    ((VideoViewHolder) holder).videoLabelsLay.setVisibility(GONE);
+
+                }
 
                 if (payloads.size() > 0) {
                     Bundle payload = (Bundle) payloads.get(0);
@@ -2820,11 +2823,11 @@ public class ForYouVideoFragment extends Fragment {
                 vote_promotionTV.setText(contest_text+"");
 
                 Log.e(TAG, "onBind: :::::::::::::::::::::"+ SharedPref.getBoolean(SharedPref.HIDE_ICONS,true) );
-//                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS,true)) {
-//                    videoLabelsLay.setVisibility(View.GONE);
-//                } else {
-//                    videoLabelsLay.setVisibility(View.VISIBLE);
-//                }
+                if (SharedPref.getBoolean(SharedPref.HIDE_ICONS,true)) {
+                    videoLabelsLay.setVisibility(View.VISIBLE);
+                } else {
+                    videoLabelsLay.setVisibility(GONE);
+                }
 
                 if(!TextUtils.isEmpty(videoItem.getLink_url())){
                     videoLinkLay.setVisibility(View.VISIBLE);

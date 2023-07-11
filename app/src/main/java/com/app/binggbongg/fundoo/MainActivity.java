@@ -668,16 +668,18 @@ public class MainActivity extends BaseFragmentActivity implements PurchasesUpdat
  }
     @Override
     public void onHideEvent(boolean s) {
+//        Toast.makeText(this, "event"+s, Toast.LENGTH_SHORT).show();
         Log.e(TAG, "onHideEvent: :::::::::::::"+s );
         if (s){
+            bottomNavigation.getMenu().clear();
+            bottomNavigation.inflateMenu(R.menu.fundoo_home_menu);
+            setLivzaNavigation(0);
+        }else{
             bottomNavigation.getMenu().removeItem(R.id.menuLive);
             bottomNavigation.getMenu().removeItem(R.id.menuSearch);
             bottomNavigation.getMenu().removeItem(R.id.menuChat);
             bottomNavigation.getMenu().removeItem(R.id.menuProfile);
-        }else{
-            bottomNavigation.getMenu().clear();
-            bottomNavigation.inflateMenu(R.menu.fundoo_home_menu);
-            setLivzaNavigation(0);
+
         }
 
         isShow=s;
