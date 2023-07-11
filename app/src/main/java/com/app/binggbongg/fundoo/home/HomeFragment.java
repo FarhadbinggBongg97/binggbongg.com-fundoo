@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.app.binggbongg.fundoo.MainActivity;
 import com.app.binggbongg.model.GetSet;
+import com.app.binggbongg.model.VoteDataModel;
 import com.app.binggbongg.utils.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.app.binggbongg.R;
@@ -42,6 +44,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import hitasoft.serviceteam.livestreamingaddon.LiveStreamActivity;
 import hitasoft.serviceteam.livestreamingaddon.broadcaster.liveVideoBroadcaster.PublishActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import timber.log.Timber;
 
 import static com.app.binggbongg.R2.id.bottom_navigation;
@@ -52,7 +57,6 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
     public static final String TAG = HomeFragment.class.getSimpleName();
 
     public static final int BOTTOM_MARGIN = 150;
-
     ApiInterface apiInterface;
     private Context context;
 
@@ -176,9 +180,11 @@ public class HomeFragment extends Fragment implements ForYouVideoFragment.onHide
         LinearLayout linearVerticleBanner=rootView.findViewById(R.id.linearScroll);
         LinearLayout linearVerticleDiscover=rootView.findViewById(R.id.linearDiscover);
 
+
         viewFlipperBanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (scroll) {
                     scroll = false;
                     linearVerticleBanner.setVisibility(View.GONE);

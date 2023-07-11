@@ -83,7 +83,9 @@ import com.app.binggbongg.fundoo.home.eventbus.ForyouHideIcon;
 import com.app.binggbongg.fundoo.home.eventbus.HideIcon;
 import com.app.binggbongg.fundoo.home.eventbus.UserBlocked;
 import com.app.binggbongg.fundoo.home.eventbus.VideoAutoScrollEnabled;
+import com.app.binggbongg.model.ContestCategory;
 import com.app.binggbongg.model.ProfileResponse;
+import com.app.binggbongg.model.VoteDataModel;
 import com.app.binggbongg.utils.SharedPref;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -176,6 +178,7 @@ public class FollowingVideoFragment extends Fragment {
 
     public static String TAG = FollowingVideoFragment.class.getSimpleName();
     String contest_text = "";
+    int count = 0;
 
     TextView btm_hide_menu_tv, btm_hide_yes, btm_hide_no;
 
@@ -2400,11 +2403,36 @@ public class FollowingVideoFragment extends Fragment {
 
             VideoCommentSentDialog.setCanceledOnTouchOutside(false);
 
+
+
             sendComment.setOnClickListener(v -> {
+                // Vote sent
                 if (!Objects.requireNonNull(mCommentsEditText.getText()).toString().isEmpty()) {
                     postComments(mCommentsEditText.getText().toString(), videoId, adapterPosition);
                     mCommentsEditText.setText("");
                     addComment.setText("");
+
+                    Call<VoteDataModel> call = apiInterface.getVotingData();
+                    call.enqueue(new Callback<VoteDataModel>() {
+                        @Override
+                        public void onResponse(Call<VoteDataModel> call, Response<VoteDataModel> response) {
+                            if(response.body()!=null && response.body().getStatus().equals("true")){
+                                String firstVoteMessage = response.body().getVoteMessages().get(count).getVote_message();
+                                Toast.makeText(getActivity(), ""+firstVoteMessage, Toast.LENGTH_SHORT).show();
+                                if (count==response.body().getVoteMessages().size()-1){
+                                    count=0;
+                                }
+                                count++;
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<VoteDataModel> call, Throwable t) {
+                            call.cancel();
+                            Log.d(TAG, "getContest:Failure" + t.getMessage());
+                            Toast.makeText(getActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             });
 
